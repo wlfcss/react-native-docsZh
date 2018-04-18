@@ -37,12 +37,6 @@ const styles = StyleSheet.create({
 AppRegistry.registerComponent('AwesomeProject', () => LotsOfStyles);
 ```
 
-One common pattern is to make your component accept a style prop which in turn is used to style subcomponents. You can use this to make styles "cascade" the way they do in CSS.
-
-There are a lot more ways to customize text style. Check out the Text component reference for a complete list.
-
-Now you can make your text beautiful. The next step in becoming a style master is to learn how to control component size.
-
 常见的做法是按顺序声明和使用style属性，以借鉴CSS中的“层叠”做法（即后声明的属性会覆盖先声明的同名属性）。
 
 文本的样式定义请参阅Text组件的文档。

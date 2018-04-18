@@ -52,4 +52,30 @@ const styles = StyleSheet.create({
 AppRegistry.registerComponent('AwesomeProject', () => FlatListBasics);
 ```
 
+如果你希望将一组数据渲染为逻辑结构，比如类似于`ios`系统的`UITableViews`类的`section`的头部，那么`SectionList`将是一个不错的选择。
 
+```jsx
+import React, { Component } from 'react';
+import { AppRegistry, SectionList, StyleSheet, Text, View } from 'react-native';
+
+export default class SectionListBasics extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <SectionList
+          sections={[
+            {title: 'D', data: ['Devin']},
+            {title: 'J', data: ['Jackson', 'James', 'Jillian', 'Jimmy', 'Joel', 'John', 'Julie']},
+          ]}
+          renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
+          renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.title}</Text>}
+          keyExtractor={(item, index) => index}
+        />
+      </View>
+    );
+  }
+}
+
+```
+
+列表组件通常会用于展示从服务端拉取的数据，要实现这一过程，您需要学习网络章节。

@@ -7,13 +7,16 @@
 `React-native` 提供了一套供给开发者进行网络访问需求的 `Fetch API`( 与Web标准一致 )。`Fetch`与所谓的`AJAX(XMLHttpRequest)`十分相似，但本文无意详细讲解缘起于Js新标准的`Fetch`使用方法，读者可前往由mozilla基金会构建的MDN Web Docs进行学习：[Using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
 
 ### Making requests - 发起请求
+
 若要从任何网址获取数据，仅需将`URL`作为参数传入`Fetch`方法。
+
 ``` jsx
 fetch('https://mywebsite.com/mydata.json');
 ```
 
 `Fetch`方法亦支持可选的多参数，以此开发者将可以自定义`HTTP请求`,例如指定`header`参数，或是指定使用 `POST`请求：
-``` jsx
+
+```jsx
 fetch('https://mywebsite.com/endpoint/', {
   method: 'POST',
   headers: {
@@ -26,12 +29,15 @@ fetch('https://mywebsite.com/endpoint/', {
   }),
 });
 ```
+
 请阅读 [Fetch Request docs](https://developer.mozilla.org/en-US/docs/Web/API/Request) 以获取完整的Fetch参数列表。
 
 ### Handling the response - 解析服务器响应数据
+
 在上面的示例中演示了如何发起请求。与此同时，你亦需要知道如何接受解析服务器返回的响应数据。
 
 网络通信的本质是一种**异步请求**，Fetch方法将返回一种名为[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)的对象，这种模式将极大的简化异步请求操作代码（译者注：其极大的改变了往常的callback回调写法）
+
 ``` jsx
 function getMoviesFromApiAsync() {
   return fetch('https://facebook.github.io/react-native/movies.json')
@@ -44,7 +50,9 @@ function getMoviesFromApiAsync() {
     });
 }
 ```
+
 开发者可以在React Native应用中使用ES7标准中的async/await 语法(译者注：网络请求的异步本质无法变更)：
+
 ``` jsx
 async function getMoviesFromApi() {
   try {
@@ -58,6 +66,7 @@ async function getMoviesFromApi() {
   }
 }
 ```
+
 不要忘记使用`catch`方法收集`fetch`可能抛出的异常，否则请求出错时你无法看到任何报错及警告。
 
 ``` jsx
@@ -125,7 +134,7 @@ request.onreadystatechange = (e) => {
   if (request.readyState !== 4) {
     return;
   }
-
+ss
   if (request.status === 200) {
     console.log('success', request.responseText);
   } else {
@@ -136,6 +145,7 @@ request.onreadystatechange = (e) => {
 request.open('GET', 'https://mywebsite.com/endpoint/');
 request.send();
 ```
+
 > react-native 中的安全机制与web开发并不相同，并不存在请求的跨域问题。
 
 ## WebSocket Support - WebSocket支持
@@ -165,5 +175,3 @@ ws.onclose = (e) => {
   console.log(e.code, e.reason);
 };s
 ```
-
-

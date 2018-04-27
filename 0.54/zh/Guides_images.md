@@ -29,21 +29,21 @@ title: 图像
 <Image source={require('./img/check.png')} />
 ```
 
-...the packager will bundle and serve the image corresponding to device's screen density. For example, `check@2x.png`, will be used on an iPhone 7, while`check@3x.png` will be used on an iPhone 7 Plus or a Nexus 5. If there is no image matching the screen density, the closest best option will be selected.
+Packager会打包所有的图片资源并且依据屏幕精度提供对应的资源。譬如说，iPhone 7会使用 `check@2x.png` ，而在 iPhone 7 Plus上则会使用 `check@3x.png`。如果没有图片恰好满足屏幕分辨率，则会自动选中最接近的图片。
 
-On Windows, you might need to restart the packager if you add new images to your project.
+注：在windows操作系统下进行开发调试时，如果你添加了一个新的图像文件，那么可能需要重启 `packager` 。
 
-Here are some benefits that you get:
+这样带来的好处如下：
 
-1. Same system on iOS and Android.
-2. Images live in the same folder as your JavaScript code. Components are self-contained.
-3. No global namespace, i.e. you don't have to worry about name collisions.
-4. Only the images that are actually used will be packaged into your app.
-5. Adding and changing images doesn't require app recompilation, just refresh the simulator as you normally do.
-6. The packager knows the image dimensions, no need to duplicate it in the code.
-7. Images can be distributed via [npm](https://www.npmjs.com/) packages.
+- 在 ios 与 android 上有着一致的文件管理系统。
+- 图像资源与 `javascript`代码资源可放置于同一文件夹中，组件彼此之间保持独立。
+- 无需占用全局命名空间，则完全不同担心图片名字冲突问题。
+- 只有实际被用到（比如被require）的图像文件才会被编译打包至APP文件。
+- 在开发中，增加或修改图片并不需要重新编译，只需要像修改js代码一样刷新你的模拟器即可。
+- `packager`可以知道图像文件的具体尺寸，无需在代码中再次声明尺寸。
+- 使用`npm`分发组件或库可以包含图像文件。
 
-In order for this to work, the image name in `require` has to be known statically.
+注：事实上，你必须明确require中图片的名字（译者注：不能使用变量代替，因为因为require是在编译时期执行，而非运行时期执行）
 
 ```javascript
 // GOOD
@@ -60,37 +60,37 @@ var icon = this.props.active
 <Image source={icon} />;
 ```
 
-Note that image sources required this way include size (width, height) info for the Image. If you need to scale the image dynamically (i.e. via flex), you may need to manually set `{ width: undefined, height: undefined }` on the style attribute.
+请注意通过此种方式(require)引入的图像文件包含了尺寸信息(width,height),如果你需要其能够动态缩放大小（例如：Flex），则需要在它的style属性中手动设置`{ width: undefined, height: undefined }`。
 
-## Static Non-Image Resources
+## 静态非图像资源
 
-The `require` syntax described above can be used to statically include audio, video or document files in your project as well. Most common file types are supported including `.mp3`, `.wav`, `.mp4`, `.mov`, `.html` and `.pdf`. See [packager defaults](https://github.com/facebook/react-native/blob/master/local-cli/util/Config.js#L68) for the full list.
+`require` 语法在项目中亦可以用于静态加载音频、视频或者文档文件。在RN中，大多数的文件类型都支持，包括：`.mp3`, `.wav`, `.mp4`, `.mov`, `.html` 和 `.pdf`。浏览 [packager defaults](https://github.com/facebook/react-native/blob/master/local-cli/util/Config.js#L68) 查看完整列表。
 
-You can add support for other types by creating a packager config file (see the [packager config file](https://github.com/facebook/metro/blob/master/packages/metro/src/defaults.js#L14-L44) for the full list of configuration options).
+您可以通过创建包配置文件来添加对其他文件类型的支持（请参阅[packager config file](https://github.com/facebook/metro/blob/master/packages/metro/src/defaults.js#L14-L44) 来获取完整的属性列表）。
 
-A caveat is that videos must use absolute positioning instead of `flexGrow`, since size info is not currently passed for non-image assets. This limitation doesn't occur for videos that are linked directly into Xcode or the Assets folder for Android.
+需要注意的是视频必须指定尺寸（使用绝对定位）而不能使用 `flexGrow`，因为当前React-native并不能获取非图像资源的尺寸。 对于直接链接到Xcode或Android资源文件夹的视频，不会出现此限制。
 
-## Images From Hybrid App's Resources
+## 使用 Hybrid App 的资源
 
-If you are building a hybrid app (some UIs in React Native, some UIs in platform code) you can still use images that are already bundled into the app.
+如果你构建了一个混合APP程序(一部分UI使用`React-native`开发,而另一部分UI使用原生开发)，你依旧可以使用`packager`进行图像资源的打包。
 
-For images included via Xcode asset catalogs or in the Android drawable folder, use the image name without the extension:
+对于使用 `xcode的asset类目` 或从 `安卓drawable目录` 中引入的图像资源，在使用时请不要带上后缀名：
 
 ```javascript
 <Image source={{uri: 'app_icon'}} style={{width: 40, height: 40}} />
 ```
 
-For images in the Android assets folder, use the `asset:/` scheme:
+对于Android资源文件夹中的图片，请使用路径：`asset:/`：
 
 ```javascript
 <Image source={{uri: 'asset:/app_icon.png'}} style={{width: 40, height: 40}} />
 ```
 
-These approaches provide no safety checks. It's up to you to guarantee that those images are available in the application. Also you have to specify image dimensions manually.
+这些方法在最后编译时均**没有安全检查**，您必须保证您的图像资源在应用中能正常使用，同时，亦需要指定其具体尺寸。
 
-## Network Images
+## 网络图像
 
-Many of the images you will display in your app will not be available at compile time, or you will want to load some dynamically to keep the binary size down. Unlike with static resources, _you will need to manually specify the dimensions of your image_. It's highly recommended that you use https as well in order to satisfy [App Transport Security](running-on-device.md#app-transport-security) requirements on iOS.
+很多要在App中显示的图片并不能在编译的时候获得，又或者有时候需要动态载入来减少打包后的二进制文件的大小。这些时候，与静态资源不同的是，你必须要手动指定图片尺寸。同时我们强烈建议你使用`https`以满足 [App Transport Security](running-on-device.md#app-transport-security) 的要求。
 
 ```javascript
 // GOOD
@@ -101,9 +101,9 @@ Many of the images you will display in your app will not be available at compile
 <Image source={{uri: 'https://facebook.github.io/react/logo-og.png'}} />
 ```
 
-### Network Requests for Images
+### 请求网络图片
 
-If you would like to set such things as the HTTP-Verb, Headers or a Body along with the image request, you may do this by defining these properties on the source object:
+如果您想要将`HTTP-Verb`，`Headers`或`Body`与图像请求一起发出，可以通过在Image对象上定义这些属性来执行此操作：
 
 ```javascript
 <Image
@@ -119,11 +119,11 @@ If you would like to set such things as the HTTP-Verb, Headers or a Body along w
 />
 ```
 
-## Uri Data Images
+## Uri数据图像
 
-Sometimes, you might be getting encoded image data from a REST API call. You can use the `'data:'` uri scheme to use these images. Same as for network resources, _you will need to manually specify the dimensions of your image_.
+通常您可能会从`REST API`调用中获取编码的图像数据。 您可以使用`'data'`uri方案来使用这些图像。与获取网络资源相同，您必须手动指定图像的尺寸
 
-> This is recommended for very small and dynamic images only, like icons in a list from a DB.
+> 这种方式仅仅适用于非常小的动态图像，比如数据库列表中的图标。
 
 ```javascript
 // include at least width and height!
@@ -140,14 +140,14 @@ Sometimes, you might be getting encoded image data from a REST API call. You can
 />
 ```
 
-### Cache Control (iOS Only)
+### 缓存控制 (iOS Only)
 
-In some cases you might only want to display an image if it is already in the local cache, i.e. a low resolution placeholder until a higher resolution is available. In other cases you do not care if the image is outdated and are willing to display an outdated image to save bandwidth. The `cache` source property gives you control over how the network layer interacts with the cache.
+在某些情况下你可能仅仅想展示一张已经在本地缓存的图片，例如一个低分辨率的占位符，直到高分辨率的图片可用。在其他情况下你不关心图片是否是过时的，并愿意显示过时的图片，以节省带宽。缓存资源属性给你控制网络层与缓存交互的方式。
 
-* `default`: Use the native platforms default strategy.
-* `reload`: The data for the URL will be loaded from the originating source. No existing cache data should be used to satisfy a URL load request.
-* `force-cache`: The existing cached data will be used to satisfy the request, regardless of its age or expiration date. If there is no existing data in the cache corresponding the request, the data is loaded from the originating source.
-* `only-if-cached`: The existing cache data will be used to satisfy a request, regardless of its age or expiration date. If there is no existing data in the cache corresponding to a URL load request, no attempt is made to load the data from the originating source, and the load is considered to have failed.
+- `default`：使用原生平台默认策略。
+- `reload`：URL的数据将从原始地址加载。不使用现有的缓存数据。
+- `force-cache`：现有的缓存数据将用于满足请求，忽略其期限或到期日。如果缓存中没有对应请求的数据，则从原始地址加载。
+- `only-if-cached`：现有的缓存数据将用于满足请求，忽略其期限或到期日。如果缓存中没有对应请求的数据，则不尝试从原始地址加载，并且认为请求是失败的。
 
 ```javascript
 <Image
@@ -159,43 +159,43 @@ In some cases you might only want to display an image if it is already in the lo
 />
 ```
 
-## Local Filesystem Images
+## 本地文件系统中的图片
 
-See [CameraRoll](cameraroll.md) for an example of using local resources that are outside of `Images.xcassets`.
+有关如何使用在 `Images.xcassets` 以外的本地资源，请参考 [CameraRoll](cameraroll.md)。
 
-### Best Camera Roll Image
+### 最适合相册的图片
 
-iOS saves multiple sizes for the same image in your Camera Roll, it is very important to pick the one that's as close as possible for performance reasons. You wouldn't want to use the full quality 3264x2448 image as source when displaying a 200x200 thumbnail. If there's an exact match, React Native will pick it, otherwise it's going to use the first one that's at least 50% bigger in order to avoid blur when resizing from a close size. All of this is done by default so you don't have to worry about writing the tedious (and error prone) code to do it yourself.
+iOS会为同一张图片在相册中保存多个不同尺寸的副本。为了性能考虑，从这些副本中挑出最合适的尺寸显得尤为重要。对于一处 200x200 大小的缩略图，当然不应该选择最高质量的3264x2448大小的图片。如果恰好有匹配的尺寸，那么`React Native`会自动为你选择。如果没有，则会选择最接近的尺寸进行缩放，但也至少缩放到比所需尺寸大出50%，以使图片看起来仍然足够清晰。这一切过程都是自动完成的，所以你不用操心自己去完成这些繁琐（容易出错）的代码。
 
-## Why Not Automatically Size Everything?
+## 为什么不在所有情况下都自动指定尺寸呢?
 
-_In the browser_ if you don't give a size to an image, the browser is going to render a 0x0 element, download the image, and then render the image based with the correct size. The big issue with this behavior is that your UI is going to jump all around as images load, this makes for a very bad user experience.
+**在浏览器中** 如果你不手动设定图片的大小，那么浏览器首先将渲染一个 0*0 大小的占位元素，在下载完图片后浏览器将基于正确的尺寸来呈现（渲染）图片。这样做的最大问题在于UI组件会由于图片加载完成后位置发生变化（跳动），严重影响了用户体验。
 
-_In React Native_ this behavior is intentionally not implemented. It is more work for the developer to know the dimensions (or aspect ratio) of the remote image in advance, but we believe that it leads to a better user experience. Static images loaded from the app bundle via the `require('./my-icon.png')` syntax _can be automatically sized_ because their dimensions are available immediately at the time of mounting.
+**在React Native中** 我们有意的规避了这种方式。可这种方式将导致开发人员需要付出更多的工作来提前知晓远程图像资源的尺寸，但我们相信此种方式将带来更好的用户体验。不过如果通过 `require('./my-icon.png')` 方法从打包好的应用资源文件中加载图片资源，则**无需指定尺寸**，因为React-Native会自动读取其尺寸。
 
-For example, the result of `require('./my-icon.png')` might be:
+如下所示，引用 `require('./my-icon.png')` 的实际输出结果是：
 
 ```javascript
 {"__packager_asset":true,"uri":"my-icon.png","width":591,"height":573}
 ```
 
-## Source as an object
+## 图像的属性（source）是一个对象
 
-In React Native, one interesting decision is that the `src` attribute is named `source` and doesn't take a string but an object with a `uri` attribute.
+在 `React Native`之中，一个有趣的决定是将 `src`的属性命名为 `source`，并且不支持字符串。而是一个带有 `uri` 属性的对象。 
 
 ```javascript
 <Image source={{uri: 'something.jpg'}} />
 ```
 
-On the infrastructure side, the reason is that it allows us to attach metadata to this object. For example if you are using `require('./my-icon.png')`, then we add information about its actual location and size (don't rely on this fact, it might change in the future!). This is also future proofing, for example we may want to support sprites at some point, instead of outputting `{uri: ...}`, we can output `{uri: ..., crop: {left: 10, top: 50, width: 20, height: 40}}` and transparently support spriting on all the existing call sites.
+深层次的考虑是，这样可以使我们在对象中添加一些元数据`(metadata)`。假设你在使用`require('./my-icon.png')`，那么我们就会在其中添加真实文件路径以及尺寸等信息（这只是举个例子，未来的版本中require的具体行为可能会变化）。此外这也是考虑了未来的扩展性，比如我们可能会加入精灵图（sprites）的支持：在输出`{uri: ...}`的基础上，我们可以进一步输出裁切信息`{uri: ..., crop: {left: 10, top: 50, width: 20, height: 40}}`，这样理论上就可以在现有的代码中无缝支持精灵图的切分。
 
-On the user side, this lets you annotate the object with useful attributes such as the dimension of the image in order to compute the size it's going to be displayed in. Feel free to use it as your data structure to store more information about your image.
+对于开发者来说，则可以在其中标注一些有用的属性，例如图片的尺寸，这样可以使图片自己去计算将要显示的尺寸（而不必在样式中写死）。请在这一数据结构中自由发挥，存储你可能需要的任何图片相关的信息。
 
-## Background Image via Nesting
+## 背景图片的嵌套
 
-A common feature request from developers familiar with the web is `background-image`. To handle this use case, you can use the `<ImageBackground>` component, which has the same props as `<Image>`, and add whatever children to it you would like to layer on top of it.
+熟悉网络的开发人员的一项常见功能请求是背景图像。 为了处理这种用例，可以使用 `<ImageBackground>` 组件，该组件具有与`<Image>`相同的`props`（属性），把需要背景图的子组件嵌入其中即可。
 
-You might not want to use `<ImageBackground>` in some cases, since the implementation is very simple. Refer to `<ImageBackground>`'s [source code](https://github.com/facebook/react-native/blob/master/Libraries/Image/ImageBackground.js) for more insight, and create your own custom component when needed.
+在某些情况下，您可能不想使用 `<ImageBackground>`，因为实现非常简单。 请参阅 `<ImageBackground>` 的 [源代码](https://github.com/facebook/react-native/blob/master/Libraries/Image/ImageBackground.js) 以获取更多信息，并在需要时创建您自己的自定义组件。
 
 ```javascript
 return (
@@ -205,15 +205,15 @@ return (
 );
 ```
 
-## iOS Border Radius Styles
+## iOS边框圆角样式
 
-Please note that the following corner specific, border radius style properties are currently ignored by iOS's image component:
+请注意下列边框圆角样式目前在iOS的图片组件上还不支持：
 
 * `borderTopLeftRadius`
 * `borderTopRightRadius`
 * `borderBottomLeftRadius`
 * `borderBottomRightRadius`
 
-## Off-thread Decoding
+## 异线程解码图片
 
-Image decoding can take more than a frame-worth of time. This is one of the major sources of frame drops on the web because decoding is done in the main thread. In React Native, image decoding is done in a different thread. In practice, you already need to handle the case when the image is not downloaded yet, so displaying the placeholder for a few more frames while it is decoding does not require any code change.
+图片解码有可能会需要超过一帧的时间。这是在`web`页上这是页面掉帧的一大因素，因为解码是在主线程中完成的。然而在`React Native`中，图片解码则是在另一线程中完成的。在实际开发中，一般对图片还没下载完成时的场景都做了处理（添加loading等），而图片解码时显示的占位符只占用几帧时间，并不需要你改动代码去额外处理。

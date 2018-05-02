@@ -23,7 +23,7 @@
 - 增加对原生驱动的`Animated tracking(动画跟踪)`的支持，现在你能使用`useNativeDriver` 标签来跟踪其他 `Animated.Values`动画。([b48f7e5](https://github.com/facebook/react-native/commit/b48f7e5) by [@kmagiera](https://github.com/kmagiera))
 - 新增一个`UTFSequence`模块用于处理常见的`Unicode`序列（比如`Emoji`）([54870e0](https://github.com/facebook/react-native/commit/54870e0) and [4761d5a](https://github.com/facebook/react-native/commit/4761d5a) by [@sahrens](https://github.com/sahrens))
 - 为 **TextInput** 新增了一个 `contextMenuHidden` 属性(译者注：由于长按`TextInput` 后会出现在一个编辑菜单，比如复制、粘贴、剪切、全选等选项。新增的`contextMenuHidden`属性则可以禁止此菜单的出现) ([2dd2529](https://github.com/facebook/react-native/commit/2dd2529) by [@amhinson](https://github.com/amhinson))
-- 将 `testOnly_pressed` 添加到 `TouchableHighlight` 000000000000以进行快照测试 ([3756d41](https://github.com/facebook/react-native/commit/3756d41) by [@sahrens](https://github.com/sahrens))
+- 将 `testOnly_pressed` 添加到 `TouchableHighlight` 以进行快照测试 ([3756d41](https://github.com/facebook/react-native/commit/3756d41) by [@sahrens](https://github.com/sahrens))
 
 ### 更改: 现有功能的一些变化
 

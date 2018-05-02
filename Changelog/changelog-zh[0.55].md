@@ -74,7 +74,7 @@
 - 修正了在本地化之中导致**DevSettingsActivity**的崩溃 ([427e464](https://github.com/facebook/react-native/commit/427e464) by [@ayc1](https://github.com/ayc1))
 - 修复 `touch-responsive views` 中缩放造成的崩溃 ([67c3ad4](https://github.com/facebook/react-native/commit/67c3ad4) by [@tobycox](https://github.com/tobycox))
 - 修复 “循环原生动画” 中的错误 `IllegalStateException` ([ef9d1fb](https://github.com/facebook/react-native/commit/ef9d1fb) by [@kmagiera](https://github.com/kmagiera))
-- 修复关于安卓JS模块查找bug的修复 ([c20e0f9](https://github.com/facebook/react-native/commit/c20e0f9) by [@fkgozali](https://github.com/fkgozali))
+- 修复关于安卓JS模块的文件引用Bug ([c20e0f9](https://github.com/facebook/react-native/commit/c20e0f9) by [@fkgozali](https://github.com/fkgozali))
 - Fix ReadableNativeMap.toHashMap() for nested maps and arrays ([8a6ab14](https://github.com/facebook/react-native/commit/8a6ab14) by [@esamelson](https://github.com/esamelson))
 - 修复 **Android Sanity Buck** 版本检查 ([e057322](https://github.com/facebook/react-native/commit/e057322) by [@hramos](https://github.com/hramos))
 - 通过遵循 whatwg.org 的 XMLHttpRequest send()方法修复与Firestore的连接 ([d52569c](https://github.com/facebook/react-native/commit/d52569c) by [@samsafay](https://github.com/samsafay))

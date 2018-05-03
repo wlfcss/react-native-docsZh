@@ -6,7 +6,7 @@
 
 新的亮点:
 
-- React Native现在已经全面改为MIT license (译者注：原来的许可为BSD license)
+- React Native现在已经全面改为MIT license (译者注：原来的许可为BSD+Patents license)
 - 已支持 Android TV 设备的开发
 
 [![RNAndroidTVDemo](images/0.jpg)](http://www.youtube.com/watch?v=EzIQErHhY20)

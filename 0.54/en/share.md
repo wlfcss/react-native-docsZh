@@ -1,6 +1,7 @@
 ---
-id: share
+id: version-0.54-share
 title: Share
+original_id: share
 ---
 
 ### Methods

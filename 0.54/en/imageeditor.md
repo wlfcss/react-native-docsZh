@@ -1,6 +1,7 @@
 ---
-id: imageeditor
+id: version-0.54-imageeditor
 title: ImageEditor
+original_id: imageeditor
 ---
 
 ### Methods

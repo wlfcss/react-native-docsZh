@@ -1,6 +1,7 @@
 ---
-id: building-from-source
+id: version-0.54-building-from-source
 title: Building React Native from source
+original_id: building-from-source
 ---
 
 You will need to build React Native from source if you want to work on a new feature/bug fix, try out the latest features which are not released yet, or maintain your own fork with patches that cannot be merged to the core.

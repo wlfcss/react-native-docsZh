@@ -1,6 +1,7 @@
 ---
-id: accessibility
+id: version-0.54-accessibility
 title: Accessibility
+original_id: accessibility
 ---
 
 ## Native App Accessibility (iOS and Android)
@@ -76,12 +77,6 @@ To use, set the `accessibilityTraits` property to one of (or an array of) access
 A Boolean value indicating whether VoiceOver should ignore the elements within views that are siblings of the receiver.
 
 For example, in a window that contains sibling views `A` and `B`, setting `accessibilityViewIsModal` to `true` on view `B` causes VoiceOver to ignore the elements in the view `A`. On the other hand, if view `B` contains a child view `C` and you set `accessibilityViewIsModal` to `true` on view `C`, VoiceOver does not ignore the elements in view `A`.
-
-#### accessibilityElementsHidden (iOS)
-
-A Boolean value indicating whether the accessibility elements contained within this accessibility element are hidden.
-
-For example, in a window that contains sibling views `A` and `B`, setting `accessibilityElementsHidden` to `true` on view `B` causes VoiceOver to ignore the elements in the view `B`. This is similar to the Android property `importantForAccessibility="no-hide-descendants"`.
 
 #### onAccessibilityTap (iOS)
 

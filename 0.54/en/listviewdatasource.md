@@ -1,6 +1,7 @@
 ---
-id: listviewdatasource
+id: version-0.54-listviewdatasource
 title: ListViewDataSource
+original_id: listviewdatasource
 ---
 
 Provides efficient data processing and access to the `ListView` component. A `ListViewDataSource` is created with functions for extracting data from the input blob, and comparing elements (with default implementations for convenience). The input blob can be as simple as an array of strings, or an object with rows nested inside section objects.

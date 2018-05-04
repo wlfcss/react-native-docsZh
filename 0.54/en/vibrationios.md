@@ -1,6 +1,7 @@
 ---
-id: vibrationios
+id: version-0.54-vibrationios
 title: VibrationIOS
+original_id: vibrationios
 ---
 
 NOTE: `VibrationIOS` is being deprecated. Use `Vibration` instead.

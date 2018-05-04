@@ -1,6 +1,7 @@
 ---
-id: javascript-environment
+id: version-0.54-javascript-environment
 title: JavaScript Environment
+original_id: javascript-environment
 ---
 
 ## JavaScript Runtime

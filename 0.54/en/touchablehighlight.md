@@ -1,6 +1,7 @@
 ---
-id: touchablehighlight
+id: version-0.54-touchablehighlight
 title: TouchableHighlight
+original_id: touchablehighlight
 ---
 
 A wrapper for making views respond properly to touches. On press down, the opacity of the wrapped view is decreased, which allows the underlay color to show through, darkening or tinting the view.
@@ -170,7 +171,7 @@ _(Apple TV only)_ TV preferred focus (see documentation for the View component).
 
 _(Apple TV only)_ Object with properties to control Apple TV parallax effects.
 
-enabled: If true, parallax effects are enabled. Defaults to true. shiftDistanceX: Defaults to 2.0. shiftDistanceY: Defaults to 2.0. tiltAngle: Defaults to 0.05. magnification: Defaults to 1.0. pressMagnification: Defaults to 1.0. pressDuration: Defaults to 0.3. pressDelay: Defaults to 0.0.
+enabled: If true, parallax effects are enabled. Defaults to true. shiftDistanceX: Defaults to 2.0. shiftDistanceY: Defaults to 2.0. tiltAngle: Defaults to 0.05. magnification: Defaults to 1.0.
 
 | Type   | Required | Platform |
 | ------ | -------- | -------- |

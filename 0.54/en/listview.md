@@ -1,6 +1,7 @@
 ---
-id: listview
+id: version-0.54-listview
 title: ListView
+original_id: listview
 ---
 
 DEPRECATED - use one of the new list components, such as [`FlatList`](flatlist.md) or [`SectionList`](sectionlist.md) for bounded memory use, fewer bugs, better performance, an easier to use API, and more features. Check out this [blog post](https://facebook.github.io/react-native/blog/2017/03/13/better-list-views.html) for more details.

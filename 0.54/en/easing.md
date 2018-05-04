@@ -1,6 +1,7 @@
 ---
-id: easing
+id: version-0.54-easing
 title: Easing
+original_id: easing
 ---
 
 The `Easing` module implements common easing functions. This module is used by [Animated.timing()](animated.md#timing) to convey physically believable motion in animations.
@@ -204,6 +205,10 @@ static back(s)
 ```
 
 Use with `Animated.parallel()` to create a simple effect where the object animates back slightly as the animation starts.
+
+Wolfram Plot:
+
+* http://tiny.cc/back_default (s = 1.70158, default)
 
 ---
 

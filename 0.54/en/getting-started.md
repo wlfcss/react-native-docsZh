@@ -1,6 +1,7 @@
 ---
-id: getting-started
+id: version-0.54-getting-started
 title: Getting Started
+original_id: getting-started
 ---
 
 <style>
@@ -84,7 +85,7 @@ This page will help you install and build your first React Native app. If you al
 <div class="toggler">
   <ul role="tablist" >
     <li id="quickstart" class="button-quickstart" aria-selected="false" role="tab" tabindex="0" aria-controls="quickstarttab" onclick="displayTab('guide', 'quickstart')">
-      Quick Start
+      Quick Start萨达萨达撒旦
     </li>
     <li id="native" class="button-native" aria-selected="false" role="tab" tabindex="-1" aria-controls="nativetab" onclick="displayTab('guide', 'native')">
       Building Projects with Native Code
@@ -502,7 +503,7 @@ Select the "x86 Images" tab, then look for the **Marshmallow** API Level 23, x86
 
 ![Install HAXM](/react-native/docs/assets/GettingStartedCreateAVDx86Windows.png)
 
-> If you don't have HAXM installed, click on "Install HAXM" or follow [these instructions](https://software.intel.com/en-us/android/articles/installation-instructions-for-intel-hardware-accelerated-execution-manager-windows) to set it up, then go back to the AVD Manager.
+> If you don't have HAXM installed, click on "Install HAXM" or follow [these instructions](https://github.com/intel/haxm/wiki/Installation-Instructions-on-Windows) to set it up, then go back to the AVD Manager.
 
 ![AVD List](/react-native/docs/assets/GettingStartedAVDManagerWindows.png)
 
@@ -510,7 +511,7 @@ Select the "x86 Images" tab, then look for the **Marshmallow** API Level 23, x86
 
 ![Install HAXM](/react-native/docs/assets/GettingStartedCreateAVDx86MacOS.png)
 
-> If you don't have HAXM installed, follow [these instructions](https://software.intel.com/en-us/android/articles/installation-instructions-for-intel-hardware-accelerated-execution-manager-mac-os-x) to set it up, then go back to the AVD Manager.
+> If you don't have HAXM installed, follow [these instructions](https://github.com/intel/haxm/wiki/Installation-Instructions-on-macOS) to set it up, then go back to the AVD Manager.
 
 ![AVD List](/react-native/docs/assets/GettingStartedAVDManagerMacOS.png)
 

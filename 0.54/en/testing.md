@@ -1,6 +1,7 @@
 ---
-id: testing
+id: version-0.54-testing
 title: Testing your Changes
+original_id: testing
 ---
 
 This document is about testing your changes to React Native as a [contributor](contributing.md). If you're interested in testing a React Native app, check out the [React Native Tutorial](https://facebook.github.io/jest/docs/en/tutorial-react-native.html) on the Jest website.
@@ -49,7 +50,7 @@ javac 1.8.0_111
 
 The version string `1.8.x_xxx` corresponds to JDK 8.
 
-You also need to install the [Buck build tool](https://buckbuild.com/setup/install.html). Note that brew may not install the version needed to run the tests. For best results, use the same version as the GitHub builds, which can be found in the `.circleci` folder in the root of the repo.
+You also need to install the [Buck build tool](https://buckbuild.com/setup/install.html).
 
 To run the Android unit tests:
 

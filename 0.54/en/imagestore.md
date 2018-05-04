@@ -1,6 +1,7 @@
 ---
-id: imagestore
+id: version-0.54-imagestore
 title: ImageStore
+original_id: imagestore
 ---
 
 ### Methods

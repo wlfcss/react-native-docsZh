@@ -1,6 +1,7 @@
 ---
-id: view-style-props
+id: version-0.54-view-style-props
 title: View Style Props
+original_id: view-style-props
 ---
 
 ### Props

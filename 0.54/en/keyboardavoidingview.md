@@ -1,6 +1,7 @@
 ---
-id: keyboardavoidingview
+id: version-0.54-keyboardavoidingview
 title: KeyboardAvoidingView
+original_id: keyboardavoidingview
 ---
 
 It is a component to solve the common problem of views that need to move out of the way of the virtual keyboard. It can automatically adjust either its position or bottom padding based on the position of the keyboard.
@@ -10,7 +11,7 @@ Example usage:
 ```
 import { KeyboardAvoidingView } from 'react-native';
 
-<KeyboardAvoidingView style={styles.container} behavior="padding">
+<KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
   ... your UI ...
 </KeyboardAvoidingView>
 ```
@@ -26,6 +27,7 @@ import { KeyboardAvoidingView } from 'react-native';
 - [`keyboardVerticalOffset`](keyboardavoidingview.md#keyboardverticaloffset)
 - [`behavior`](keyboardavoidingview.md#behavior)
 - [`contentContainerStyle`](keyboardavoidingview.md#contentcontainerstyle)
+- [`enabled`](keyboardavoidingview.md#enabled)
 
 ### Methods
 
@@ -66,6 +68,16 @@ The style of the content container(View) when behavior is 'position'.
 | Type       | Required |
 | ---------- | -------- |
 | View.style | No       |
+
+---
+
+### `enabled`
+
+Enabled or disabled KeyboardAvoidingView.
+
+| Type       | Required |
+| ---------- | -------- |
+| boolean    | Yes      |
 
 ## Methods
 

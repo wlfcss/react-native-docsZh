@@ -1,6 +1,7 @@
 ---
-id: timers
+id: version-0.54-timers
 title: Timers
+original_id: timers
 ---
 
 Timers are an important part of an application and React Native implements the [browser timers](https://developer.mozilla.org/en-US/Add-ons/Code_snippets/Timers).

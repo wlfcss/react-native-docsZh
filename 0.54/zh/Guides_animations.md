@@ -9,13 +9,11 @@ title: 动画
 
 ## `Animated` API
 
-The [`Animated`](animated.md) API is designed to make it very easy to concisely express a wide variety of interesting animation and interaction patterns in a very performant way. `Animated` focuses on declarative relationships between inputs and outputs, with configurable transforms in between, and simple `start`/`stop` methods to control time-based animation execution.
+[`Animated`](animated.md)库的设计思想是使开发者能极为简便的实现各种高性能的动画和交互。`Animated`侧重于以声明的形式定义动画的输入和输出，并在两者之间设定可配置的变化函数，使用 `start`/`stop` 方法来控制动画执行的时间顺序。
 
-[`Animated`](animated.md)库的设计思想是使开发者能极为简便的实现各种高性能的动画和交互。`Animated`侧重于以声明的形式定义动画的输入和输出，并在两者之间的
+`Animated` 仅仅封装了四种基本组件：`View`, `Text`, `Image`, 以及 `ScrollView`，当然你也可以使用 `Animated.createAnimatedComponent` 封装属于你自己的组件。
 
-`Animated` exports four animatable component types: `View`, `Text`, `Image`, and `ScrollView`, but you can also create your own using `Animated.createAnimatedComponent()`.
-
-For example, a container view that fades in when it is mounted may look like this:
+一个在加载时有淡入淡出效果的组件，如下所示：
 
 ```SnackPlayer
 import React from 'react';
@@ -66,21 +64,21 @@ export default class App extends React.Component {
 }
 ```
 
-Let's break down what's happening here. In the `FadeInView` constructor, a new `Animated.Value` called `fadeAnim` is initialized as part of `state`. The opacity property on the `View` is mapped to this animated value. Behind the scenes, the numeric value is extracted and used to set opacity.
+让我们来分析一下，在 `FadeInView` 的构造函数中，声明了一个名为`fadeAnim`的新`Animated.Value`，并放置于 `state` 之中。同时我们将`View`的透明度与其绑定。
 
-When the component mounts, the opacity is set to 0. Then, an easing animation is started on the `fadeAnim` animated value, which will update all of its dependent mappings (in this case, just the opacity) on each frame as the value animates to the final value of 1.
+当组件(component)加载时，初始透明度设置为0。接下来，启动与`fadeAnim`值绑定的动画函数，该值将在每帧上更新其所有依赖的映射（透明度），最终该透明度数值由0变为1。
 
-This is done in an optimized way that is faster than calling `setState` and re-rendering.  
-Because the entire configuration is declarative, we will be able to implement further optimizations that serialize the configuration and runs the animation on a high-priority thread.
+上面的例子是一种经过优化的方案，比直接调用`setState`重新渲染要快。由于整个配置事先已经过声明，我们能够实现进一步的优化，动画在序列化配置的同时能在高优先级的线程上运行。
 
-### Configuring animations
+### 动画配置
 
-Animations are heavily configurable. Custom and predefined easing functions, delays, durations, decay factors, spring constants, and more can all be tweaked depending on the type of animation.
+`Animated` 拥有非常灵活的配置项，自定义和预定义的渐变(easing)函数，延迟，持续时间，衰减因子，弹簧常数等都可以根据动画的类型进行调整。
 
-`Animated` provides several animation types, the most commonly used one being [`Animated.timing()`](animated.md#timing). It supports animating a value over time using one of various predefined easing functions, or you can use your own. Easing functions are typically used in animation to convey gradual acceleration and deceleration of objects.
+`Animated` 提供了多种动画类型，其中最常用的则是[`Animated.timing()`](animated.md#timing)。它支持使用各种预定义的方法：比如渐变函数：随着时间推移改变绑定值，或者你也可以使用自定义函数。渐变函数则通常用于需要逐渐加速活减速的图形动画。
 
-By default, `timing` will use a easeInOut curve that conveys gradual acceleration to full speed and concludes by gradually decelerating to a stop. You can specify a different easing function by passing a `easing` parameter. Custom `duration` or even a `delay` before the animation starts is also supported.
+默认情况下，`timing` 将使用`easeInOut`曲线，该曲线将逐步加速传递到全速，并通过逐渐减速停止结束。 您可以通过传递一个`easing`参数来指定一个不同的渐变函数。 自定义持续时间或动画开始之前的延迟也支持。
 
+（举例来说，如果我们希望创建一个时长为2s的动画：在其移动到最终位置前进行一个备份？）
 For example, if we want to create a 2-second long animation of an object that slightly backs up before moving to its final position:
 
 ```javascript
@@ -91,13 +89,13 @@ Animated.timing(this.state.xPosition, {
 }).start();
 ```
 
-Take a look at the [Configuring animations](animated.md#configuring-animations) section of the `Animated` API reference to learn more about all the config parameters supported by the built-in animations.
+查看[Configuring animations](animated.md#configuring-animations)的动画配置部分，了解有关内置动画配置参数的更多信息。
 
-### Composing animations
+### 组合动画
 
-Animations can be combined and played in sequence or in parallel. Sequential animations can play immediately after the previous animation has finished, or they can start after a specified delay. The `Animated` API provides several methods, such as `sequence()` and `delay()`, each of which simply take an array of animations to execute and automatically calls `start()`/`stop()` as needed.
+动画可以组合并按顺序或并行播放。 连续动画可以在上一个动画结束后立即播放，或者可以在指定的延迟后开始。 `Animated API` 提供了多种方法，比如 `顺序执行 sequence()` 和 `延时执行 delay()` ，每个方法只需要一组动画来执行，并根据需要自动调用 `start()` / `stop()`。
 
-For example, the following animation coasts to a stop, then it springs back while twirling in parallel:
+在下面的例子里，当动画元素运动停止后，进行旋转并返回：
 
 ```javascript
 Animated.sequence([
@@ -120,15 +118,15 @@ Animated.sequence([
 ]).start(); // start the sequence group
 ```
 
-If one animation is stopped or interrupted, then all other animations in the group are also stopped. `Animated.parallel` has a `stopTogether` option that can be set to `false` to disable this.
+通常来说，如果任何一个动画被停止或中断了，组内所有其它的动画也会被停止。Parallel有一个stopTogether属性，如果设置为false，可以禁用自动停止。
 
-You can find a full list of composition methods in the [Composing animations](animated.md#composing-animations) section of the `Animated` API reference.
+你可以在[Composing animations](animated.md#composing-animations)中找到动画api合成方法的完整解释。
 
-### Combining animated values
+### 组合动画
 
-You can [combine two animated values](animated.md#combining-animated-values) via addition, multiplication, division, or modulo to make a new animated value.
+您可以通过添加，乘法，除法或模数来 [组合两个动画](animated.md#combining-animated-values)，以创建新的动画。
 
-There are some cases where an animated value needs to invert another animated value for calculation. An example is inverting a scale (2x --> 0.5x):
+在某些情况中，动画值需要反转另一个动画值以进行计算。 在下面的例子中是反转比例（2x - > 0.5x）：
 
 ```javascript
 const a = new Animated.Value(1);
@@ -139,11 +137,11 @@ Animated.spring(a, {
 }).start();
 ```
 
-### Interpolation
+### 插值
 
-Each property can be run through an interpolation first. An interpolation maps input ranges to output ranges, typically using a linear interpolation but also supports easing functions. By default, it will extrapolate the curve beyond the ranges given, but you can also have it clamp the output value.
+每个属性都可以先通过插值运行。 插值将输入区间映射到输出区间，通常来说会使用线性插值，但也支持渐变功能(`easing functions`)。 默认情况下，它会将曲线外推到给定的范围之外，但您也可以使曲线限制输出值。
 
-A simple mapping to convert a 0-1 range to a 0-100 range would be:
+下面有一个一个简单的从 0-1区间 到 0-100区间 的映射示例：
 
 ```javascript
 value.interpolate({
@@ -152,7 +150,8 @@ value.interpolate({
 });
 ```
 
-For example, you may want to think about your `Animated.Value` as going from 0 to 1, but animate the position from 150px to 0px and the opacity from 0 to 1. This can easily be done by modifying `style` from the example above like so:
+通常来说，你可能想
+例如，您可能想要将 `Animated.Value` 变化视为从 0 到 1，但其位置从 150px 变为 0px，不透明度从 0 变为 1.这可以通过修改上述示例的 `style` 轻松完成 ：
 
 ```javascript
   style={{
@@ -166,7 +165,7 @@ For example, you may want to think about your `Animated.Value` as going from 0 t
   }}
 ```
 
-[`interpolate()`](animated.md#interpolate) supports multiple range segments as well, which is handy for defining dead zones and other handy tricks. For example, to get an negation relationship at -300 that goes to 0 at -100, then back up to 1 at 0, and then back down to zero at 100 followed by a dead-zone that remains at 0 for everything beyond that, you could do:
+[`interpolate()`](animated.md#interpolate)支持多种区间设置，一般用作定义静止区间。举例来说，要设计输入在等于-300时取相反值，在输入等于-100时取0,接下来在输入等于0时又增长到1,接着一直到输入到100的过程中逐步回到0，最后形成一个始终为0的静止区间，对于任何大于100的输入都返回0。其具体写法如下：
 
 ```javascript
 value.interpolate({
@@ -175,7 +174,7 @@ value.interpolate({
 });
 ```
 
-Which would map like so:
+则其最终的映射结果如下：
 
 ```
 Input | Output
@@ -192,7 +191,7 @@ Input | Output
    200|      0
 ```
 
-`interpolate()` also supports mapping to strings, allowing you to animate colors as well as values with units. For example, if you wanted to animate a rotation you could do:
+`interpolate()` 亦支持映射字符串，从而可以实现颜色和带有单位数值的动画变换，如下所示：
 
 ```javascript
 value.interpolate({
@@ -201,11 +200,11 @@ value.interpolate({
 });
 ```
 
-`interpolate()` also supports arbitrary easing functions, many of which are already implemented in the [`Easing`](easing.md) module. `interpolate()` also has configurable behavior for extrapolating the `outputRange`. You can set the extrapolation by setting the `extrapolate`, `extrapolateLeft`, or `extrapolateRight` options. The default value is `extend` but you can use `clamp` to prevent the output value from exceeding `outputRange`.
+`interpolate()` 支持任意的渐变函数，其中许多函数已经在 [`Easing`](easing.md) 模块中进行了定义(译者注：包括二次、贝塞尔等曲线)。`interpolate()` 还支持限制输出区间 `outputRange`。你可以通过设置 `extrapolate`, `extrapolateLeft` 或是`extrapolateRight` 等参数来限制输出区间。其默认值为`extend`(默认允许超出)，你也可以使用 `clamp` 参数来禁止输出值超过 `outputRange`。
 
-### Tracking dynamic values
+### 跟踪动态值
 
-Animated values can also track other values. Just set the `toValue` of an animation to another animated value instead of a plain number. For example, a "Chat Heads" animation like the one used by Messenger on Android could be implemented with a `spring()` pinned on another animated value, or with `timing()` and a `duration` of 0 for rigid tracking. They can also be composed with interpolations:
+动画中所设的值还可以通过跟踪别的值得到。你只要把 `toValue` 设置成另一个动态值而不是一个普通数字即可。比如我们可以用弹跳动画来实现聊天头像的闪动，又比如通过 `timing` 设置 `duration:0` 来实现快速的跟随。还可以使用插值来进行组合：
 
 ```javascript
 Animated.spring(follower, {toValue: leader}).start();
@@ -217,11 +216,15 @@ Animated.timing(opacity, {
 }).start();
 ```
 
-The `leader` and `follower` animated values would be implemented using `Animated.ValueXY()`. `ValueXY` is a handy way to deal with 2D interactions, such as panning or dragging. It is a simple wrapper that basically contains two `Animated.Value` instances and some helper functions that call through to them, making `ValueXY` a drop-in replacement for `Value` in many cases. It allows us to track both x and y values in the example above.
+`leader` 和 `follower` 动画将使用 `Animated.ValueXY()` 来实现。 `ValueXY` 是一个能方便处理2D交互的方式，比如旋转或是拖拽，这是一个包含了两种 `Animated.Value` 实例的包装器，提供了大量的辅助函数，这使得 `ValueXY` 在很多时候都可以替代 `Value` 使用。比如在上方的示例中，当 `leader` 和 `follower` 均为 `ValueXY` 类型是，x 与 y 值都能被跟踪。
 
-### Tracking gestures
+### 手势跟踪
+
+Animated.event是Animated API中与输入有关的部分，允许手势或其它事件直接绑定到动态值上。它通过一个结构化的映射语法来完成，使得复杂事件对象中的值可以被正确的解开。第一层是一个数组，允许同时映射多个值，然后数组的每一个元素是一个嵌套的对象。在下面的例子里，你可以发现scrollX被映射到了event.nativeEvent.contentOffset.x(event通常是回调函数的第一个参数)，并且pan.x和pan.y分别映射到gestureState.dx和gestureState.dy（gestureState是传递给PanResponder回调函数的第二个参数）。
 
 Gestures, like panning or scrolling, and other events can map directly to animated values using [`Animated.event`](animated.md#event). This is done with a structured map syntax so that values can be extracted from complex event objects. The first level is an array to allow mapping across multiple args, and that array contains nested objects.
+
+手势，比如平移或滚动，以及其他事件可以使用Animated.event直接映射到动画值。 这是通过结构化地图语法完成的，以便可以从复杂的事件对象中提取值。 第一个级别是允许跨多个参数映射的数组，并且该数组包含嵌套对象。
 
 For example, when working with horizontal scrolling gestures, you would do the following in order to map `event.nativeEvent.contentOffset.x` to `scrollX` (an `Animated.Value`):
 

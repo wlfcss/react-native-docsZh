@@ -1,6 +1,7 @@
 ---
-id: app-extensions
+id: version-0.54-app-extensions
 title: App Extensions
+original_id: app-extensions
 ---
 
 App extensions let you provide custom functionality and content outside of your main app. There are different types of app extensions on iOS, and they are all covered in the [App Extension Programming Guide](https://developer.apple.com/library/content/documentation/General/Conceptual/ExtensibilityPG/index.html#//apple_ref/doc/uid/TP40014214-CH20-SW1). In this guide, we'll briefly cover how you may take advantage of app extensions on iOS.

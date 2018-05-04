@@ -1,6 +1,7 @@
 ---
-id: layoutanimation
+id: version-0.54-layoutanimation
 title: LayoutAnimation
+original_id: layoutanimation
 ---
 
 Automatically animates views to their new positions when the next layout happens.
@@ -40,18 +41,13 @@ static configureNext(config, onAnimationDidEnd?)
 
 Schedules an animation to happen on the next layout.
 
-#### Parameters:
-
-| Name              | Type     | Required | Description                                                |
-| ----------------- | -------- | -------- | ---------------------------------------------------------- |
-| config            | object   | Yes      | See config parameters below.                               |
-| onAnimationDidEnd | function | No       | Called when the animation finished. Only supported on iOS. |
-
-##### config
+@param config Specifies animation properties:
 
 * `duration` in milliseconds
 * `create`, config for animating in new views (see `Anim` type)
 * `update`, config for animating views that have been updated (see `Anim` type)
+
+@param onAnimationDidEnd Called when the animation finished. Only supported on iOS. @param onError Called on error. Only supported on iOS.
 
 ---
 

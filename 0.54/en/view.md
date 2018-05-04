@@ -1,6 +1,7 @@
 ---
-id: view
+id: version-0.54-view
 title: View
+original_id: view
 ---
 
 The most fundamental component for building a UI, `View` is a container that supports layout with [flexbox](flexbox.md), [style](style.md), [some touch handling](handling-touches.md), and [accessibility](accessibility.md) controls. `View` maps directly to the native view equivalent on whatever platform React Native is running on, whether that is a `UIView`, `<div>`, `android.view`, etc.
@@ -76,7 +77,6 @@ For `View` responder props (e.g., `onResponderMove`), the synthetic touch event 
 * [`renderToHardwareTextureAndroid`](view.md#rendertohardwaretextureandroid)
 * [`accessibilityTraits`](view.md#accessibilitytraits)
 * [`accessibilityViewIsModal`](view.md#accessibilityviewismodal)
-* [`accessibilityElementsHidden`](view.md#accessibilityElementsHidden)
 * [`shouldRasterizeIOS`](view.md#shouldrasterizeios)
 
 ---
@@ -475,19 +475,7 @@ See the [Accessibility guide](accessibility.md#accessibilitytraits-ios) for more
 
 A value indicating whether VoiceOver should ignore the elements within views that are siblings of the receiver. Default is `false`.
 
-See the [Accessibility guide](accessibility.md#accessibilityviewismodal-ios) for more information.
-
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | iOS      |
-
----
-
-### `accessibilityElementsHidden`
-
-A value indicating whether the accessibility elements contained within this accessibility element are hidden. Default is `false`.
-
-See the [Accessibility guide](accessibility.md#accessibilityelementshidden-ios) for more information.
+See the [Accessibility guide](accessibility.md#accessibilitytraits-ios) for more information.
 
 | Type | Required | Platform |
 | ---- | -------- | -------- |

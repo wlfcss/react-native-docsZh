@@ -1,6 +1,7 @@
 ---
-id: keyboard
+id: version-0.54-keyboard
 title: Keyboard
+original_id: keyboard
 ---
 
 `Keyboard` module to control keyboard events.
@@ -14,7 +15,7 @@ import React, { Component } from 'react';
 import { Keyboard, TextInput } from 'react-native';
 
 class Example extends Component {
-  componentDidMount () {
+  componentWillMount () {
     this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', this._keyboardDidShow);
     this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._keyboardDidHide);
   }

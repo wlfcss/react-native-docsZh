@@ -1,6 +1,7 @@
 ---
-id: style
+id: version-0.54-style
 title: Style
+original_id: style
 ---
 
 With React Native, you don't use a special language or syntax for defining styles. You just style your application using JavaScript. All of the core components accept a prop named `style`. The style names and [values](colors.md) usually match how CSS works on the web, except names are written using camel casing, e.g `backgroundColor` rather than `background-color`.

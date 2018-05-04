@@ -1,12 +1,13 @@
 ---
-id: layout-props
+id: version-0.54-layout-props
 title: Layout Props
+original_id: layout-props
 ---
 
 ### Props
 
+* [`marginHorizontal`](layout-props.md#marginhorizontal)
 * [`alignContent`](layout-props.md#aligncontent)
-* [`alignItems`](layout-props.md#alignitems)
 * [`alignSelf`](layout-props.md#alignself)
 * [`aspectRatio`](layout-props.md#aspectratio)
 * [`borderBottomWidth`](layout-props.md#borderbottomwidth)
@@ -32,7 +33,7 @@ title: Layout Props
 * [`margin`](layout-props.md#margin)
 * [`marginBottom`](layout-props.md#marginbottom)
 * [`marginEnd`](layout-props.md#marginend)
-* [`marginHorizontal`](layout-props.md#marginhorizontal)
+* [`alignItems`](layout-props.md#alignitems)
 * [`marginLeft`](layout-props.md#marginleft)
 * [`marginRight`](layout-props.md#marginright)
 * [`marginStart`](layout-props.md#marginstart)
@@ -65,6 +66,16 @@ title: Layout Props
 
 ## Props
 
+### `marginHorizontal`
+
+Setting `marginHorizontal` has the same effect as setting both `marginLeft` and `marginRight`.
+
+| Type            | Required |
+| --------------- | -------- |
+| number, ,string | No       |
+
+---
+
 ### `alignContent`
 
 `alignContent` controls how rows align in the cross direction, overriding the `alignContent` of the parent. See https://developer.mozilla.org/en-US/docs/Web/CSS/align-content for more details.
@@ -72,16 +83,6 @@ title: Layout Props
 | Type                                                                                 | Required |
 | ------------------------------------------------------------------------------------ | -------- |
 | enum('flex-start', 'flex-end', 'center', 'stretch', 'space-between', 'space-around') | No       |
-
----
-
-### `alignItems`
-
-`alignItems` aligns children in the cross direction. For example, if children are flowing vertically, `alignItems` controls how they align horizontally. It works like `align-items` in CSS (default: stretch). See https://developer.mozilla.org/en-US/docs/Web/CSS/align-items for more details.
-
-| Type                                                            | Required |
-| --------------------------------------------------------------- | -------- |
-| enum('flex-start', 'flex-end', 'center', 'stretch', 'baseline') | No       |
 
 ---
 
@@ -357,13 +358,13 @@ When direction is `ltr`, `marginEnd` is equivalent to `marginRight`. When direct
 
 ---
 
-### `marginHorizontal`
+### `alignItems`
 
-Setting `marginHorizontal` has the same effect as setting both `marginLeft` and `marginRight`.
+`alignItems` aligns children in the cross direction. For example, if children are flowing vertically, `alignItems` controls how they align horizontally. It works like `align-items` in CSS (default: stretch). See https://developer.mozilla.org/en-US/docs/Web/CSS/align-items for more details.
 
-| Type            | Required |
-| --------------- | -------- |
-| number, ,string | No       |
+| Type                                                            | Required |
+| --------------------------------------------------------------- | -------- |
+| enum('flex-start', 'flex-end', 'center', 'stretch', 'baseline') | No       |
 
 ---
 

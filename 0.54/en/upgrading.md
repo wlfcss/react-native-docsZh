@@ -1,6 +1,7 @@
 ---
-id: upgrading
+id: version-0.54-upgrading
 title: Upgrading to new React Native versions
+original_id: upgrading
 ---
 
 Upgrading to new versions of React Native will give you access to more APIs, views, developer tools and other goodies. Upgrading requires a small amount of effort, but we try to make it easy for you. The instructions are a bit different depending on whether you used `create-react-native-app` or `react-native init` to create your project.
@@ -51,7 +52,7 @@ Run the following command to start the process of upgrading to the latest versio
 $ react-native-git-upgrade
 ```
 
-> You may specify a React Native version by passing an argument: `react-native-git-upgrade X.Y.Z`
+> You may specify a React Native version by passing an argument: `react-native-git-upgrade X.Y`
 
 The templates are upgraded in a optimized way. You still may encounter conflicts but only where the Git 3-way merge have failed, depending on the version and how you modified your sources.
 

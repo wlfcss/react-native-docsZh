@@ -1,6 +1,7 @@
 ---
-id: webview
+id: version-0.54-webview
 title: WebView
+original_id: webview
 ---
 
 `WebView` renders web content in a native view.
@@ -59,7 +60,6 @@ You can use this component to navigate back and forth in the web view's history 
 - [`contentInset`](webview.md#contentinset)
 - [`dataDetectorTypes`](webview.md#datadetectortypes)
 - [`scrollEnabled`](webview.md#scrollenabled)
-- [`allowUniversalAccessFromFileURLs`](webview.md#allowUniversalAccessFromFileURLs)
 - [`url`](webview.md#url)
 - [`html`](webview.md#html)
 
@@ -207,7 +207,7 @@ Function that returns a view to show if there's an error.
 
 ### `renderLoading`
 
-Function that returns a loading indicator. The startInLoadingState prop must be set to true in order to use this prop.
+Function that returns a loading indicator.
 
 | Type     | Required |
 | -------- | -------- |
@@ -247,7 +247,7 @@ Function that allows custom handling of any web view requests. Return `true` fro
 
 ### `startInLoadingState`
 
-Boolean value that forces the `WebView` to show the loading view on the first load. This prop must be set to `true` in order for the `renderLoading` prop to work.
+Boolean value that forces the `WebView` to show the loading view on the first load.
 
 | Type | Required |
 | ---- | -------- |
@@ -394,16 +394,6 @@ Boolean value that determines whether scrolling is enabled in the `WebView`. The
 | Type | Required | Platform |
 | ---- | -------- | -------- |
 | bool | No       | iOS      |
-
----
-
-### `allowUniversalAccessFromFileURLs`
-
-Boolean that sets whether JavaScript running in the context of a file scheme URL should be allowed to access content from any origin. Including accessing content from other file scheme URLs. The default value is `false`.
-
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
 
 ---
 

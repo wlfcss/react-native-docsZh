@@ -1,6 +1,7 @@
 ---
-id: maintainers
+id: version-0.54-maintainers
 title: What to Expect from Maintainers
+original_id: maintainers
 ---
 
 So you have read through the [contributor's guide](contributing.md) and you're getting ready to send your first pull request. Perhaps you've found an issue in React Native and want to work with the maintainers to land a fix. Here's what you can expect to happen when you open an issue or send a pull request.

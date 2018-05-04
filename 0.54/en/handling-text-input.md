@@ -1,6 +1,7 @@
 ---
-id: handling-text-input
+id: version-0.54-handling-text-input
 title: Handling Text Input
+original_id: handling-text-input
 ---
 
 [`TextInput`](textinput.md#content) is a basic component that allows the user to enter text. It has an `onChangeText` prop that takes a function to be called every time the text changed, and an `onSubmitEditing` prop that takes a function to be called when the text is submitted.

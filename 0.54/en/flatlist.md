@@ -17,7 +17,7 @@ A performant interface for rendering simple, flat lists, supporting the most han
 * ScrollToIndex support.
 
 If you need section support, use [`SectionList`](sectionlist.md).
-
+啊师傅大师傅打的方式
 Minimal Example:
 
     <FlatList

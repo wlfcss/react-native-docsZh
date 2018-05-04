@@ -1,6 +1,7 @@
 ---
-id: native-modules-android
+id: version-0.54-native-modules-android
 title: Native Modules
+original_id: native-modules-android
 ---
 
 Sometimes an app needs access to a platform API that React Native doesn't have a corresponding module for yet. Maybe you want to reuse some existing Java code without having to reimplement it in JavaScript, or write some high performance, multi-threaded code such as for image processing, a database, or any number of advanced extensions.
@@ -17,11 +18,7 @@ This guide will use the [Toast](http://developer.android.com/reference/android/w
 
 We start by creating a native module. A native module is a Java class that usually extends the `ReactContextBaseJavaModule` class and implements the functionality required by the JavaScript. Our goal here is to be able to write `ToastExample.show('Awesome', ToastExample.SHORT);` from JavaScript to display a short toast on the screen.
 
-create a new Java Class named `ToastModule.java` inside `android/app/src/main/java/com/your-app-name/` folder with the content below:
-
 ```java
-// ToastModule.java
-
 package com.facebook.react.modules.toast;
 
 import android.widget.Toast;
@@ -97,11 +94,7 @@ Read more about [ReadableMap](https://github.com/facebook/react-native/blob/mast
 
 The last step within Java is to register the Module; this happens in the `createNativeModules` of your apps package. If a module is not registered it will not be available from JavaScript.
 
-create a new Java Class named `CustomToastPackage.java` inside `android/app/src/main/java/com/your-app-name/` folder with the content below:
-
 ```java
-// CustomToastPackage.java
-
 package com.facebook.react.modules.toast;
 
 import com.facebook.react.ReactPackage;
@@ -113,7 +106,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class CustomToastPackage implements ReactPackage {
+public class AnExampleReactPackage implements ReactPackage {
 
   @Override
   public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
@@ -139,7 +132,7 @@ The package needs to be provided in the `getPackages` method of the `MainApplica
 protected List<ReactPackage> getPackages() {
     return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
-            new CustomToastPackage()); // <-- Add this line with your package name.
+            new AnExampleReactPackage()); // <-- Add this line with your package name.
 }
 ```
 

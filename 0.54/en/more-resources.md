@@ -1,6 +1,7 @@
 ---
-id: more-resources
+id: version-0.54-more-resources
 title: More Resources
+original_id: more-resources
 ---
 
 If you just read through this website, you should be able to build a pretty cool React Native app. But React Native isn't just a product made by one company - it's a community of thousands of developers. So if you're interested in React Native, here's some related stuff you might want to check out.
@@ -35,8 +36,6 @@ The folks who built the app for Facebook's F8 conference also [open-sourced the 
 [CodePush](https://microsoft.github.io/code-push/) is a service from Microsoft that makes it easy to deploy live updates to your React Native app. If you don't like going through the app store process to deploy little tweaks, and you also don't like setting up your own backend, give CodePush a try.
 
 [Expo](https://docs.expo.io) is a development environment plus application that focuses on letting you build React Native apps in the Expo development environment, without ever touching Xcode or Android Studio. If you wish React Native was even more JavaScripty and webby, check out Expo.
-
-[Yoga](https://yogalayout.com/) is a stand-alone layout engine that extends beyond React Native and allows product engineers to build layouts quickly for multiple platforms with a highly optimized open source layout engine designed with speed, size, and ease of use in mind.
 
 The [React Developer Tools](debugging.md#react-developer-tools) are great for debugging React and React Native apps.
 

@@ -1,6 +1,7 @@
 ---
-id: navigation
+id: version-0.54-navigation
 title: Navigating Between Screens
+original_id: navigation
 ---
 
 Mobile apps are rarely made up of a single screen. Managing the presentation of, and transition between, multiple screens is typically handled by what is known as a navigator.

@@ -1,6 +1,7 @@
 ---
-id: settings
+id: version-0.54-settings
 title: Settings
+original_id: settings
 ---
 
 ### Methods

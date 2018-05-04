@@ -1,6 +1,7 @@
 ---
-id: animated
+id: version-0.54-animated
 title: Animated
+original_id: animated
 ---
 
 The `Animated` library is designed to make animations fluid, powerful, and easy to build and maintain. `Animated` focuses on declarative relationships between inputs and outputs, with configurable transforms in between, and simple `start`/`stop` methods to control time-based animation execution.
@@ -76,10 +77,9 @@ By default, if one animation is stopped or interrupted, then all other animation
 
 ### Combining animated values
 
-You can combine two animated values via addition, subtraction, multiplication, division, or modulo to make a new animated value:
+You can combine two animated values via addition, multiplication, division, or modulo to make a new animated value:
 
 * [`Animated.add()`](animated.md#add)
-* [`Animated.subtract()`](animated.md#subtract)
 * [`Animated.divide()`](animated.md#divide)
 * [`Animated.modulo()`](animated.md#modulo)
 * [`Animated.multiply()`](animated.md#multiply)
@@ -118,7 +118,6 @@ For example, when working with horizontal scrolling gestures, you would do the f
 * [`timing`](animated.md#timing)
 * [`spring`](animated.md#spring)
 * [`add`](animated.md#add)
-* [`subtract`](animated.md#subtract)
 * [`divide`](animated.md#divide)
 * [`multiply`](animated.md#multiply)
 * [`modulo`](animated.md#modulo)
@@ -146,8 +145,6 @@ For example, when working with horizontal scrolling gestures, you would do the f
 # Reference
 
 ## Methods
-
-When the given value is a ValueXY instead of a Value, each config option may be a vector of the form `{x: ..., y: ...}` instead of a scalar.
 
 ### `decay()`
 
@@ -228,16 +225,6 @@ static add(a, b)
 ```
 
 Creates a new Animated value composed from two Animated values added together.
-
----
-
-### `subtract()`
-
-```javascript
-static subtract(a, b)
-```
-
-Creates a new Animated value composed by subtracting the second Animated value from the first Animated value.
 
 ---
 

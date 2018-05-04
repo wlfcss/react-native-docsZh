@@ -1,6 +1,7 @@
 ---
-id: troubleshooting
+id: version-0.54-troubleshooting
 title: Troubleshooting
+original_id: troubleshooting
 ---
 
 These are some common issues you may run into while setting up React Native. If you encounter something that is not listed here, try [searching for the issue in GitHub](https://github.com/facebook/react-native/issues/).
@@ -60,6 +61,10 @@ pod 'React', :path => '../node_modules/react-native', :subspecs => [
 ```
 
 Next, make sure you have run `pod install` and that a `Pods/` directory has been created in your project with React installed. CocoaPods will instruct you to use the generated `.xcworkspace` file henceforth to be able to use these installed dependencies.
+
+#### React Native does not compile when being used as a CocoaPod
+
+There is a CocoaPods plugin called [cocoapods-fix-react-native](https://github.com/orta/cocoapods-fix-react-native) which handles any potential post-fixing of the source code due to differences when using a dependency manager.
 
 #### Argument list too long: recursive header expansion failed
 

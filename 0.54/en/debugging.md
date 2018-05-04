@@ -1,6 +1,7 @@
 ---
-id: debugging
+id: version-0.54-debugging
 title: Debugging
+original_id: debugging
 ---
 
 ## Enabling Keyboard Shortcuts

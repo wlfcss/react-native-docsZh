@@ -1,4 +1,9 @@
-# State - 状态
+---
+id: version-0.54-state
+title: 状态
+original_id: state
+---
+
 我们使用 `props` 与 `state.props` 来控制一个组件，`props` 由父组件设定，且在组件的整个生命周期中不再改变。对于需要改变的数据，我们需要使用 `state` 。
 
 通常情况下，我们在 `constructor` 中初始化 `state`,需要修改时调用方法 `setState`。
@@ -47,7 +52,7 @@ AppRegistry.registerComponent('AwesomeProject', () => BlinkApp);
 
 ```
 
-在实际的开发项目中，我们一般不会在定时器函数（上方实例中的setInterval）中操作state。实际的应用场景一般是在接收到服务器返回的新数据，或者是用户输入的数据。在较为复杂的交互流程中，也可以使用像Redux这样的状态容器来控制数据流，在这种情况下，使用Redux来修改状态，而不是直接调用setState。（注：但我个人更见建议您使用mobx进行状态管理）。
+在实际的开发项目中，我们一般不会在定时器函数（上方实例中的setInterval）中操作state。实际的应用场景一般是在接收到服务器返回的新数据，或者是用户输入的数据。在较为复杂的交互流程中，也可以使用像 [Redux](https://redux.js.org/) 这样的状态容器来控制数据流，在这种情况下，使用Redux来修改状态，而不是直接调用setState。（译者注：但我个人更见建议您使用mobx进行状态管理）。
 
 当调用 `setState` 时，`BlinkApp` 将**重新渲染其组件**。 通过调用 `Timer` 中的 `setState`，该组件将在每次定时器滴答时重新呈现。
 

@@ -1,4 +1,9 @@
-# Props - 属性
+---
+id: version-0.54-props
+title: 属性
+original_id: props
+---
+
 大多数的组件在被创建时会带有各种可定义的**参数**，这些参数被统一称之为 `props`（属性）。
 
 举例来说，当我们使用React Native的基础组件 `Image` 创建一张图片时，你可以使用属性 `source` 来指定要显示图片的地址。
@@ -56,6 +61,6 @@ AppRegistry.registerComponent('AwesomeProject', () => LotsOfGreetings);
 
 在上方例子中定义的 `Greeting` 组件中将定制了一个属性 `name`，在需要多种 “问候语” 时就可以轻松做到组件复用。自定义组件 `Greeeting` 的实际使用体验与React native原生组件的体验完全一致，这使得个人开发者自定义私有UI框架变得异常轻松。
 
-上面的例子出现了一个名为 `View` 的组件。`View` 常用作其他组件的容器，来帮助控制布局和样式。
+上面的例子出现了一个名为 [`View`](view.md) 的组件。[`View`](view.md) 常用作其他组件的容器，来帮助控制布局和样式。
 
-仅仅使用props和基础的Text、Image以及View组件，就已经足以编写各式各样的UI组件了。如果要学习如何动态修改界面，那就需要进一步学习 `State`（状态）的概念。
+仅仅使用props和基础的 [`Text`](text.md)、[`Image`](image.md)以及 [`View`](view.md) 组件，就已经足以编写各式各样的UI组件了。如果要学习如何动态修改界面，那就需要进一步 [学习State](state.md)（状态）的概念。

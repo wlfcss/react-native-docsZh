@@ -1,4 +1,8 @@
-# Height and Width - 高度与宽度
+---
+id: version-0.54-height-and-width
+title: 高度与宽度
+original_id: height-and-width
+---
 
 一个组件的宽高将决定骑在屏幕上的尺寸。
 
@@ -55,4 +59,4 @@ export default class FlexDimensionsBasics extends Component {
 }
 ```
 
-当你熟练掌握了控制组件尺寸，下一步将学习组件布局。
+当你熟练掌握了控制组件尺寸，下一步将学习[组件布局](flexbox.md)。

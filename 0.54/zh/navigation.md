@@ -1,7 +1,9 @@
 ---
-id: navigation
-title: 页面间跳转导航
+id: version-0.54-navigation
+title: 导航器跳转页面
+original_id: navigation
 ---
+
 
 移动端应用程序通常不会只有一个屏幕（页面），管理多个屏幕（页面）的呈现和跳转通常由称为导航器的处理来处理。
 

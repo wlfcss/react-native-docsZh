@@ -1,6 +1,7 @@
 ---
-id: images
+id: version-0.54-images
 title: 图像
+original_id: images
 ---
 
 ## 静态图像资源

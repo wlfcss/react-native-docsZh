@@ -1,13 +1,14 @@
 ---
-id: platform-specific-code
+id: version-0.54-platform-specific-code
 title: 特定平台代码
+original_id: platform-specific-code
 ---
 
 当编写跨平台APP时，你可能试图尽可能的复用代码，但也可以针对不同平台编写代码，例如：您可以为ios和android实现两套不同的可视化组件。
 
 `React-Native`提供了两种针对不同平台编写不同代码的方法：
 
-* 使用 [`Platform` module](platform-specific-code.md#platform-module).
+* 使用 [Platform module](platform-specific-code.md#platform-module).
 * 使用 [platform-specific file extensions](platform-specific-code.md#platform-specific-extensions).
 
 某些组件可能具有只能在一个平台上运行的属性。 所有这些组件在本文档中都会用`@platform`标注，并在页面上有一个小标志。
@@ -103,3 +104,4 @@ const BigButton = require('./BigButton');
 ```
 
 React Native 会根据运行平台自动选择正确的文件。
+

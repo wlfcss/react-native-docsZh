@@ -1,6 +1,7 @@
 ---
-id: components-and-apis
+id: version-0.54-components-and-apis
 title: 组件与接口
+original_id: components-and-apis
 ---
 
 `React-native`提供了大量的内置组件，你可以在左侧的导航栏找到完整的组件及接口列表，如果你不确定从何处开始，那么请浏览接下来的内容：
@@ -229,3 +230,4 @@ These components may come in handy for certain applications. For an exhaustive l
     <p>A component that renders web content in a native view.</p>
   </div>
 </div>
+

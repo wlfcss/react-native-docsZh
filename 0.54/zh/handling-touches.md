@@ -1,10 +1,14 @@
-# Handing Touchs - 触控处理
+---
+id: version-0.54-handling-touches
+title: 触控处理
+original_id: handling-touches
+---
 
-用户通过触摸操作与手机App进行交互操作。他们能使用手势组合，比如触摸按钮、滚动列表或是在地图上缩放视角。`React-native`提供了大量的组件来处理各式各样的操作手势，以及一个**全面的手势响应系统**，以便用户进行更高级的手势识别，但是现在，你可能最感兴趣的组件是`Button`。
+用户通过触摸操作与手机App进行交互操作。他们能使用手势组合，比如触摸按钮、滚动列表或是在地图上缩放视角。`React-native`提供了大量的组件来处理各式各样的操作手势，以及一个[**全面的手势响应系统**](gesture-responder-system.md)，以便用户进行更高级的手势识别，但是现在，你可能最感兴趣的组件是`Button`。
 
 ## 显示一个基本按钮
 
-`Button`提供了一个基础的按钮组件库，它们能很好的运行于各种平台上。以最精简的方式来显示一个按钮如下所示：
+[Button](button.md) 提供了一个基础的按钮组件库，它们能很好的运行于各种平台上。以最精简的方式来显示一个按钮如下所示：
 
 ```jsx
 <Button
@@ -19,7 +23,7 @@
 
  ![](./images/handingTouchs_Button.png)
 
- > Go ahead and play around with the Button component using the example below. You can select which platform your app is previewed in by clicking on the toggle in the bottom right, then click on "Tap to Play" to preview the app.
+可以使用下面的工具演示的 `Button` 组件。 您可以通过点击右下角按钮切换选择您的应用预览的平台，然后点击“Tap to play”预览该示例。
 
  ```jsx
  import React, { Component } from 'react';
@@ -174,4 +178,4 @@ AppRegistry.registerComponent('AwesomeProject', () => Touchables);
 
 ## 滚动列表，滑动页面和双指缩放
 
-移动应用中常用的另一个手势是滑动或平移。 该手势允许用户滚动浏览项目列表，或者滑过内容页面。 为了处理这些和其他手势，我们将学习如何使用ScrollView。
+移动应用中常用的另一个手势是滑动或平移。 该手势允许用户滚动浏览项目列表，或者滑过内容页面。 为了处理这些和其他手势，我们将学习[如何使用ScrollView](using-a-scrollview.md)。

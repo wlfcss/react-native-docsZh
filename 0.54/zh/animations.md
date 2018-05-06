@@ -1,6 +1,7 @@
 ---
-id: animations
-title: 动画
+id: version-0.54-animations
+title: 图像
+original_id: animations
 ---
 
 动画对于营造良好的用户体验有着极重要的作用。在现实生活中的物体都具有一个名为“惯性”的属性，我们在移动端App界面上亦可以使用此种遵循物理规律的交互体验。

@@ -1,4 +1,8 @@
-# More Resources - 其它资源
+---
+id: version-0.54-more-resources
+title: 其他资源
+original_id: more-resources
+---
 
 如果你只是阅读本文档，你可以构建一个非常酷的React Native应用程序。 但React Native不仅仅是一家公司制造的产品 - 它是由数千名开发人员组成的开源社区。 所以如果你对React Native感兴趣，可以查阅下列的相关资源。
 
@@ -44,11 +48,10 @@
 
 [discussion.reactjs.org]("https://discuss.reactjs.org/")上的论坛是讨论实践和应用程序体系结构以及React Native未来的好地方。
 
-Reactiflux is a Discord chat where a lot of React-related discussion happens, including React Native. Discord is just like Slack except it works better for open source projects with a zillion contributors. Check out the #react-native channel.
+[Reactiflux](https://discord.gg/0ZcbPKXt5bZjGY5n) is a Discord chat where a lot of React-related discussion happens, including React Native. Discord is just like Slack except it works better for open source projects with a zillion contributors. Check out the #react-native channel.
 
-The React Twitter account covers both React and React Native. Follow the React Native Twitter account and blog to find out what's happening in the world of React Native.
+The [React Twitter account](https://twitter.com/reactjs) covers both React and React Native. Follow the React Native [Twitter account](https://twitter.com/reactnative) and [blog](/react-native/blog/) to find out what's happening in the world of React Native.
 
-There are a lot of React Native Meetups that happen around the world. Often there is React Native content in React meetups as well.
+There are a lot of [React Native Meetups](http://www.meetup.com/topics/react-native/) that happen around the world. Often there is React Native content in React meetups as well.
 
-Sometimes we have React conferences. We posted the videos from React.js Conf 2017, React.js Conf 2016, and React.js Conf 2015. We'll probably have more conferences in the future, too. Stay tuned. You can also find a list of dedicated React Native conferences here.
-
+Sometimes we have React conferences. We posted the [videos from React.js Conf 2017](https://www.youtube.com/playlist?list=PLb0IAmt7-GS3fZ46IGFirdqKTIxlws7e0), [React.js Conf 2016](https://www.youtube.com/playlist?list=PLb0IAmt7-GS0M8Q95RIc2lOM6nc77q1IY), and [React.js Conf 2015](https://www.youtube.com/watch?list=PLb0IAmt7-GS1cbw4qonlQztYV1TAW0sCr&v=KVZ-P-ZI6W4). We'll probably have more conferences in the future, too. Stay tuned. You can also find a list of dedicated React Native conferences [here](http://www.awesome-react-native.com/#conferences).

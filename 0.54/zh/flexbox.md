@@ -1,4 +1,8 @@
-# Layout with Flexbox - 使用Flexbox布局
+---
+id: version-0.54-flexbox
+title: 使用Flexbox布局
+original_id: flexbox
+---
 
 `React-native` 的组件可使用flexbox算法来指定其子级的布局。 Flexbox旨在为使用不同屏幕尺寸设备的用户提供一致的布局。
 
@@ -100,4 +104,4 @@ AppRegistry.registerComponent('AwesomeProject', () => AlignItemsBasics);
 
 我们已经介绍了布局的基本知识，但还有许多其他样式和属性。 [这里](https://facebook.github.io/react-native/docs/0.54/layout-props.html)记录了控制布局的属性的完整列表。
 
-我们正学习如何够建立一个真正的应用程序。 但我们仍然缺少一种获取用户输入的方式。因此，让我们继续学习如何使用TextInput组件处理文本输入。
+我们正学习如何够建立一个真正的应用程序。 但我们仍然缺少一种获取用户输入的方式。因此，让我们继续学习如何使用TextInput组件[处理文本输入](handling-text-input.md)。

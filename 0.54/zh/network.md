@@ -1,4 +1,8 @@
-# Networking - 网络
+---
+id: version-0.54-network
+title: 网络通信
+original_id: network
+---
 
 大部分移动端APP通过请求`URL`于远程服务器上拉取数据资源。你可以通过对`REST API`发起`POST`请求以交互用户数据。亦或者仅仅需要获取(`fetch`)其它服务器上的静态资源。
 
@@ -69,7 +73,7 @@ async function getMoviesFromApi() {
 
 不要忘记使用`catch`方法收集`fetch`可能抛出的异常，否则请求出错时你无法看到任何报错及警告。
 
-``` jsx
+```SnackPlayer name=Fetch%20Example
 import React from 'react';
 import { FlatList, ActivityIndicator, Text, View  } from 'react-native';
 
@@ -175,3 +179,7 @@ ws.onclose = (e) => {
   console.log(e.code, e.reason);
 };s
 ```
+
+## High Five!
+
+If you've gotten here by reading linearly through the tutorial, then you are a pretty impressive human being. Congratulations. Next, you might want to check out [all the cool stuff the community does with React Native](more-resources.md).

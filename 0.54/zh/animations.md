@@ -225,9 +225,11 @@ Animated.event是Animated API中与输入有关的部分，允许手势或其它
 
 Gestures, like panning or scrolling, and other events can map directly to animated values using [`Animated.event`](animated.md#event). This is done with a structured map syntax so that values can be extracted from complex event objects. The first level is an array to allow mapping across multiple args, and that array contains nested objects.
 
-手势，比如平移或滚动，以及其他事件可以使用Animated.event直接映射到动画值。 这是通过结构化地图语法完成的，以便可以从复杂的事件对象中提取值。 第一个级别是允许跨多个参数映射的数组，并且该数组包含嵌套对象。
+手势，比如平移或滚动，以及其他事件可以使用[`Animated.event`](animated.md#event)直接映射到动画值。 这是通过结构化的映射语法完成的，以便可以从复杂的事件对象中提取值。第一层是一个数组，允许同时映射多个值，然后数组的每一个元素是一个嵌套的对象
 
 For example, when working with horizontal scrolling gestures, you would do the following in order to map `event.nativeEvent.contentOffset.x` to `scrollX` (an `Animated.Value`):
+
+在下面的例子里，你可以发现 `scrollX` 被映射到了 `event.nativeEvent.contentOffset.x`(`event` 通常是回调函数的第一个参数)。
 
 ```javascript
  onScroll={Animated.event(
@@ -241,7 +243,7 @@ For example, when working with horizontal scrolling gestures, you would do the f
  )}
 ```
 
-When using `PanResponder`, you could use the following code to extract the x and y positions from `gestureState.dx` and `gestureState.dy`. We use a `null` in the first position of the array, as we are only interested in the second argument passed to the `PanResponder` handler, which is the `gestureState`.
+使用 `PanResponder` 时，可以使用以下代码从 `gestureState.dx` 和 `gestureState.dy` 中提取x和y位置。 我们在数组的第一个位置使用null，因为我们只关心传递给 `PanResponder` 处理程序(即 `gestureState`)的第二个参数。
 
 ```javascript
 onPanResponderMove={Animated.event(
@@ -252,20 +254,20 @@ onPanResponderMove={Animated.event(
 ])}
 ```
 
-### Responding to the current animation value
+### 响应当前的动画值
 
-You may notice that there is no obvious way to read the current value while animating. This is because the value may only be known in the native runtime due to optimizations. If you need to run JavaScript in response to the current value, there are two approaches:
+你可能会注意到这里没有一个明显的方法来在动画的过程中读取当前的值 —— 这是出于优化的角度考虑，有些值只有在原生代码运行阶段中才知道。如果你需要在JavaScript中响应当前的值，有两种可能的办法：
 
-* `spring.stopAnimation(callback)` will stop the animation and invoke `callback` with the final value. This is useful when making gesture transitions.
-* `spring.addListener(callback)` will invoke `callback` asynchronously while the animation is running, providing a recent value. This is useful for triggering state changes, for example snapping a bobble to a new option as the user drags it closer, because these larger state changes are less sensitive to a few frames of lag compared to continuous gestures like panning which need to run at 60 fps.
+* `spring.stopAnimation(callback)` 会停止动画并且把最终的值作为参数传递给回调函数`callback` ——这在处理手势动画的时候非常有用。
+* `spring.addListener(callback)`会在动画的执行过程中持续异步调用 `callback` 回调函数，提供一个最近的值作为参数。这在用于触发状态切换的时候非常有用，譬如当用户拖拽一个东西靠近的时候弹出一个新的气泡选项。不过这个状态切换可能并不会十分灵敏，因为它不像许多连续手势操作（如旋转）那样在60fps下运行。
 
-`Animated` is designed to be fully serializable so that animations can be run in a high performance way, independent of the normal JavaScript event loop. This does influence the API, so keep that in mind when it seems a little trickier to do something compared to a fully synchronous system. Check out `Animated.Value.addListener` as a way to work around some of these limitations, but use it sparingly since it might have performance implications in the future.
+`Animated` 被设计为可以完全序列化，以保证其拥有高效率的性能，且独立于普通的js事件循环，这极大的影响了相关API的设计，所以请记住一点，当你感到非常棘手时，请查阅 `Animated.Value.addListener`,及时其作为一种有诸多限制与警告的方法，请谨慎使用（这对性能将造成极大的影响）。 
+ 
+### 使用原生驱动动画
 
-### Using the native driver
+`Animated(动画)` 的API可转化为字符串表达以便通信或存储（可序列化）。通过使用 [native driver](http://facebook.github.io/react-native/blog/2017/02/14/using-native-driver-for-animated.html)，我们在启动动画前就把其所有配置信息都发送到原生端，利用原生代码在UI线程执行动画，而不用每一帧都在两端间来回沟通。 如此一来，动画一开始就完全脱离了JS线程，因此此时即便JS线程被卡住，也不会影响到动画。
 
-The `Animated` API is designed to be serializable. By using the [native driver](http://facebook.github.io/react-native/blog/2017/02/14/using-native-driver-for-animated.html), we send everything about the animation to native before starting the animation, allowing native code to perform the animation on the UI thread without having to go through the bridge on every frame. Once the animation has started, the JS thread can be blocked without affecting the animation.
-
-Using the native driver for normal animations is quite simple. Just add `useNativeDriver: true` to the animation config when starting it.
+在动画中启用原生驱动非常简单。 只需在开始动画之前，在动画配置中加入一行`useNativeDriver: true`，如下所示：
 
 ```javascript
 Animated.timing(this.state.animatedValue, {
@@ -275,9 +277,9 @@ Animated.timing(this.state.animatedValue, {
 }).start();
 ```
 
-Animated values are only compatible with one driver so if you use native driver when starting an animation on a value, make sure every animation on that value also uses the native driver.
+动画值在不同的驱动方式之间是不能兼容的。因此如果你在某个动画中启用了原生驱动，那么所有和此动画依赖相同动画值的其他动画也必须启用原生驱动。
 
-The native driver also works with `Animated.event`. This is specially useful for animations that follow the scroll position as without the native driver, the animation will always run a frame behind the gesture due to the async nature of React Native.
+原生驱动还可以在 `Animated.event` 中使用。由于 React Native 的异步特性，这对于没有原生驱动的页面滚动后的动画特别有效，因为动画将始终运行于手势线程以外。
 
 ```javascript
 <Animated.ScrollView // <-- Use the Animated ScrollView wrapper
@@ -297,6 +299,8 @@ The native driver also works with `Animated.event`. This is specially useful for
 ```
 
 You can see the native driver in action by running the [RNTester app](https://github.com/facebook/react-native/blob/master/RNTester/), then loading the Native Animated Example. You can also take a look at the [source code](https://github.com/facebook/react-native/blob/master/RNTester/js/NativeAnimationsExample.js) to learn how these examples were produced.
+
+您可以通过运行[RNTester app](https://github.com/facebook/react-native/blob/master/RNTester/) 应用程序来熟悉原生驱动加载本地动画示例。 您也可以查看[源代码](https://github.com/facebook/react-native/blob/master/RNTester/js/NativeAnimationsExample.js)以了解这些示例的制作方式。
 
 #### Caveats
 

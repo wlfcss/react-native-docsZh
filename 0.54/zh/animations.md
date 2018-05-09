@@ -223,8 +223,6 @@ Animated.timing(opacity, {
 
 Animated.event是Animated API中与输入有关的部分，允许手势或其它事件直接绑定到动态值上。它通过一个结构化的映射语法来完成，使得复杂事件对象中的值可以被正确的解开。第一层是一个数组，允许同时映射多个值，然后数组的每一个元素是一个嵌套的对象。在下面的例子里，你可以发现scrollX被映射到了event.nativeEvent.contentOffset.x(event通常是回调函数的第一个参数)，并且pan.x和pan.y分别映射到gestureState.dx和gestureState.dy（gestureState是传递给PanResponder回调函数的第二个参数）。
 
-Gestures, like panning or scrolling, and other events can map directly to animated values using [`Animated.event`](animated.md#event). This is done with a structured map syntax so that values can be extracted from complex event objects. The first level is an array to allow mapping across multiple args, and that array contains nested objects.
-
 手势，比如平移或滚动，以及其他事件可以使用[`Animated.event`](animated.md#event)直接映射到动画值。 这是通过结构化的映射语法完成的，以便可以从复杂的事件对象中提取值。第一层是一个数组，允许同时映射多个值，然后数组的每一个元素是一个嵌套的对象
 
 For example, when working with horizontal scrolling gestures, you would do the following in order to map `event.nativeEvent.contentOffset.x` to `scrollX` (an `Animated.Value`):

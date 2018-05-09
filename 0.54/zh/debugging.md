@@ -4,23 +4,23 @@ title: 调试
 original_id: debugging
 ---
 
-## Enabling Keyboard Shortcuts
+## 开启调试快捷键
 
-React Native supports a few keyboard shortcuts in the iOS Simulator. They are described below. To enable them, open the Hardware menu, select Keyboard, and make sure that "Connect Hardware Keyboard" is checked.
+React Native 支持多种在ios模拟器上的快捷键，下面将会详细介绍，若要启动它们，打开`Hardware`菜单，选择`Keyboard`选项卡，确保 `Connect Hardware Keyboard` 选项开启。
 
-## Accessing the In-App Developer Menu
+## 访问APP内的开发菜单
 
-You can access the developer menu by shaking your device or by selecting "Shake Gesture" inside the Hardware menu in the iOS Simulator. You can also use the `⌘D` keyboard shortcut when your app is running in the iOS Simulator, or `⌘M` when running in an Android emulator. Alternatively for Android, you can run the command `adb shell input keyevent 82` to open the dev menu (82 being the Menu key code).
+您可以通过摇晃设备或在IOS模拟器的`Hardware`菜单中选择“Shake Gesture”选项来调出开发者菜单，另外，如果是在iOS模拟器中运行，还可以按下`⌘ + D` 快捷键，Android模拟器对应的则是`⌘ + M`。当然，如果是Android,您还可以通过adb工具运行命令`adb shell input keyevent 82`来打开开发者菜单（82是菜单代码）。
 
 ![](react-native/docs/assets/DeveloperMenu.png)
 
-> The Developer Menu is disabled in release (production) builds.
+> 注：在非开发调试版本（release/production builds）中开发者菜单会被关闭。
 
-## Reloading JavaScript
+## 刷新 JavaScript
 
-Instead of recompiling your app every time you make a change, you can reload your app's JavaScript code instantly. To do so, select "Reload" from the Developer Menu. You can also press `⌘R` in the iOS Simulator, or tap `R` twice on Android emulators.
+在React Native开发中，每次改动后您再也不需要等待漫长的重编译，通过`reloading javascripts(重新加载js)`将可以简单快速的查看界面/功能变化，具体的操作就是在开发菜单中点击"Reload"选项。也可以在iOS模拟器中按下`⌘ + R` ，Android模拟器上对应的则是按两下`R`。
 
-### Automatic reloading
+### 自动刷新
 
 You can speed up your development times by having your app reload automatically any time your code changes. Automatic reloading can be enabled by selecting "Enable Live Reload" from the Developer Menu.
 
@@ -88,7 +88,7 @@ Now run `react-devtools` from the terminal to launch the standalone DevTools app
 react-devtools
 ```
 
-![React DevTools](/react-native/docs/assets/ReactDevTools.png)
+![React DevTools](react-native/docs/assets/ReactDevTools.png)
 
 It should connect to your simulator within a few seconds.
 

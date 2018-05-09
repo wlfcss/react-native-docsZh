@@ -1,6 +1,6 @@
 ---
 id: version-0.54-animations
-title: 图像
+title: 动画
 original_id: animations
 ---
 
@@ -331,11 +331,11 @@ RNTester的APP里有众多的关于 `Animated(动画)` 的例子：
 
 ## `LayoutAnimation(布局动画)` API
 
-`LayoutAnimation` allows you to globally configure `create` and `update` animations that will be used for all views in the next render/layout cycle. This is useful for doing flexbox layout updates without bothering to measure or calculate specific properties in order to animate them directly, and is especially useful when layout changes may affect ancestors, for example a "see more" expansion that also increases the size of the parent and pushes down the row below which would otherwise require explicit coordination between the components in order to animate them all in sync.
+`LayoutAnimation`允许你在全局范围内`创建`和`更新`动画，这些动画会在下一次渲染或布局周期运行。它常用来更新flexbox布局，因为它可以无需测量或者计算特定属性就能直接产生动画。尤其是当布局变化可能影响到父节点（譬如“查看更多”展开动画既增加父节点的尺寸又会将位于本行之下的所有行向下推动）时，如果不使用`LayoutAnimation`，可能就需要显式声明组件的坐标，才能使得所有受影响的组件能够同步运行动画。
 
-Note that although `LayoutAnimation` is very powerful and can be quite useful, it provides much less control than `Animated` and other animation libraries, so you may need to use another approach if you can't get `LayoutAnimation` to do what you want.
+注意尽管`LayoutAnimation`非常强大，但它对动画本身的控制没有`Animated`或者其它动画库那样方便，所以如果你使用`LayoutAnimation`无法实现一个效果，那可能还是要考虑其他的方案。
 
-Note that in order to get this to work on **Android** you need to set the following flags via `UIManager`:
+另外，如果要在**Android**上使用LayoutAnimation，那么目前还需要在`UIManager`中启用：
 
 ```javascript
 UIManager.setLayoutAnimationEnabledExperimental &&
@@ -408,18 +408,17 @@ const styles = StyleSheet.create({
 });
 ```
 
-This example uses a preset value, you can customize the animations as you need, see [LayoutAnimation.js](https://github.com/facebook/react-native/blob/master/Libraries/LayoutAnimation/LayoutAnimation.js) for more information.
+上述示例使用的时内置的预设值，您自可以根据需要自定义动画，请参阅[LayoutAnimation.js](https://github.com/facebook/react-native/blob/master/Libraries/LayoutAnimation/LayoutAnimation.js)以获取更多信息。
 
-## Additional notes
+## 其他事项
 
 ### `requestAnimationFrame`
 
-`requestAnimationFrame` is a polyfill from the browser that you might be familiar with. It accepts a function as its only argument and calls that function before the next repaint. It is an essential building block for animations that underlies all of the JavaScript-based animation APIs. In general, you shouldn't need to call this yourself - the animation APIs will manage frame updates for you.
+`requestAnimationFrame`是一个对浏览器标准API的兼容实现，你可能已经熟悉它了。它接受一个函数作为唯一的参数，并且在下一次重绘之前调用此函数。一些基于JavaScript的动画库高度依赖于这一API。通常你不必直接调用它——那些动画库会替你管理好帧的更新。
 
 ### `setNativeProps`
 
-As mentioned [in the Direct Manipulation section](direct-manipulation.md), `setNativeProps` allows us to modify properties of native-backed components (components that are actually backed by native views, unlike composite components) directly, without having to `setState` and re-render the component hierarchy.
+正如[in the Direct Manipulation section(直接操作)](direct-manipulation.html)文档所说，`setNativeProps`方法可以使我们直接修改基于原生视图的组件的属性，而不需要使用`setState`来重新渲染整个组件树。如果我们要更新的组件有一个非常深的内嵌结构，并且没有使用`shouldComponentUpdate`来优化，那么使用`setNativeProps`就将大有裨益。
 
-We could use this in the Rebound example to update the scale - this might be helpful if the component that we are updating is deeply nested and hasn't been optimized with `shouldComponentUpdate`.
-
-If you find your animations with dropping frames (performing below 60 frames per second), look into using `setNativeProps` or `shouldComponentUpdate` to optimize them. Or you could run the animations on the UI thread rather than the JavaScript thread [with the useNativeDriver option](http://facebook.github.io/react-native/blog/2017/02/14/using-native-driver-for-animated.html). You may also want to defer any computationally intensive work until after animations are complete, using the [InteractionManager](interactionmanager.md). You can monitor the frame rate by using the In-App Developer Menu "FPS Monitor" tool.
+如果你发现你的动画丢帧（低于60帧每秒），可以尝试使用`setNativeProps`或者`shouldComponentUpdate`来优化它们。
+或者，您也可以在UI线程上运行动画，而不是使用[useNativeDriver选项](http://facebook.github.io/react-native/blog/2017/02/14/using-native-driver-for-animated.html)运行JavaScript线程。你还可以考虑将部分计算工作放在动画完成之后进行，这时可以使用[InteractionManager](interactionmanager.html)。你还可以使用应用内的开发者菜单中的“FPS Monitor”工具来监控应用的帧率。

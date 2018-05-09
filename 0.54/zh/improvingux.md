@@ -30,7 +30,7 @@ original_id: improvingux
 
 查看 [`TextInput`文档](textinput.md)以获取更多的配置选项
 
-<video src="/react-native/img/textinput.mp4" autoplay loop width="320" height="430"></video>
+<video src="react-native/img/textinput.mp4" autoplay loop width="320" height="430"></video>
 
 [在您的移动设备上进行尝试](https://snack.expo.io/H1iGt2vSW)
 

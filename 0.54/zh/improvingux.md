@@ -46,7 +46,7 @@ original_id: improvingux
 
 在手机上很难精确的按准按钮。 一方面可以确保所有互动元素大小至少有 `44x44`。 另一种则是为元素留出足够的空间:`padding`，`minWidth`和`minHeight`样式。 或者，您可以使用[`hitSlop` prop](touchablewithoutfeedback.md#hitslop) 来增加交互区域而不影响布局。 请看下面的演示：
 
-<video src="/react-native/img/hitslop.mp4" autoplay loop width="320" height="120"></video>
+
 ![](react-native/img/hitslop.gif)
 
 [在您的移动设备上进行尝试](https://snack.expo.io/rJPwCt4HZ)
@@ -55,7 +55,7 @@ original_id: improvingux
 
 Android API 21使用 **material设计风格**的波纹效果在用户触摸屏幕上的可互动区域时向用户提供视觉反馈。 React Native通过[`TouchableNativeFeedback` 组件](touchablenativefeedback.md)调用。 使用这种可触摸的效果会比不透明度或高亮显示更加合适。 也就是说，使用它时需要小心，因为它不适用于iOS或Android API <21，所以您需要在跨平台时准备其他方案以适配ios。当然您可以使用像[react-native-platform-touchable](https://github.com/react-community/react-native-platform-touchable)这样的库来处理您的平台差异。
 
-<video src="/react-native/img/ripple.mp4" autoplay loop width="320"></video>
+![](react-native/img/ripple.gif)
 
 [在您的移动设备上进行尝试](https://snack.expo.io/SJywqe3rZ)
 

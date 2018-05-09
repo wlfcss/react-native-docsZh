@@ -322,14 +322,14 @@ While using transform styles such as `rotateY`, `rotateX`, and others ensure the
 />
 ```
 
-### Additional examples
+### 其他例子
 
-The RNTester app has various examples of `Animated` in use:
+RNTester的APP里有众多的关于 `Animated(动画)` 的例子：
 
 * [AnimatedGratuitousApp](https://github.com/facebook/react-native/tree/master/RNTester/js/AnimatedGratuitousApp)
 * [NativeAnimationsExample](https://github.com/facebook/react-native/blob/master/RNTester/js/NativeAnimationsExample.js)
 
-## `LayoutAnimation` API
+## `LayoutAnimation(布局动画)` API
 
 `LayoutAnimation` allows you to globally configure `create` and `update` animations that will be used for all views in the next render/layout cycle. This is useful for doing flexbox layout updates without bothering to measure or calculate specific properties in order to animate them directly, and is especially useful when layout changes may affect ancestors, for example a "see more" expansion that also increases the size of the parent and pushes down the row below which would otherwise require explicit coordination between the components in order to animate them all in sync.
 

@@ -302,12 +302,7 @@ Animated.timing(this.state.animatedValue, {
 
 #### 注意事项
 
-Not everything you can do with `Animated` is currently supported by the native driver. The main limitation is that you can only animate non-layout properties: things like `transform` and `opacity` will work, but flexbox and position properties will not. When using `Animated.event`, it will only work with direct events and not bubbling events. This means it does not work with `PanResponder` but does work with things like `ScrollView#onScroll`.
-
 原生驱动目前并不完全支持`Animated`。 主要限制是您只能对非布局属性进行动画处理：比如 `transform` 和 `opacity` 但`flexbox`和`position`属性则不行。 使用`Animated.event`时，它只能用于直接事件而不是冒泡事件。 这意味着它不适用于`PanResponder`，但可以与`ScrollView#onScroll`一起使用
-
-When an animation is running, it can prevent `VirtualizedList` components from rendering more rows. If you need to run a long or looping animation while the user is scrolling through a list, you can use `isInteraction: false` in your animation's config to prevent this issue.
-
 在动画运行时，可以防止VirtualizedList组件渲染更多行。 如果您需要在用户滚动浏览列表时运行长循环动画，则可以在动画配置中使用 `isInteraction：false` 来防止此问题。
 
 ### Bear in mind

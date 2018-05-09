@@ -6,9 +6,7 @@ original_id: improvingux
 
 在移动应用开发之中，有大量琐碎而微妙的细节需要注意，而开发人员往往会忽视掉这些东西，本文将介绍这些问题，并示例如何在React Native中处理这些问题。
 
-> We are improving and adding more details to this page. If you'd like to help out, chime in at [react-native/14979](https://github.com/facebook/react-native/issues/14979).
-
-我们将持续改进并增加更多关于“提升用户体验”的信息。 如果你想帮忙，请访问 [react-native/14979](https://github.com/facebook/react-native/issues/14979)。
+> 我们将持续改进并增加更多关于“提升用户体验”的信息。 如果你想帮忙，请访问 [react-native/14979](https://github.com/facebook/react-native/issues/14979)。
 
 ## 要点索引
 
@@ -35,26 +33,31 @@ Check out [`TextInput` docs](textinput.md) for more configuration options.
 
 <video src="/react-native/img/textinput.mp4" autoplay loop width="320" height="430"></video>
 
-[Try it on your phone](https://snack.expo.io/H1iGt2vSW)
+[在您的移动设备上进行尝试](https://snack.expo.io/H1iGt2vSW)
 
 ## 虚拟键盘弹出时的布局管理
 
 Software keyboard takes almost half of the screen. If you have interactive elements that can get covered by the keyboard, make sure they are still accessible by using the [`KeyboardAvoidingView` component](keyboardavoidingview.md).
 
+软件(虚拟)键盘几乎占据了屏幕的一半。 如果您的交互式元素会被键盘覆盖，请确保它们仍可通过使用[`KeyboardAvoidingView`ss组件](keyboardavoidingview.md)访问。
+
 <video src="/react-native/img/keyboardavoidingview.mp4" autoplay loop width="320" height="448"></video>
 
-[Try it on your phone](https://snack.expo.io/ryxRkwnrW)
+[在您的移动设备上进行尝试](https://snack.expo.io/ryxRkwnrW)
 
-## Make tappable areas larger
+## 合理的扩大可点击区域
 
 On mobile phones it's hard to be very precise when pressing buttons. Make sure all interactive elements are 44x44 or larger. One way to do this is to leave enough space for the element, `padding`, `minWidth` and `minHeight` style values can be useful for that. Alternatively, you can use [`hitSlop` prop](touchablewithoutfeedback.md#hitslop) to increase interactive area without affecting the layout. Here's a demo:
 
+在手机上很难精确的按准按钮。 一方面可以确保所有互动元素大小至少有 `44x44`。 另一种则是为元素留出足够的空间:`padding`，`minWidth`和`minHeight`样式。 或者，您可以使用[`hitSlop` prop](touchablewithoutfeedback.md#hitslop) 来增加交互区域而不影响布局。 请看下面的演示：
+
 <video src="/react-native/img/hitslop.mp4" autoplay loop width="320" height="120"></video>
 
-[Try it on your phone](https://snack.expo.io/rJPwCt4HZ)
+[在您的移动设备上进行尝试](https://snack.expo.io/rJPwCt4HZ)
 
-## Use Android Ripple
+## 使用安卓波纹效果（Android Ripple）
 
+在21+版本的安卓中
 Android API 21+ uses the material design ripple to provide user with feedback when they touch an interactable area on the screen. React Native exposes this through the [`TouchableNativeFeedback` component](touchablenativefeedback.md). Using this touchable effect instead of opacity or highlight will often make your app feel much more fitting on the platform. That said, you need to be careful when using it because it doesn't work on iOS or on Android API < 21, so you will need to fallback to using one of the other Touchable components on iOS. You can use a library like [react-native-platform-touchable](https://github.com/react-community/react-native-platform-touchable) to handle the platform differences for you.
 
 <video src="/react-native/img/ripple.mp4" autoplay loop width="320"></video>

@@ -307,7 +307,7 @@ Animated.timing(this.state.animatedValue, {
 
 ### Bear in mind
 
-While using transform styles such as `rotateY`, `rotateX`, and others ensure the transform style `perspective` is in place. At this time some animations may not render on Android without it. Example below.
+当使用诸如：`rotateY`, `rotateX`等转换样式时，必须要定义 `perspective` 属性，否则某些动画可能无法在 Android/ios 上运行。 请查看下方的例子：
 
 ```javascript
 <Animated.View

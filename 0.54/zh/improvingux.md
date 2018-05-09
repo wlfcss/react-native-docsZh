@@ -26,9 +26,8 @@ original_id: improvingux
 * 使用输入提示（placeholder）来展示正确的输入数据示例
 * 启用或关闭自动补全和自动纠错
 * 选择合适的键盘类型 (比如 邮件, 数字)
-* Make sure the return button focuses the next field or submits the form 确保返回按钮
+* Make sure the return button focuses the next field or submits the form
 
-Check out [`TextInput` docs](textinput.md) for more configuration options.
 查看 [`TextInput`文档](textinput.md)以获取更多的配置选项
 
 <video src="/react-native/img/textinput.mp4" autoplay loop width="320" height="430"></video>
@@ -36,8 +35,6 @@ Check out [`TextInput` docs](textinput.md) for more configuration options.
 [在您的移动设备上进行尝试](https://snack.expo.io/H1iGt2vSW)
 
 ## 虚拟键盘弹出时的布局管理
-
-Software keyboard takes almost half of the screen. If you have interactive elements that can get covered by the keyboard, make sure they are still accessible by using the [`KeyboardAvoidingView` component](keyboardavoidingview.md).
 
 软件(虚拟)键盘几乎占据了屏幕的一半。 如果您的交互式元素会被键盘覆盖，请确保它们仍可通过使用[`KeyboardAvoidingView`ss组件](keyboardavoidingview.md)访问。
 
@@ -47,8 +44,6 @@ Software keyboard takes almost half of the screen. If you have interactive eleme
 
 ## 合理的扩大可点击区域
 
-On mobile phones it's hard to be very precise when pressing buttons. Make sure all interactive elements are 44x44 or larger. One way to do this is to leave enough space for the element, `padding`, `minWidth` and `minHeight` style values can be useful for that. Alternatively, you can use [`hitSlop` prop](touchablewithoutfeedback.md#hitslop) to increase interactive area without affecting the layout. Here's a demo:
-
 在手机上很难精确的按准按钮。 一方面可以确保所有互动元素大小至少有 `44x44`。 另一种则是为元素留出足够的空间:`padding`，`minWidth`和`minHeight`样式。 或者，您可以使用[`hitSlop` prop](touchablewithoutfeedback.md#hitslop) 来增加交互区域而不影响布局。 请看下面的演示：
 
 <video src="/react-native/img/hitslop.mp4" autoplay loop width="320" height="120"></video>
@@ -57,17 +52,16 @@ On mobile phones it's hard to be very precise when pressing buttons. Make sure a
 
 ## 使用安卓波纹效果（Android Ripple）
 
-在21+版本的安卓中
-Android API 21+ uses the material design ripple to provide user with feedback when they touch an interactable area on the screen. React Native exposes this through the [`TouchableNativeFeedback` component](touchablenativefeedback.md). Using this touchable effect instead of opacity or highlight will often make your app feel much more fitting on the platform. That said, you need to be careful when using it because it doesn't work on iOS or on Android API < 21, so you will need to fallback to using one of the other Touchable components on iOS. You can use a library like [react-native-platform-touchable](https://github.com/react-community/react-native-platform-touchable) to handle the platform differences for you.
+Android API 21使用 **material设计风格**的波纹效果在用户触摸屏幕上的可互动区域时向用户提供视觉反馈。 React Native通过[`TouchableNativeFeedback` 组件](touchablenativefeedback.md)调用。 使用这种可触摸的效果会比不透明度或高亮显示更加合适。 也就是说，使用它时需要小心，因为它不适用于iOS或Android API <21，所以您需要在跨平台时准备其他方案以适配ios。当然您可以使用像[react-native-platform-touchable](https://github.com/react-community/react-native-platform-touchable)这样的库来处理您的平台差异。
 
 <video src="/react-native/img/ripple.mp4" autoplay loop width="320"></video>
 
-[Try it on your phone](https://snack.expo.io/SJywqe3rZ)
+[在您的移动设备上进行尝试](https://snack.expo.io/SJywqe3rZ)
 
-## Screen orientation lock
+## 显示横竖屏锁定
 
-Unless supporting both, it is considered good practice to lock the screen orientation to either portrait or landscape. On iOS, in the General tab and Deployment Info section of Xcode enable the Device Orientation you want to support (ensure you have selected iPhone from the Devices menu when making the changes). For Android, open the AndroidManifest.xml file and within the activity element add 'android:screenOrientation=”portrait”' to lock to portrait or 'android:screenOrientation=”landscape”' to lock to landscape.
+除非布局兼容支持横竖屏，否则最好的做法应是将屏幕方向锁定为纵向或横向。 在iOS上，在 `Xcode` 的常规选项卡和部署信息部分中，启用要支持的设备方向（确保您在进行更改时从设备菜单中选择了iPhone）。 对于`Android` ，打开`AndroidManifest.xml`文件并在 **activity** 元素中添加 `android：screenOrientation ='portrait'`来锁定为纵向或`android：screenOrientation ='landscape'`来锁定横向。
 
 # Learn more
 
-[Material Design](https://material.io/) and [Human Interface Guidelines](https://developer.apple.com/ios/human-interface-guidelines/overview/design-principles/) are great resources for learning more about designing for mobile platforms.
+[Material Design](https://material.io/) 和 [Human Interface Guidelines](https://developer.apple.com/ios/human-interface-guidelines/overview/design-principles/) 是了解更多关于移动平台设计的优秀资源。

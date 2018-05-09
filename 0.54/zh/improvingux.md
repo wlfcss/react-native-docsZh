@@ -30,7 +30,7 @@ original_id: improvingux
 
 查看 [`TextInput`文档](textinput.md)以获取更多的配置选项
 
-<video src="react-native/img/textinput.mp4" autoplay loop width="320" height="430"></video>
+![](react-native/img/textinput.gif)
 
 [在您的移动设备上进行尝试](https://snack.expo.io/H1iGt2vSW)
 
@@ -38,7 +38,7 @@ original_id: improvingux
 
 软件(虚拟)键盘几乎占据了屏幕的一半。 如果您的交互式元素会被键盘覆盖，请确保它们仍可通过使用[`KeyboardAvoidingView`ss组件](keyboardavoidingview.md)访问。
 
-<video src="/react-native/img/keyboardavoidingview.mp4" autoplay loop width="320" height="448"></video>
+![](react-native/img/keyboardavoidingview.gif)
 
 [在您的移动设备上进行尝试](https://snack.expo.io/ryxRkwnrW)
 
@@ -47,6 +47,7 @@ original_id: improvingux
 在手机上很难精确的按准按钮。 一方面可以确保所有互动元素大小至少有 `44x44`。 另一种则是为元素留出足够的空间:`padding`，`minWidth`和`minHeight`样式。 或者，您可以使用[`hitSlop` prop](touchablewithoutfeedback.md#hitslop) 来增加交互区域而不影响布局。 请看下面的演示：
 
 <video src="/react-native/img/hitslop.mp4" autoplay loop width="320" height="120"></video>
+![](react-native/img/hitslop.gif)
 
 [在您的移动设备上进行尝试](https://snack.expo.io/rJPwCt4HZ)
 

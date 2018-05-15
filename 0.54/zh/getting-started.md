@@ -88,7 +88,7 @@ original_id: getting-started
       快速开始
     </li>
     <li id="native" class="button-native" aria-selected="false" role="tab" tabindex="-1" aria-controls="nativetab" onclick="displayTab('guide', 'native')">
-      Building Projects with Native Code
+      构建本地开发环境
     </li>
   </ul>
 </div>
@@ -150,15 +150,15 @@ npm start
 
 如果您必须嵌入原生开发代码，那么创建React Native应用程序仍然是开始的好方法。在这种情况下，你只需要使用"[eject](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md#ejecting-from-create-react-native-app)"来构建本地项目。如果您使用`eject`，则需要“Building Projects with Native Code”继续处理项目。
 
-Create React Native App configures your project to use the most recent React Native version that is supported by the Expo client app. The Expo client app usually gains support for a given React Native version about a week after the React Native version is released as stable. You can check [this document](https://github.com/react-community/create-react-native-app/blob/master/VERSIONS.md) to find out what versions are supported.
+`Create React Native App` 将为您的项目配置并使用`EXPO客户端`所支持的最新 React-Native 版本。当React Native版本稳定发布后的一周左右，Expo客户端通常会获得最新的React Native版本的支持。 您可以[查看此文档](https://github.com/react-community/create-react-native-app/blob/master/VERSIONS.md)以了解哪些版本受支持
 
-If you're integrating React Native into an existing project, you'll want to skip Create React Native App and go directly to setting up the native build environment. Select "Building Projects with Native Code" above for instructions on configuring a native build environment for React Native.
+如果您将React Native集成到现有项目中，则您需要跳过`create React Native App`并学习如何设置本地开发环境。 有关为React Native配置本机开发环境的说明，请选择上面的“使用本机代码构建项目”。
 
 <block class="native mac windows linux ios android" />
 
-<p>Follow these instructions if you need to build native code in your project. For example, if you are integrating React Native into an existing application, or if you "ejected" from <a href="getting-started.html" onclick="displayTab('guide', 'quickstart')">Create React Native App</a>, you'll need this section.</p>
+<p>如果您需要在您的项目中构建本地代码，请按下列的说明操作。 例如，如果您要将React Native集成到现有的程序中，又不想使用<a href="getting-started.html" onclick="displayTab('guide', 'quickstart')">Create React Native App`</a>，请仔细阅读本教程</p>
 
-The instructions are a bit different depending on your development operating system, and whether you want to start developing for iOS or Android. If you want to develop for both iOS and Android, that's fine - you just have to pick one to start with, since the setup is a bit different.
+根据你所使用的操作系统、针对的目标平台不同，具体步骤有所不同。如果想同时开发iOS和Android也没问题，你只需要先选一个平台开始，另一个平台的环境搭建只是稍有不同。
 
 <div class="toggler">
   <span>Development OS:</span>
@@ -174,37 +174,39 @@ The instructions are a bit different depending on your development operating sys
 
 ## Unsupported
 
-<blockquote><p>A Mac is required to build projects with native code for iOS. You can follow the <a href="getting-started.md" onclick="displayTab('guide', 'quickstart')">Quick Start</a> to learn how to build your app using Create React Native App instead.</p></blockquote>
+<blockquote><p>使用本地开发环境构建IOS程序必须要使用MAC，当然你也可以前往 <a href="getting-started.md" onclick="displayTab('guide', 'quickstart')">快速开始</a> 学习使用 Create React Native App 来代替。</p></blockquote>
 
 <block class="native mac ios" />
 
-## Installing dependencies
+## 安装依赖
 
-You will need Node, Watchman, the React Native command line interface, and Xcode.
+你需要安装 Node、Watchman,react-native命令行工具和xcode。
 
-While you can use any editor of your choice to develop your app, you will need to install Xcode in order to set up the necessary tooling to build your React Native app for iOS.
+虽然你可以使用任意编辑器（IDE）来开发你的App，但你必须要安装 **xcode** 才能完整构建适用于iOS的React Native应用程序。
 
 <block class="native mac android" />
 
-## Installing dependencies
+## 安装依赖
 
-You will need Node, Watchman, the React Native command line interface, a JDK, and Android Studio.
+你需要安装 Node、Watchman,react-native命令行工具以及JDK和Android Studio。
 
 <block class="native linux android" />
 
-## Installing dependencies
+## 安装依赖
 
-You will need Node, the React Native command line interface, a JDK, and Android Studio.
+你需要安装 Node、react-native命令行工具以及JDK和Android Studio。
 
 <block class="native windows android" />
 
-## Installing dependencies
+## 安装依赖
 
-You will need Node, the React Native command line interface, Python2, a JDK, and Android Studio.
+你需要安装 Node、react-native命令行工具、python2以及JDK和Android Studio。
 
 <block class="native mac windows linux android" />
 
 While you can use any editor of your choice to develop your app, you will need to install Android Studio in order to set up the necessary tooling to build your React Native app for Android.
+
+虽然你可以使用任意编辑器（IDE）来开发你的App，你最好安装 **Android Studio** 以自动配置安卓的相关依赖包及组件。
 
 <block class="native mac ios android" />
 
@@ -212,14 +214,18 @@ While you can use any editor of your choice to develop your app, you will need t
 
 We recommend installing Node and Watchman using [Homebrew](http://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
 
+我们推荐使用 [Homebrew](http://brew.sh/) 来安装 Node 和 Watchman ,在安装好Homebrew之后你可以通过下列命令安装：
+
 ```
 brew install node
 brew install watchman
 ```
 
-If you have already installed Node on your system, make sure it is version 6 or newer.
+如果你已经安装了 Node 环境，请确认其版本 >= 8.0
 
 [Watchman](https://facebook.github.io/watchman) is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance.
+
+[Watchman](https://facebook.github.io/watchman) 是一个由Facebook开发的实时监控开发文件变更的工具，我们强烈建议你安装此工具以获得更好的开发体验。
 
 <block class="native linux android" />
 
@@ -231,23 +237,23 @@ Follow the [installation instructions for your Linux distribution](https://nodej
 
 ### Node, Python2, JDK
 
-We recommend installing Node and Python2 via [Chocolatey](https://chocolatey.org), a popular package manager for Windows.
+我们推荐使用[Chocolatey](https://chocolatey.org)来安装 Node 和 Python2,这是一个倍受欢迎的windows包管理工具。
 
-React Native also requires a recent version of the [Java SE Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html), as well as Python 2. Both can be installed using Chocolatey.
+React Native 仍然需要安装新版本的[Java SE Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html),当然，你也可以通过 `Chocolatey` 进行安装。
 
-Open an Administrator Command Prompt (right click Command Prompt and select "Run as Administrator"), then run the following command:
+请使用管理员权限运行windows命令行(右键点击CMD快捷方式选择“使用管理员权限运行”)，再运行以下命令：
 
 ```powershell
 choco install -y nodejs.install python2 jdk8
 ```
 
-If you have already installed Node on your system, make sure it is version 6 or newer. If you already have a JDK on your system, make sure it is version 8 or newer.
+如果你已经安装了 Node 环境，请确认其版本 >= 8.0，如果你已经安装了 JDK 环境，请确认其版本 >= 8.0
 
 > You can find additional installation options on [Node's Downloads page](https://nodejs.org/en/download/).
 
 <block class="native mac ios android" />
 
-### The React Native CLI
+### React Native CLI（命令行工具）
 
 Node comes with npm, which lets you install the React Native command line interface.
 

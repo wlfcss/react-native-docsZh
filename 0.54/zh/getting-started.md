@@ -257,7 +257,7 @@ choco install -y nodejs.install python2 jdk8
 
 Node包含了NPM(包管理器),你可以使用此工具安装 `React Native CLI`
 
-在命令行里运行下列命令
+在命令行里运行下列命令进行安装
 
 ```
 npm install -g react-native-cli
@@ -269,15 +269,15 @@ npm install -g react-native-cli
 
 ### The React Native CLI
 
-Node comes with npm, which lets you install the React Native command line interface.
+Node包含了NPM(包管理器),你可以使用此工具安装 `React Native CLI`
 
-Run the following command in a Command Prompt or shell:
+在命令行里运行下列命令进行安装
 
 ```powershell
 npm install -g react-native-cli
 ```
 
-> If you get an error like `Cannot find module 'npmlog'`, try installing npm directly: `curl -0 -L https://npmjs.org/install.sh | sudo sh`.
+> 如果遇到`Cannot find module 'npmlog'`的错误，请尝试直接安装npm：`curl -0 -L https://npmjs.org/install.sh | sudo sh`。
 
 <block class="native mac ios" />
 

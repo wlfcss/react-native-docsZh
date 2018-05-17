@@ -283,33 +283,35 @@ npm install -g react-native-cli
 
 ### Xcode
 
-The easiest way to install Xcode is via the [Mac App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12). Installing Xcode will also install the iOS Simulator and all the necessary tools to build your iOS app.
+安装Xcode的最简单方法是通过Mac App Store在线安装。 安装Xcode也会安装iOS模拟器和构建iOS应用程序所必需的各种工具和依赖库。
 
-If you have already installed Xcode on your system, make sure it is version 8 or higher.
+如果你已经安装了 Xcode,请确保其版本>=8。
 
-#### Command Line Tools
+#### 命令行工具 Command Line Tools
 
-You will also need to install the Xcode Command Line Tools. Open Xcode, then choose "Preferences..." from the Xcode menu. Go to the Locations panel and install the tools by selecting the most recent version in the Command Line Tools dropdown.
+您还需要安装Xcode命令行工具。 打开Xcode，然后从Xcode菜单中选择 **“Preferences ...”**。 转至**Locations panel**选择最新版以安装。
 
-![Xcode Command Line Tools](/react-native/docs/assets/GettingStartedXcodeCommandLineTools.png)
+![Xcode Command Line Tools](react-native/docs/assets/GettingStartedXcodeCommandLineTools.png)
 
 <block class="native mac linux android" />
 
-### Java Development Kit
+### Java开发工具包 Java Development Kit（jdk）
 
 React Native requires a recent version of the Java SE Development Kit (JDK). [Download and install JDK 8 or newer](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) if needed.
 
+React Native需要最新版本的Java SE开发工具包（JDK）。 如果需要，请下载并安装[JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)或更新的版本。
+
 <block class="native mac linux windows android" />
 
-### Android development environment
+### Android开发环境
 
-Setting up your development environment can be somewhat tedious if you're new to Android development. If you're already familiar with Android development, there are a few things you may need to configure. In either case, please make sure to carefully follow the next few steps.
+如果您不熟悉Android开发，那么请严格按照步骤进行设置。如果您已经熟悉Android开发，则只需要增加几项配置即可。但无论哪种情况，请仔细按照以下几个步骤操作。
 
 <block class="native mac windows linux android" />
 
-#### 1. Install Android Studio
+#### 1. 安装 Android Studio
 
-[Download and install Android Studio](https://developer.android.com/studio/index.html). Choose a "Custom" setup when prompted to select an installation type. Make sure the boxes next to all of the following are checked:
+[下载并安装 Android Studio](https://developer.android.com/studio/index.html)。当安装程序提示您选择安装类型时，请选择“Custom”选项。 确保勾选下列选项：
 
 <block class="native mac windows android" />
 
@@ -326,17 +328,17 @@ Setting up your development environment can be somewhat tedious if you're new to
 
 <block class="native mac windows linux android" />
 
-Then, click "Next" to install all of these components.
+接下来，点击 "Next" 以完成所有组件的安装。
 
-> If the checkboxes are grayed out, you will have a chance to install these components later on.
+> 如果组件勾选框为灰色（无法勾选），你也可以选择稍后安装这些组件。（译者注：勾选框为灰色一般是由于未完整下载安装配置安卓基础SDK，请确保网络连接，中国大陆用户可能需要使用科学上网）
 
-Once setup has finalized and you're presented with the Welcome screen, proceed to the next step.
+安装完成后，您将看到“欢迎”屏幕，请继续下一步。
 
-#### 2. Install the Android SDK
+#### 2. 安装 Android SDK
 
-Android Studio installs the latest Android SDK by default. Building a React Native app with native code, however, requires the `Android 6.0 (Marshmallow)` SDK in particular. Additional Android SDKs can be installed through the SDK Manager in Android Studio.
+Android Studio默认安装的时最新的Android SDK。 但是，使用本机代码构建React Native应用程序需要 **Android 6.0（Marshmallow）SDK**。 其他的Android SDK请通过Android Studio中的SDK Manager安装。
 
-The SDK Manager can be accessed from the "Welcome to Android Studio" screen. Click on "Configure", then select "SDK Manager".
+你可以通过 Android Studio 的启动欢迎屏幕访问 `SDK Manager`：点击 "Configure",选择 "SDK Manager"。
 
 <block class="native mac android" />
 

@@ -342,17 +342,19 @@ Android Studio默认安装的时最新的Android SDK。 但是，使用本机代
 
 <block class="native mac android" />
 
-![Android Studio Welcome](/react-native/docs/assets/GettingStartedAndroidStudioWelcomeMacOS.png)
+![Android Studio Welcome](react-native/docs/assets/GettingStartedAndroidStudioWelcomeMacOS.png)
 
 <block class="native windows android" />
 
-![Android Studio Welcome](/react-native/docs/assets/GettingStartedAndroidStudioWelcomeWindows.png)
+![Android Studio Welcome](react-native/docs/assets/GettingStartedAndroidStudioWelcomeWindows.png)
 
 <block class="native mac windows linux android" />
 
-> The SDK Manager can also be found within the Android Studio "Preferences" dialog, under **Appearance & Behavior** → **System Settings** → **Android SDK**.
+> SDK Manager 也可以通过 Android Studio 的 "Preferences" 选项卡中找到:**Appearance & Behavior** → **System Settings** → **Android SDK**.
 
 Select the "SDK Platforms" tab from within the SDK Manager, then check the box next to "Show Package Details" in the bottom right corner. Look for and expand the `Android 6.0 (Marshmallow)` entry, then make sure the following items are all checked:
+
+从SDK Manager中选择“SDK Platforms”选项卡，然后勾选右下角的“Show Package Details”单选框。 展开 Android 6.0（Marshmallow）条目，确保勾选了下列选项：
 
 * `Google APIs`
 * `Android SDK Platform 23`
@@ -361,45 +363,45 @@ Select the "SDK Platforms" tab from within the SDK Manager, then check the box n
 
 <block class="native mac android" />
 
-![Android SDK Manager](/react-native/docs/assets/GettingStartedAndroidSDKManagerMacOS.png)
+![Android SDK Manager](react-native/docs/assets/GettingStartedAndroidSDKManagerMacOS.png)
 
 <block class="native windows android" />
 
-![Android SDK Manager](/react-native/docs/assets/GettingStartedAndroidSDKManagerWindows.png)
+![Android SDK Manager](react-native/docs/assets/GettingStartedAndroidSDKManagerWindows.png)
 
 <block class="native windows mac linux android" />
 
-Next, select the "SDK Tools" tab and check the box next to "Show Package Details" here as well. Look for and expand the "Android SDK Build-Tools" entry, then make sure that `23.0.1` is selected.
+接下来，选择 “SDK Tools” 选项卡，勾选右下角的“Show Package Details”单选框，找到并展开 “Android SDK-Tools”,确保选中了`23.0.1`。
 
 <block class="native mac android" />
 
-![Android SDK Manager - 23.0.1 Build Tools](/react-native/docs/assets/GettingStartedAndroidSDKManagerSDKToolsMacOS.png)
+![Android SDK Manager - 23.0.1 Build Tools](react-native/docs/assets/GettingStartedAndroidSDKManagerSDKToolsMacOS.png)
 
 <block class="native windows android" />
 
-![Android SDK Manager - 23.0.1 Build Tools](/react-native/docs/assets/GettingStartedAndroidSDKManagerSDKToolsWindows.png)
+![Android SDK Manager - 23.0.1 Build Tools](react-native/docs/assets/GettingStartedAndroidSDKManagerSDKToolsWindows.png)
 
 <block class="native windows mac linux android" />
 
-Finally, click "Apply" to download and install the Android SDK and related build tools.
+最后，点击 “Apply” 以下载并安装 Android SDK 和 相关构建工具。
 
 <block class="native mac android" />
 
-![Android SDK Manager - Installs](/react-native/docs/assets/GettingStartedAndroidSDKManagerInstallsMacOS.png)
+![Android SDK Manager - Installs](react-native/docs/assets/GettingStartedAndroidSDKManagerInstallsMacOS.png)
 
 <block class="native windows android" />
 
-![Android SDK Manager - Installs](/react-native/docs/assets/GettingStartedAndroidSDKManagerInstallsWindows.png)
+![Android SDK Manager - Installs](react-native/docs/assets/GettingStartedAndroidSDKManagerInstallsWindows.png)
 
 <block class="native mac windows linux android" />
 
-#### 3. Configure the ANDROID_HOME environment variable
+#### 3. 配置 ANDROID_HOME 环境变量
 
-The React Native tools require some environment variables to be set up in order to build apps with native code.
+React Native 工具需要配置环境变量才能正常构建APP程序。
 
 <block class="native mac linux android" />
 
-Add the following lines to your `$HOME/.bash_profile` config file:
+将下列配置加入 `$HOME/.bash_profile` 配置文件:
 
 <block class="native mac android" />
 
@@ -419,45 +421,47 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 <block class="native mac linux android" />
 
-> `.bash_profile` is specific to `bash`. If you're using another shell, you will need to edit the appropriate shell-specific config file.
+> `.bash_profile` 仅仅是 `bash` 的特有配置文件，如果你使用的是其它的shell，请编辑其对应的配置文件。
 
-Type `source $HOME/.bash_profile` to load the config into your current shell. Verify that ANDROID_HOME has been added to your path by running `echo $PATH`.
+使用命令 `source $HOME/.bash_profile` 以加载新的配置文件到shell之中，可以使用 `echo $PATH` 来验证 ANDROID_HOME 环境变量是否被成功配置
 
-> Please make sure you use the correct Android SDK path. You can find the actual location of the SDK in the Android Studio "Preferences" dialog, under **Appearance & Behavior** → **System Settings** → **Android SDK**.
+> 请确认你Android SDK的本地路径，你可以从Android Studio 的 “Preferences” 菜单项中找到并确认：  **Appearance & Behavior** → **System Settings** → **Android SDK**。
 
 <block class="native windows android" />
 
 Open the System pane under **System and Security** in the Control Panel, then click on **Change settings...**. Open the **Advanced** tab and click on **Environment Variables...**. Click on **New...** to create a new `ANDROID_HOME` user variable that points to the path to your Android SDK:
 
-![ANDROID_HOME Environment Variable](/react-native/docs/assets/GettingStartedAndroidEnvironmentVariableANDROID_HOME.png)
+![ANDROID_HOME Environment Variable](react-native/docs/assets/GettingStartedAndroidEnvironmentVariableANDROID_HOME.png)
 
-The SDK is installed, by default, at the following location:
+如果SDK已经安装了，默认情况下其安装路径为：
 
 ```powershell
 c:\Users\YOUR_USERNAME\AppData\Local\Android\Sdk
 ```
 
-You can find the actual location of the SDK in the Android Studio "Preferences" dialog, under **Appearance & Behavior** → **System Settings** → **Android SDK**.
+您可以在Android Studio “Preferences” 对话框中找到SDK的实际位置：**Appearance & Behavior** → **System Settings** → **Android SDK**。
 
-Open a new Command Prompt window to ensure the new environment variable is loaded before proceeding to the next step.
+在进行下一步之前，请打开一个新的命令提示窗以确保其加载了新的环境变量。
 
 <block class="native linux android" />
 
-### Watchman (optional)
+### Watchman (可选)
 
-Follow the [Watchman installation guide](https://facebook.github.io/watchman/docs/install.html#buildinstall) to compile and install Watchman from source.
+请根据 [Watchman 安装指南](https://facebook.github.io/watchman/docs/install.html#buildinstall)从源码编译并安装。
 
-> [Watchman](https://facebook.github.io/watchman/docs/install.html) is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance, but it's alright to skip this if you find the process to be tedious.
+> [Watchman](https://facebook.github.io/watchman/docs/install.html)是一个由Facebook开发为了监控文件系统是否发生改变的工具，我们强烈建议您安装它以获得更好的性能，但如果您发现该过程过于繁琐，也可以跳过此步骤。
 
 <block class="native mac ios" />
 
-## Creating a new application
+## 构建一个新的应用程序
 
-Use the React Native command line interface to generate a new React Native project called "AwesomeProject":
+使用 React Native 命令行工具搭建一个名为 "AwesomeProject" 的新项目：
 
 ```
 react-native init AwesomeProject
 ```
+
+如果您想将React Native集成到现有的应用程序中，或者如果您使用“ Create React Native App ”
 
 This is not necessary if you are integrating React Native into an existing application, if you "ejected" from Create React Native App, or if you're adding iOS support to an existing React Native project (see [Platform Specific Code](platform-specific-code.md)).
 

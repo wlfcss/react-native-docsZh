@@ -128,7 +128,7 @@ npm start
 
 你已经成功运行并修改了你的第一个React Native APP。
 
-<center><img src="/react-native/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
+<center><img src="react-native/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
 
 ## 接下来? 
 

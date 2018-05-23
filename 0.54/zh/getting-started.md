@@ -461,63 +461,61 @@ c:\Users\YOUR_USERNAME\AppData\Local\Android\Sdk
 react-native init AwesomeProject
 ```
 
-如果您想将React Native集成到现有的应用程序中，或者如果您使用“ Create React Native App ”
-
-This is not necessary if you are integrating React Native into an existing application, if you "ejected" from Create React Native App, or if you're adding iOS support to an existing React Native project (see [Platform Specific Code](platform-specific-code.md)).
+如果您想将React Native集成到现有的应用程序中，如果您使用“ Create React Native App ”,或者您希望在react-native项目中增加对iOS的支持（请参考[Platform Specific Code](platform-specific-code.md)），则不必要使用上述命令。
 
 <block class="native mac windows linux android" />
 
-## Creating a new application
+## 构建一个新的应用程序
 
-Use the React Native command line interface to generate a new React Native project called "AwesomeProject":
+使用 React Native 命令行工具搭建一个名为 "AwesomeProject" 的新项目：
 
 ```
 react-native init AwesomeProject
 ```
 
-This is not necessary if you are integrating React Native into an existing application, if you "ejected" from Create React Native App, or if you're adding Android support to an existing React Native project (see [Platform Specific Code](platform-specific-code.md)).
+如果您想将React Native集成到现有的应用程序中，如果您使用“ Create React Native App ”,或者您希望在react-native项目中增加对iOS的支持（请参考[Platform Specific Code](platform-specific-code.md)），则不必要使用上述命令。
 
 <block class="native mac windows linux android" />
 
-## Preparing the Android device
+## Android 开发前的准备
 
-You will need an Android device to run your React Native Android app. This can be either a physical Android device, or more commonly, you can use an Android Virtual Device which allows you to emulate an Android device on your computer.
+你需要一个 Android 设备才能运行您的 React Native Android App。当然这个 Android 设备既可以是一个 **虚拟机** 亦可以是一个 **Android 真机**（译者注：建议开发者使用真机调试）。
 
-Either way, you will need to prepare the device to run Android apps for development.
+但无论你选择哪种方式，您都需要提供设备以运行Android应用程序以进行开发。
 
-### Using a physical device
+### 使用物理设备（真机）
 
-If you have a physical Android device, you can use it for development in place of an AVD by plugging it in to your computer using a USB cable and following the instructions [here](running-on-device.md).
+如果您有Android设备，则可以使用USB线与计算机连接，然后按照[说明](running-on-device.md)将其用于开发以代替虚拟机。
 
-### Using a virtual device
+### 使用虚拟机
 
-You can see the list of available Android Virtual Devices (AVDs) by opening the "AVD Manager" from within Android Studio. Look for an icon that looks like this:
+您可以通过在Android Studio中打开 “AVD Manager” 来查看可用的Android虚拟设备（AVD）列表。 寻找下面的图标：
 
-![Android Studio AVD Manager](/react-native/docs/assets/GettingStartedAndroidStudioAVD.png)
+![Android Studio AVD Manager](react-native/docs/assets/GettingStartedAndroidStudioAVD.png)
 
-If you have just installed Android Studio, you will likely need to [create a new AVD](https://developer.android.com/studio/run/managing-avds.html). Select "Create Virtual Device...", then pick any Phone from the list and click "Next".
+I如果您刚刚安装了Android Studio，您可能需要创建一个新的AVD。 选择 [创建一个新的AVD](https://developer.android.com/studio/run/managing-avds.html). 选择 "创建虚拟设备", 然后从列表之中选择任意一个设备（手机），再单击“下一步”。
 
 <block class="native windows android" />
 
-![Android Studio AVD Manager](/react-native/docs/assets/GettingStartedCreateAVDWindows.png)
+![Android Studio AVD Manager](react-native/docs/assets/GettingStartedCreateAVDWindows.png)
 
 <block class="native mac android" />
 
-![Android Studio AVD Manager](/react-native/docs/assets/GettingStartedCreateAVDMacOS.png)
+![Android Studio AVD Manager](react-native/docs/assets/GettingStartedCreateAVDMacOS.png)
 
 <block class="native mac windows linux android" />
 
-Select the "x86 Images" tab, then look for the **Marshmallow** API Level 23, x86_64 ABI image with a Android 6.0 (Google APIs) target.
+选择“x86 Images”选项卡，然后查找带有 Android 6.0（Google API）的 Marshmallow API Level 23，x86_64 ABI 系统版本。
 
 <block class="native linux android" />
 
-> We recommend configuring [VM acceleration](https://developer.android.com/studio/run/emulator-acceleration.html#vm-linux) on your system to improve performance. Once you've followed those instructions, go back to the AVD Manager.
+>建议您在系统上配置[VM acceleration](https://developer.android.com/studio/run/emulator-acceleration.html#vm-linux) 以提高性能。 
 
 <block class="native windows android" />
 
 ![Install HAXM](/react-native/docs/assets/GettingStartedCreateAVDx86Windows.png)
 
-> If you don't have HAXM installed, click on "Install HAXM" or follow [these instructions](https://github.com/intel/haxm/wiki/Installation-Instructions-on-Windows) to set it up, then go back to the AVD Manager.
+> 如果您没有安装HAXM，请按照[以下说明](https://github.com/intel/haxm/wiki/Installation-Instructions-on-Windows) 进行设置，再回到AVD管理器。
 
 ![AVD List](/react-native/docs/assets/GettingStartedAVDManagerWindows.png)
 
@@ -525,124 +523,125 @@ Select the "x86 Images" tab, then look for the **Marshmallow** API Level 23, x86
 
 ![Install HAXM](/react-native/docs/assets/GettingStartedCreateAVDx86MacOS.png)
 
-> If you don't have HAXM installed, follow [these instructions](https://github.com/intel/haxm/wiki/Installation-Instructions-on-macOS) to set it up, then go back to the AVD Manager.
+> 如果您没有安装HAXM，请按照[以下说明](https://github.com/intel/haxm/wiki/Installation-Instructions-on-macOS)进行设置，再回到AVD管理器。
 
 ![AVD List](/react-native/docs/assets/GettingStartedAVDManagerMacOS.png)
 
 <block class="native mac windows linux android" />
 
-Click "Next" then "Finish" to create your AVD. At this point you should be able to click on the green triangle button next to your AVD to launch it, then proceed to the next step.
+点击“Next”，然后选择 “完成” 创建您的AVD。 此时，您应该能够点击AVD旁边的绿色三角形按钮启动它，然后继续下一步。
 
 <block class="native mac ios" />
 
-## Running your React Native application
+## 启动 React Native 应用
 
-Run `react-native run-ios` inside your React Native project folder:
+运行 `react-native run-ios` 在您的 React Native 项目根目录中：
 
 ```
 cd AwesomeProject
 react-native run-ios
 ```
 
-You should see your new app running in the iOS Simulator shortly.
+如果设置没有问题，你将很快看到您的新应用在ios模拟器中运行。
 
-![AwesomeProject on iOS](/react-native/docs/assets/GettingStartediOSSuccess.png)
+![AwesomeProject on iOS](react-native/docs/assets/GettingStartediOSSuccess.png)
 
-`react-native run-ios` is just one way to run your app. You can also run it directly from within Xcode or [Nuclide](https://nuclide.io/).
+`react-native run-ios` 可以启动你的APP. 当然你也可以从Xcode 或 [Nuclide](https://nuclide.io/)中启动.
 
 > If you can't get this to work, see the [Troubleshooting](troubleshooting.md#content) page.
 
-### Running on a device
+### 在设备上运行
 
-The above command will automatically run your app on the iOS Simulator by default. If you want to run the app on an actual physical iOS device, please follow the instructions [here](running-on-device.md).
+上述命令默认会自动在iOS模拟器上运行您的应用程序。 如果您想在iOS真机上运行APP，请按照[此处的说明](running-on-device.md)进行操作。
 
 <block class="native mac windows linux android" />
 
-## Running your React Native application
+## 启动 React Native 应用
 
-Run `react-native run-android` inside your React Native project folder:
+运行 `react-native run-android` 在您的 React Native 项目根目录中：
 
 ```
 cd AwesomeProject
 react-native run-android
 ```
 
-If everything is set up correctly, you should see your new app running in your Android emulator shortly.
+如果设置没有问题，你将很快看到您的新应用在android模拟器中运行。
 
 <block class="native mac android" />
 
-![AwesomeProject on Android](/react-native/docs/assets/GettingStartedAndroidSuccessMacOS.png)
+![AwesomeProject on Android](react-native/docs/assets/GettingStartedAndroidSuccessMacOS.png)
 
 <block class="native windows android" />
 
-![AwesomeProject on Android](/react-native/docs/assets/GettingStartedAndroidSuccessWindows.png)
+![AwesomeProject on Android](react-native/docs/assets/GettingStartedAndroidSuccessWindows.png)
 
 <block class="native mac windows linux android" />
 
-`react-native run-android` is just one way to run your app - you can also run it directly from within Android Studio or [Nuclide](https://nuclide.io/).
+`react-native run-android` 可以启动你的APP. 当然你也可以从Android Studio 或 [Nuclide](https://nuclide.io/)中启动.
 
-> If you can't get this to work, see the [Troubleshooting](troubleshooting.md#content) page.
+
+> 如果发生报错，请前往 [Troubleshooting](troubleshooting.md#content) 页面获取帮助.
 
 <block class="native mac ios android" />
 
-### Modifying your app
+### 修改你的应用程序
 
-Now that you have successfully run the app, let's modify it.
+现在您已经成功运行该应用程序，我们来做一些修改。
 
 <block class="native mac ios" />
 
-* Open `App.js` in your text editor of choice and edit some lines.
-* Hit `⌘R` in your iOS Simulator to reload the app and see your changes!
+* 在编辑器中/IDE 打开 `App.js` 做一些修改。
+* 使用 `⌘R` 让您的IOS模拟器重新加载本地项目。
 
 <block class="native mac android" />
 
-* Open `App.js` in your text editor of choice and edit some lines.
-* Press the `R` key twice or select `Reload` from the Developer Menu (`⌘M`) to see your changes!
+* 在编辑器中/IDE 打开 `App.js` 做一些修改。
+* 按两次 `R` 键或从开发者菜单(`⌘M`)中选择`重新加载(Reload)`以预览您的更改。
 
 <block class="native windows linux android" />
 
 ### Modifying your app
 
-Now that you have successfully run the app, let's modify it.
+现在您已经成功运行该应用程序，我们来做一些修改。
 
-* Open `App.js` in your text editor of choice and edit some lines.
-* Press the `R` key twice or select `Reload` from the Developer Menu (`Ctrl + M`) to see your changes!
+* 在编辑器中/IDE 打开 `App.js` 做一些修改。
+* 按两次 `R` 键或从开发者菜单(`Ctrl + M`)中选择`重新加载(Reload)`以预览您的更改。
 
 <block class="native mac ios android" />
 
 ### That's it!
 
-Congratulations! You've successfully run and modified your first React Native app.
+恭喜！ 您已成功运行并修改了您的第一个React Native应用。
 
-<center><img src="/react-native/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
+<center><img src="react-native/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
 
 <block class="native windows linux android" />
 
 ### That's it!
 
-Congratulations! You've successfully run and modified your first React Native app.
+恭喜！ 您已成功运行并修改了您的第一个React Native应用。
 
-<center><img src="/react-native/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
+<center><img src="react-native/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
 
 <block class="native mac ios" />
 
 ## Now what?
 
-* Turn on [Live Reload](debugging.md#reloading-javascript) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
+* 在开发者菜单中打开 [Live Reload](debugging.md#reloading-javascript)。 您保存任何修改时，您的应用程序将会自动重新加载！
 
-* If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
+* 如果您想将新的React Native代码添加到现有原生移动应用程序中，请查看[Integration guide](integration-with-existing-apps.md)指南。
 
-If you're curious to learn more about React Native, continue on to the [Tutorial](tutorial.md).
+如果您想了解更多关于React Native的内容，请继续阅读本[教程](tutorial.md)。
 
 <block class="native windows linux mac android" />
 
 ## Now what?
 
-* Turn on [Live Reload](debugging.md#reloading-javascript) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
+* 在开发者菜单中打开 [Live Reload](debugging.md#reloading-javascript)。 您保存任何修改时，您的应用程序将会自动重新加载！
 
-* If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
+* 如果您想将新的React Native代码添加到现有原生移动应用程序中，请查看[Integration guide](integration-with-existing-apps.md)指南。
 
-If you're curious to learn more about React Native, continue on to the [Tutorial](tutorial.md).
+如果您想了解更多关于React Native的内容，请继续阅读本[教程](tutorial.md)。
 
 <script>
   function displayTab(type, value) {

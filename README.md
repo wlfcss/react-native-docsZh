@@ -1,4 +1,6 @@
 # react-native 中文文档翻译
+![Progress](http://progressed.io/bar/17?title=Docs-0.54) ![Progress](http://progressed.io/bar/10?title=Docs-0.55)
+![Progress](http://progressed.io/bar/100?title=ChangeLog-0.55) ![Progress](http://progressed.io/bar/0?title=ChangeLog-0.54) 
 
 > 由于RN中文网目前的维护更新已陷入停滞，故另开一新项目，翻译将从RN-0.54版本开始维护，由于译者水平有限，难免有错漏发生，欢迎诸位的 issue 和 pr。
 

@@ -22,32 +22,38 @@ React Native 支持多种在ios模拟器上的快捷键，下面将会详细介�
 
 ### 自动刷新
 
-You can speed up your development times by having your app reload automatically any time your code changes. Automatic reloading can be enabled by selecting "Enable Live Reload" from the Developer Menu.
+您可以在代码更改时自动重新加载应用程序，从而加快开发速度。 通过从开发者菜单中选择“启用Live Reload”可以启用自动重新加载。
 
-You may even go a step further and keep your app running as new versions of your files are injected into the JavaScript bundle automatically by enabling [Hot Reloading](https://facebook.github.io/react-native/blog/2016/03/24/introducing-hot-reloading.html) from the Developer Menu. This will allow you to persist the app's state through reloads.
+您甚至可以更进一步，通过“开发者菜单”启用[Hot Reloading](https://facebook.github.io/react-native/blog/2016/03/24/introducing-hot-reloading.html)功能，将新版本的文件自动注入到JavaScript包中，从而让您的应用程序继续运行，这将允许您通过重新加载来保持应用程序的状态。
 
-> There are some instances where hot reloading cannot be implemented perfectly. If you run into any issues, use a full reload to reset your app.
+> 有些情况下`Hot Reloading`并不能完好的重加载。 如果遇到问题，请使用完全重载来重启您的应用。
 
 You will need to rebuild your app for changes to take effect in certain situations:
+在某些情况下，您必须重新编译您的应用，才能使改动生效：
 
-* You have added new resources to your native app's bundle, such as an image in `Images.xcassets` on iOS or the `res/drawable` folder on Android.
-* You have modified native code (Objective-C/Swift on iOS or Java/C++ on Android).
+* 您将新资源添加到您的 react-native 程序中，例如iOS上的`Images.xcassets`中的图像或Android上的 `res / drawable`。
 
-## In-app Errors and Warnings
+* 更改了任何的原生代码（objective-c/swift/java）
 
-Errors and warnings are displayed inside your app in development builds.
+## 应用内的错误与警告
 
-### Errors
+红色错误提示或黄色警告都只会在开发版本中显示，在正式的release包中是不会显示的。
+
+### 红色错误
 
 In-app errors are displayed in a full screen alert with a red background inside your app. This screen is known as a RedBox. You can use `console.error()` to manually trigger one.
 
-### Warnings
+应用内的报错会以全屏红色显示在应用中（调试模式下），我们称为红屏（red box）报错。你可以使用console.error()来手动触发红屏错误。
+
+### 黄色警告
 
 Warnings will be displayed on screen with a yellow background. These alerts are known as YellowBoxes. Click on the alerts to show more information or to dismiss them.
 
 As with a RedBox, you can use `console.warn()` to trigger a YellowBox.
 
 YellowBoxes can be disabled during development by using `console.disableYellowBox = true;`. Specific warnings can be ignored programmatically by setting an array of prefixes that should be ignored:
+
+应用内的警告会以全屏黄色显示在应用中（调试模式下），我们称为黄屏（yellow box）报错。点击警告可以查看详情或是忽略掉。 和红屏报警类似，你可以使用console.warn()来手动触发黄屏警告。 在默认情况下，开发模式中启用了黄屏警告。可以通过以下代码关闭：
 
 ```javascript
 import {YellowBox} from 'react-native';
@@ -56,7 +62,7 @@ YellowBox.ignoreWarnings(['Warning: ...']);
 
 In CI/Xcode, YellowBoxes can also be disabled by setting the `IS_TESTING` environment variable.
 
-> RedBoxes and YellowBoxes are automatically disabled in release (production) builds.
+> 发布（生产）版本中将自动禁用 RedBoxes 和 YellowBoxes
 
 ## Chrome Developer Tools
 

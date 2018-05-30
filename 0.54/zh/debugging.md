@@ -41,19 +41,15 @@ You will need to rebuild your app for changes to take effect in certain situatio
 
 ### 红色错误
 
-In-app errors are displayed in a full screen alert with a red background inside your app. This screen is known as a RedBox. You can use `console.error()` to manually trigger one.
-
-应用内的报错会以全屏红色显示在应用中（调试模式下），我们称为红屏（red box）报错。你可以使用console.error()来手动触发红屏错误。
+应用内的报错会以全屏红色显示在应用中（调试模式下），我们称为红屏（red box）报错。你可以使用 `console.error()` 来手动触发红屏错误。
 
 ### 黄色警告
 
-Warnings will be displayed on screen with a yellow background. These alerts are known as YellowBoxes. Click on the alerts to show more information or to dismiss them.
+警告将以黄色背景显示在屏幕上。 这些警报被称为 `YellowBoxes`。 点击警告可以查看详情或是忽略掉他们。
 
-As with a RedBox, you can use `console.warn()` to trigger a YellowBox.
+和红屏报警相同的是你也可以使用console.warn()来手动触发黄屏警告。
 
-YellowBoxes can be disabled during development by using `console.disableYellowBox = true;`. Specific warnings can be ignored programmatically by setting an array of prefixes that should be ignored:
-
-应用内的警告会以全屏黄色显示在应用中（调试模式下），我们称为黄屏（yellow box）报错。点击警告可以查看详情或是忽略掉。 和红屏报警类似，你可以使用console.warn()来手动触发黄屏警告。 在默认情况下，开发模式中启用了黄屏警告。可以通过以下代码关闭：
+通过使用console.disableYellowBox = true;可以在开发过程中禁用YellowBoxes。 通过设置应忽略的前缀数组，可以忽略特定的警告：
 
 ```javascript
 import {YellowBox} from 'react-native';
@@ -62,7 +58,9 @@ YellowBox.ignoreWarnings(['Warning: ...']);
 
 In CI/Xcode, YellowBoxes can also be disabled by setting the `IS_TESTING` environment variable.
 
-> 发布（生产）版本中将自动禁用 RedBoxes 和 YellowBoxes
+在 CI/Xcode 之中，可以使用 `IS_TESTING` 等环境变量来控制（启用/禁用） YellowBoxes
+
+> 发布（production）版本中将自动禁用 RedBoxes 和 YellowBoxes
 
 ## Chrome Developer Tools
 

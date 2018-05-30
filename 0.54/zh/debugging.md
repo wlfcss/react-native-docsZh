@@ -56,27 +56,25 @@ import {YellowBox} from 'react-native';
 YellowBox.ignoreWarnings(['Warning: ...']);
 ```
 
-In CI/Xcode, YellowBoxes can also be disabled by setting the `IS_TESTING` environment variable.
-
 在 CI/Xcode 之中，可以使用 `IS_TESTING` 等环境变量来控制（启用/禁用） YellowBoxes
 
 > 发布（production）版本中将自动禁用 RedBoxes 和 YellowBoxes
 
-## Chrome Developer Tools
+## Chrome 开发者工具
 
-To debug the JavaScript code in Chrome, select "Debug JS Remotely" from the Developer Menu. This will open a new tab at [http://localhost:8081/debugger-ui](http://localhost:8081/debugger-ui).
+在开发者菜单中选择"Debug JS Remotely"选项，即可以开始在Chrome中调试JavaScript代码。点击这个选项的同时会自动打开调试页面 http://localhost:8081/debugger-ui.
 
-Select `Tools → Developer Tools` from the Chrome Menu to open the [Developer Tools](https://developer.chrome.com/devtools). You may also access the DevTools using keyboard shortcuts (`⌘⌥I` on macOS, `Ctrl` `Shift` `I` on Windows). You may also want to enable [Pause On Caught Exceptions](http://stackoverflow.com/questions/2233339/javascript-is-there-a-way-to-get-chrome-to-break-on-all-errors/17324511#17324511) for a better debugging experience.
+在Chrome菜单中选择 `Tools → Developer Tools`可以打开[开发者工具](https://developer.chrome.com/devtools)，当然你也可以通过键盘快捷键来打开（Mac上`Command⌘ + Option⌥ + I`，Windows上是`Ctrl + Shift + I`或是`F12`）。同时打开[有异常时暂停](http://stackoverflow.com/questions/2233339/javascript-is-there-a-way-to-get-chrome-to-break-on-all-errors/17324511#17324511)（`Pause On Caught Exceptions`）选项，能够获得更好的开发体验。
 
-> Note: the React Developer Tools Chrome extension does not work with React Native, but you can use its standalone version instead. Read [this section](debugging.md#react-developer-tools) to learn how.
+> 注意：React Developer Tools 的 Chrome扩展程序不适用于React Native，但您可以改用rn的独立版本。 请阅读[本章节](debugging.md#react-developer-tools)。
 
-### Debugging using a custom JavaScript debugger
+### 使用自定义的JavaScript调试工具
 
-To use a custom JavaScript debugger in place of Chrome Developer Tools, set the `REACT_DEBUGGER` environment variable to a command that will start your custom debugger. You can then select "Debug JS Remotely" from the Developer Menu to start debugging.
+如果想用其他的JavaScript调试工具来代替 Chrome 扩展调试工具，可以设置一个名为`REACT_DEBUGGER`的环境变量，其值为启动自定义调试器的命令。调试的流程依然是从开发者菜单中的"Debug JS Remotely"选项开始。
 
-The debugger will receive a list of all project roots, separated by a space. For example, if you set `REACT_DEBUGGER="node /path/to/launchDebugger.js --port 2345 --type ReactNative"`, then the command `node /path/to/launchDebugger.js --port 2345 --type ReactNative /path/to/reactNative/app` will be used to start your debugger.
+被指定的调试器需要知道项目所在的目录（可以一次传递多个目录参数，以空格隔开）。例如，如果你设定了 `REACT_DEBUGGER="node /path/to/launchDebugger.js --port 2345 --type ReactNative"`, 那么启动调试器的命令就应该是 `node /path/to/launchDebugger.js --port 2345 --type ReactNative /path/to/reactNative/app`
 
-> Custom debugger commands executed this way should be short-lived processes, and they shouldn't produce more than 200 kilobytes of output.
+> 以这种方式执行的调试器最好是一个短进程（short-lived processes），同时最好也不要有超过200k的文字输出。
 
 ## React Developer Tools
 

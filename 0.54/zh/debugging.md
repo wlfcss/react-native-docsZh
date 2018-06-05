@@ -100,86 +100,82 @@ react-devtools
 
 打开APP内部的 开发菜单 选择 "Show Inspector"，将会打开一个UI信息解析的覆盖层，允许你点击任何UI元素并查看关于它的信息：
 
-![React Native Inspector](/react-native/docs/assets/Inspector.gif)
+![React Native Inspector](react-native/docs/assets/Inspector.gif)
 
-However, when `react-devtools` is running, Inspector will enter a special collapsed mode, and instead use the DevTools as primary UI. In this mode, clicking on something in the simulator will bring up the relevant components in the DevTools:
+但是，如果`react-devtools`正在运行，`Inspector`将进入特殊的折叠模式，而将DevTools作为主要UI。 在这种模式下，单击模拟器中的某些内容才可以调出DevTools中的相关组件：
 
-![React DevTools Inspector Integration](/react-native/docs/assets/ReactDevToolsInspector.gif)
+![React DevTools Inspector Integration](react-native/docs/assets/ReactDevToolsInspector.gif)
 
-You can choose "Hide Inspector" in the same menu to exit this mode.
+你可以在开发者菜单中选择 `"Hide Inspector"` 以退出此模式
 
-### Inspecting Component Instances
+### 组件检视模式
 
-When debugging JavaScript in Chrome, you can inspect the props and state of the React components in the browser console.
+在Chrome中调试JavaScript时，您可以在浏览器控制台中检查React组件的属性（Props）和状态（state）。
 
-First, follow the instructions for debugging in Chrome to open the Chrome console.
+首先，按照Chrome中的调试说明打开Chrome的控制台
 
-Make sure that the dropdown in the top left corner of the Chrome console says `debuggerWorker.js`. **This step is essential.**
+**必须确保**Chrome控制台左上角的下拉菜单显示`debuggerWorker.js`。
 
-Then select a React component in React DevTools. There is a search box at the top that helps you find one by name. As soon as you select it, it will be available as `$r` in the Chrome console, letting you inspect its props, state, and instance properties.
+然后在React DevTools中选择一个React组件。调试界面顶部有一个搜索框，可帮助您找到一个名称。 只要您选择它，它将在Chrome控制台中以 `$r` 的形式提供，让您检查它的道具，状态和实例属性。
 
-![React DevTools Chrome Console Integration](/react-native/docs/assets/ReactDevToolsDollarR.gif)
+![React DevTools Chrome Console Integration](react-native/docs/assets/ReactDevToolsDollarR.gif)
 
-## Performance Monitor
+## 性能监测
 
-You can enable a performance overlay to help you debug performance problems by selecting "Perf Monitor" in the Developer Menu.
+你可以在开发者菜单中选择"Pref Monitor"选项以开启一个悬浮层，来帮助你对性能问题进行调试
 
 <hr style="margin-top:25px; margin-bottom:25px;"/>
 
 # Debugging in Ejected Apps
 
 <div class="banner-crna-ejected" style="margin-top:25px">
-  <h3>Projects with Native Code Only</h3>
+  <h3>原生开发项目</h3>
   <p>
-    The remainder of this guide only applies to projects made with <code>react-native init</code>
-    or to those made with Create React Native App which have since ejected. For
-    more information about ejecting, please see
-    the <a href="https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md" target="_blank">guide</a> on
-    the Create React Native App repository.
+    本指南的其余部分仅适用于使用<code>react-native init</code>创建的项目或使用Create React Native App创建的项目，相关的更多信息，请参阅 <a href="https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md" target="_blank">Create React Native App 库指南</a>。
   </p>
 </div>
 
-## Accessing console logs
+## 访问控制台日志
 
-You can display the console logs for an iOS or Android app by using the following commands in a terminal while the app is running:
+在运行RN应用时，你可以在终端中运行如下命令来查看控制台的日志：
 
 ```
 $ react-native log-ios
 $ react-native log-android
 ```
 
-You may also access these through `Debug → Open System Log...` in the iOS Simulator or by running `adb logcat *:S ReactNative:V ReactNativeJS:V` in a terminal while an Android app is running on a device or emulator.
+此外，你也可以在iOS模拟器的菜单中选择Debug → Open System Log...来查看。如果是Android应用，无论是运行在模拟器或是真机上，都可以通过在终端命令行里运行adb logcat *:S ReactNative:V ReactNativeJS:V命令来查看。
 
-> If you're using Create React Native App, console logs already appear in the same terminal output as the packager.
+> 如果您使用的是 Create React Native App，则控制台日志会与打包程序在相同的终端中输出。
 
-## Debugging on a device with Chrome Developer Tools
+## 使用 Chrome 开发者工具调试设备
 
-> If you're using Create React Native App, this is configured for you already.
+> 如果您使用的是 Create React Native App, 则程序将为你自动完成配置。
 
-On iOS devices, open the file [`RCTWebSocketExecutor.m`](https://github.com/facebook/react-native/blob/master/Libraries/WebSocket/RCTWebSocketExecutor.m) and change "localhost" to the IP address of your computer, then select "Debug JS Remotely" from the Developer Menu.
+如果是 iOS 设备，请打开文件 [`RCTWebSocketExecutor.m`](https://github.com/facebook/react-native/blob/master/Libraries/WebSocket/RCTWebSocketExecutor.m) 将 "localhost" 修改为您计算机的ip,并在开发者菜单中选择 "Debug JS Remotely"
 
-On Android 5.0+ devices connected via USB, you can use the [`adb` command line tool](http://developer.android.com/tools/help/adb.html) to setup port forwarding from the device to your computer:
+在通过USB连接的Android 5.0设备上，您可以使用[`adb`命令行工具](http://developer.android.com/tools/help/adb.html) 来设置端口转发：
 
 `adb reverse tcp:8081 tcp:8081`
 
-Alternatively, select "Dev Settings" from the Developer Menu, then update the "Debug server host for device" setting to match the IP address of your computer.
+或者，您可以从开发菜单中选择“Dev Settings”，然后选择更新 “Debug server host for device” 设置以匹配您的计算机的IP地址。
 
-> If you run into any issues, it may be possible that one of your Chrome extensions is interacting in unexpected ways with the debugger. Try disabling all of your extensions and re-enabling them one-by-one until you find the problematic extension.
+> 如果遇到任何问题，这很可能是您的某个Chrome扩展程序导致的，因为他们可能会以某种意想不到的方式与调试器进行交互。请尝试禁用所有扩展并逐个重新启用它们，直到找到有问题的扩展。
 
-### Debugging with [Stetho](http://facebook.github.io/stetho/) on Android
+### 在Android上使用 [Stetho](http://facebook.github.io/stetho/) 进行调试
 
-Follow this guide to enable Stetho for Debug mode:
+按照本指南启用`Stetho for Debug`模式：
 
-1. In `android/app/build.gradle`, add these lines in the `dependencies` section:
+1. 在 `android/app/build.gradle` 文件的 `dependencies` 中添加：:
 
    ```gradle
     debugCompile 'com.facebook.stetho:stetho:1.5.0'
     debugCompile 'com.facebook.stetho:stetho-okhttp3:1.5.0'
    ```
 
-> The above will configure Stetho v1.5.0. You can check at http://facebook.github.io/stetho/ if a newer version is available.
+> 以上配置仅限于 Stetho v1.5.0。 如果有更新的版本可用，你可以在http://facebook.github.io/stetho/上查看
 
-2. Create the following Java classes to wrap the Stetho call, one for release and one for debug:
+2. 创建以下Java类来包装Stetho调用，一个用于发布，另一个用于调试：
 
    ```java
    // android/app/src/release/java/com/{yourAppName}/StethoWrapper.java
@@ -215,7 +211,7 @@ Follow this guide to enable Stetho for Debug mode:
    }
    ```
 
-3. Open `android/app/src/main/java/com/{yourAppName}/MainApplication.java` and replace the original `onCreate` function:
+3. 打开 `android/app/src/main/java/com/{yourAppName}/MainApplication.java` 重写原有的 `onCreate` 方法:
 
 ```java
   public void onCreate() {
@@ -230,12 +226,12 @@ Follow this guide to enable Stetho for Debug mode:
     }
 ```
 
-4. Open the project in Android Studio and resolve any dependency issues. The IDE should guide you through this steps after hovering your pointer over the red lines.
+4. 在Android Studio中打开项目并解决所有的依赖问题。 选中红线报错的部分，ID将E应引导您完成依赖的安装。
 
-5. Run `react-native run-android`.
+5. 运行 `react-native run-android`.
 
-6. In a new Chrome tab, open: `chrome://inspect`, then click on the 'Inspect device' item next to "Powered by Stetho".
+6. 新建一个的chrome页面, 打开: `chrome://inspect`, 然后点击“Powered by Stetho”旁边的“Inspect device”选项。
 
-## Debugging native code
+## 调试原生代码
 
-When working with native code, such as when writing native modules, you can launch the app from Android Studio or Xcode and take advantage of the native debugging features (setting up breakpoints, etc.) as you would in case of building a standard native app.
+在和原生代码打交道时（比如编写原生模块），可以直接从Android Studio或是Xcode中启动应用，并利用这些IDE的内置功能来调试（比如设置断点）。这一方面和开发原生应用并无二致。

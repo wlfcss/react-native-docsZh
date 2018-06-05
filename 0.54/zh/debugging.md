@@ -78,13 +78,13 @@ YellowBox.ignoreWarnings(['Warning: ...']);
 
 ## React Developer Tools
 
-You can use [the standalone version of React Developer Tools](https://github.com/facebook/react-devtools/tree/master/packages/react-devtools) to debug the React component hierarchy. To use it, install the `react-devtools` package globally:
+您可以使用 [React Developer Tools](https://github.com/facebook/react-devtools/tree/master/packages/react-devtools) 来对react-naitve进行调试。 在使用前，您需要在全局安装 `react-devtools` 软件包：
 
 ```
 npm install -g react-devtools
 ```
 
-Now run `react-devtools` from the terminal to launch the standalone DevTools app:
+安装完成后，运行命令 `react-devtools` 即可启动此工具：
 
 ```
 react-devtools
@@ -92,13 +92,13 @@ react-devtools
 
 ![React DevTools](react-native/docs/assets/ReactDevTools.png)
 
-It should connect to your simulator within a few seconds.
+此工具应该仅需数秒就可以连接到你的模拟器
 
-> Note: if you prefer to avoid global installations, you can add `react-devtools` as a project dependency. Add the `react-devtools` package to your project using `npm install --save-dev react-devtools`, then add `"react-devtools": "react-devtools"` to the `scripts` section in your `package.json`, and then run `npm run react-devtools` from your project folder to open the DevTools.
+> 注意：如果您不想使用全局安装，可以将`react-devtools`添加为项目依赖项。 使用`npm install --save-dev react-devtools`将`react-devtools`包添加到你的项目中，然后在你的`package.json`脚本部分添加`“react-devtools”：“react-devtools”`，然后运行`npm run reac-devtoolst` 进行调试。
 
-### Integration with React Native Inspector
+### 使用 React Native Inspector 进行界面的调试
 
-Open the in-app developer menu and choose "Show Inspector". It will bring up an overlay that lets you tap on any UI element and see information about it:
+打开APP内部的 开发菜单 选择 "Show Inspector"，将会打开一个UI信息解析的覆盖层，允许你点击任何UI元素并查看关于它的信息：
 
 ![React Native Inspector](/react-native/docs/assets/Inspector.gif)
 

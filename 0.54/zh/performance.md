@@ -38,8 +38,6 @@ original_id: performance
 
 ### 使用 console.log 语句
 
-When running a bundled app, these statements can cause a big bottleneck in the JavaScript thread. This includes calls from debugging libraries such as [redux-logger](https://github.com/evgenyrodionov/redux-logger), so make sure to remove them before bundling. You can also use this [babel plugin](https://babeljs.io/docs/plugins/transform-remove-console/) that removes all the `console.*` calls. You need to install it first with `npm i babel-plugin-transform-remove-console --save`, and then edit the `.babelrc` file under your project directory like this:
-
 运行bundle App时，这些语句可能会在JavaScript线程中造成严重瓶颈。包括调试库（如[redux-logger](https://github.com/evgenyrodionov/redux-logger)）的调用，因此请确保在捆绑之前将其删除。你也可以使用这个babel插件来删除所有的控制台 `console.*`。你需要先运行命令`npm i babel-plugin-transform-remove-console --save`，然后依照下方示例编辑`.babelrc`文件:
 
 ```javascripton
@@ -54,35 +52,37 @@ When running a bundled app, these statements can cause a big bottleneck in the J
 
 这将在项目发布的 release(production)版本中自动屏蔽所有的 `console.*` 调用。
 
-### `ListView` initial rendering is too slow or scroll performance is bad for large lists
+### `ListView` 初始化渲染过慢以及列表项过多时滚动性能变差的相关问题
 
-Use the new [`FlatList`](flatlist.md) or [`SectionList`](sectionlist.md) component instead. Besides simplifying the API, the new list components also have significant performance enhancements, the main one being nearly constant memory usage for any number of rows.
+请改用新的[`FlatList`](flatlist.md)或[`SectionList`](sectionList.md)组件。他们不仅仅简化了API，还具有显着的性能增强，无论列表中有多少项元素组件的内存占用都不会发生太大的变化。
 
-If your [`FlatList`](flatlist.md) is rendering slow, be sure that you've implemented [`getItemLayout`](https://facebook.github.io/react-native/flatlist.md#getitemlayout) to optimize rendering speed by skipping measurement of the rendered items.
+如果您的[`FlatList`](flatlist.md)渲染缓慢，请确保您已经使用了[`getItemLayout`](https://facebook.github.io/react-native/flatlist.md#getitemlayout)，以跳过对渲染项目的数量统计以优化渲染速度。
 
-### JS FPS plunges when re-rendering a view that hardly changes
+### 重绘一个几乎没有变化的页面时，JS帧率严重下降（卡顿）
 
-If you are using a ListView, you must provide a `rowHasChanged` function that can reduce a lot of work by quickly determining whether or not a row needs to be re-rendered. If you are using immutable data structures, this would be as simple as a reference equality check.
+如果你正在使用一个ListView，你必须提供一个 `rowHasChanged` 函数，它通过快速的算出某一行是否需要重绘，来减少很多不必要的工作。如果你使用了不可变的数据结构，这项工作就只需检查其引用是否相等。
 
-Similarly, you can implement `shouldComponentUpdate` and indicate the exact conditions under which you would like the component to re-render. If you write pure components (where the return value of the render function is entirely dependent on props and state), you can leverage PureRenderMixin to do this for you. Once again, immutable data structures are useful to keep this fast -- if you have to do a deep comparison of a large list of objects, it may be that re-rendering your entire component would be quicker, and it would certainly require less code.
+同样的，你可以实现 `shouldComponentUpdate` 函数来指明在什么样的确切条件下，你希望这个组件得到重绘。如果你编写的是纯粹的组件（返回值完全由props和state所决定），你可以利用PureComponent来为你做这个工作。再强调一次，不可变的数据结构在提速方面非常有用 —— 当你不得不对一个长列表对象做一个深度的比较，它会使重绘你的整个组件更加快速，而且代码量更少。
 
-### Dropping JS thread FPS because of doing a lot of work on the JavaScript thread at the same time
+### 在JavaScript线程中同时执行多个任务，导致JS线程掉帧
 
-"Slow Navigator transitions" is the most common manifestation of this, but there are other times this can happen. Using InteractionManager can be a good approach, but if the user experience cost is too high to delay work during an animation, then you might want to consider LayoutAnimation.
+“导航切换极慢” 是该问题的常见表现。在其他情形下，这种问题也可能会出现。使用InteractionManager是一个好的方法，但是如果在动画中，为了用户体验的开销而延迟其他工作并不太能接受，那么你可以考虑一下使用LayoutAnimation。
 
-The Animated API currently calculates each keyframe on-demand on the JavaScript thread unless you [set `useNativeDriver: true`](https://facebook.github.io/react-native/blog/2017/02/14/using-native-driver-for-animated.html#how-do-i-use-this-in-my-app), while LayoutAnimation leverages Core Animation and is unaffected by JS thread and main thread frame drops.
+Animated的接口一般会在JavaScript线程中计算出所需要的每一个关键帧，除非您[`设置useNativeDriver：true`](https://facebook.github.io/react-native/blog/2017/02/14/using-native-driver-for-animated.html#how-do-i-use-this-in-my-app)，这样一来LayoutAnimation将利用Core Animation，使动画不会被JS线程和主线程的掉帧所影响。
 
-One case where I have used this is for animating in a modal (sliding down from top and fading in a translucent overlay) while initializing and perhaps receiving responses for several network requests, rendering the contents of the modal, and updating the view where the modal was opened from. See the Animations guide for more information about how to use LayoutAnimation.
+举一个需要使用这项功能的例子：比如需要给一个模态框做动画（从下往上划动，并在半透明遮罩中淡入），而这个模态框正在初始化，并且可能响应着几个网络请求，渲染着页面的内容，并且还在更新着打开这个模态框的父页面。了解更多有关如何使用LayoutAnimation的信息，请参阅动画指南。
 
-Caveats:
+注意：
 
-* LayoutAnimation only works for fire-and-forget animations ("static" animations) -- if it must be interruptible, you will need to use `Animated`.
+* LayoutAnimation只工作在“一次性”的动画上（"静态"动画） -- 如果动画可能会被中途取消，你还是需要使用 `Animated`。
 
-### Moving a view on the screen (scrolling, translating, rotating) drops UI thread FPS
+### 在屏幕上移动视图（滚动、切换、旋转）出现UI线程掉帧
 
 This is especially true when you have text with a transparent background positioned on top of an image, or any other situation where alpha compositing would be required to re-draw the view on each frame. You will find that enabling `shouldRasterizeIOS` or `renderToHardwareTextureAndroid` can help with this significantly.
 
 Be careful not to overuse this or your memory usage could go through the roof. Profile your performance and memory usage when using these props. If you don't plan to move a view anymore, turn this property off.
+
+当具有透明背景的文本位于一张图片上时，或者在每帧重绘视图时需要用到透明合成的任何其他情况下，这种现象尤为明显。设置shouldRasterizeIOS或者renderToHardwareTextureAndroid属性可以显著改善这一现象。 注意不要过度使用该特性，否则你的内存使用量将会飞涨。在使用时，要评估你的性能和内存使用情况。如果你没有需要移动这个视图的需求，请关闭这一属性。
 
 ### Animating the size of an image drops UI thread FPS
 

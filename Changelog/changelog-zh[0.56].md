@@ -49,12 +49,10 @@ React Native 组件作者需要更新其依赖库以使用最新的Babel预设�
 - 在较新的Xcode版本上修复项目设置警告，删除不必要的控制台日志记录。
 - 更先进的 `YellowBox`.
   按新旧程度排序警告，按格式字符串分组警告，显示堆栈跟踪，显示加载源映射的状态，支持检查每次出现的警告以及错误修复。
-- 更漂亮的文件！
+- Prettier 文件管理!
 - 众多的错误修复.
 
 ### React Native 迭代进度
-
-Heads-up: the Facebook internal team is [currently working on a rewrite of some core architecture pieces](https://facebook.github.io/react-native/blog/2018/06/14/state-of-react-native-2018). This is a **work in progress** and we do not expect it to be ready for use in open source quite yet, but we felt the need to let you know what those commits mentioning Fabric are about.
 
 提要: Facebook内部团队目前正在[努力重构一些核心架构](http://rn.wlfcss.com/react-native/blog/2018/06/14/state-of-react-native-2018.html)这是一项 **正在进行的工作**，距离投入开源世界使用还需要一段时间，但我们觉得有必要让您知道前文中提到的重构大体内容是什么。
 
@@ -66,69 +64,69 @@ Heads-up: the Facebook internal team is [currently working on a rewrite of some 
 - `FlatList` 已兼容严格模式 - [a90d0e3](https://github.com/facebook/react-native/commit/a90d0e3614c467c33cf85bcbe65be71903d5aecc)
 - 启用 `?.` 可选的链接操作符插件 - [aa6f394](https://github.com/facebook/react-native/commit/aa6f394c4236e5a4998c3be8ed61ec1bab950775)
 - 支持 `flexWrap: 'wrap-reverse'` - [d69e550](https://github.com/facebook/react-native/commit/d69e55060fd76d91eccc45905d250a9fce4b2c49)
-- 增加属性类型 `accessibilityTraits` 至 `Text`（译者注：为了修复 `VoiceOver` 无法正确识别标题的bug） - [654435d](https://github.com/facebook/react-native/commit/654435d1ed9e584e65fff601e1fa50591e042664)
+- 增加属性类型 `accessibilityTraits` 至 `Text`（译者注：为了修复 `VoiceOver` 无法正确识别标题的bug）- [654435d](https://github.com/facebook/react-native/commit/654435d1ed9e584e65fff601e1fa50591e042664)
 - 为 templates 添加devDependencies支持（译者注：templates 可以有一个devDependencies.json文件，在里面申明依赖项和devDependencies，亦可保持与当前版本的兼容性。） - [c4ab03a](https://github.com/facebook/react-native/commit/c4ab03a18e75e6ed55444b5d86f3ceee435b9a78)
-- 在 `SpringInterpolator` 中添加对springDamping的支持- [1dde989](https://github.com/facebook/react-native/commit/1dde989919d2c272ca7fcaa5c4b2d9ee02c490a0)
+- 在 `SpringInterpolator` 中添加对springDamping的支持 - [1dde989](https://github.com/facebook/react-native/commit/1dde989919d2c272ca7fcaa5c4b2d9ee02c490a0)
 
-#### Android specific additions
+#### Android 新增功能
 
-- Add support for build.gradle with CRLF for use with `react-native link` - https://github.com/facebook/react-native/commit/843cfc3b202433aad9a236b1b623da7c45e1ac15
-- add decimal pad to android - https://github.com/facebook/react-native/commit/5b7a817723e626453eedc800e71a4babd256218f
-- Add a way to dismiss PopupMenu elements - https://github.com/facebook/react-native/commit/353c070be9e9a5528d2098db4df3f0dc02d758a9
-- Implement `Image.defaultSource` - https://github.com/facebook/react-native/commit/b0fa3228a77d89d6736da6fcae5dd32f74f3052c
-- Support Image resizeMode=repeat - https://github.com/facebook/react-native/commit/0459e4ffaadb161598ce1a5b14c08d49a9257c9c
-- Yoga: Add back deprecated `getParent` methods for non-breaking API change - https://github.com/facebook/react-native/commit/c3c5c3cbce24a31f73ae6339e377ee76ca6401ad
+- 为 build.gradle 添加 CRLF（回车符） 结尾的支持，以修正命令 `react-native link` 出错的问题 - [843cfc3](https://github.com/facebook/react-native/commit/843cfc3b202433aad9a236b1b623da7c45e1ac15)
+- 添加一个包含数字0-9与小数点的输入键盘支持（译者注：对原生 inputType“numberDecimal” 支持） - [5b7a817](https://github.com/facebook/react-native/commit/5b7a817723e626453eedc800e71a4babd256218f)
+- 增加了一种关闭 PopupMenu 元素的方式（译者注：当 Popupmenu 出现时触发屏幕方向改变[横屏/竖屏]，将自动关闭Popupmenu） - [353c070](https://github.com/facebook/react-native/commit/353c070be9e9a5528d2098db4df3f0dc02d758a9)
+- 添加 `Image.defaultSource` 属性 （译者注：此属性为设置加载远程图像时显示的占位符图像[本地资源]）- https://github.com/facebook/react-native/commit/b0fa3228a77d89d6736da6fcae5dd32f74f3052c
+- 添加支持 Image 对象新属性 resizeMode=repeat （译者注：[resizeMode]当组件尺寸和图片尺寸不成比例的时候如何调整图片的大小 [repeat]重复平铺图片直到填满容器。图片会维持原始尺寸）- [0459e4f](https://github.com/facebook/react-native/commit/0459e4ffaadb161598ce1a5b14c08d49a9257c9c)
+- Yoga: 新增了一个不推荐使用的 `getParent`  API 变更方法 - [c3c5c3c](https://github.com/facebook/react-native/commit/c3c5c3cbce24a31f73ae6339e377ee76ca6401ad)
 
-#### iOS specific additions
+#### iOS 新增功能
 
-- Run tests using Xcode 9.4 and iOS 11.4 - https://github.com/facebook/react-native/commit/c55bcd6ea729cdf57fc14a5478b7c2e3f6b2a94d
-- Add support for Homebrew-installed Node - https://github.com/facebook/react-native/commit/0964135a178b459e06b44a49a4ecb0dd6c5bec9b
-- Add textTransform style support - https://github.com/facebook/react-native/commit/8621d4b79731e13a0c6e397abd93c193c6219000
-- Add docs for Swift usage to `RCTBridgeModule.h` - https://github.com/facebook/react-native/commit/ca898f4367083e0943603521a41c48dec403e6c9
+- 新增对 Xcode 9.4 和 iOS 11.4 的支持(通过版本测试) - [c55bcd6](https://github.com/facebook/react-native/commit/c55bcd6ea729cdf57fc14a5478b7c2e3f6b2a94d)
+- 添加对 Homebrew 安装的 Node 环境的支持 - [0964135](https://github.com/facebook/react-native/commit/0964135a178b459e06b44a49a4ecb0dd6c5bec9b)
+- 添加对 textTransform 样式支持 - https://github.com/facebook/react-native/commit/8621d4b79731e13a0c6e397abd93c193c6219000
+- 添加关于 Swift 使用方法的文档到 `RCTBridgeModule.h` 之中 - https://github.com/facebook/react-native/commit/ca898f4367083e0943603521a41c48dec403e6c9
 
 ---
 
-### Changes: existing functionality that is now different
+### 修正: 功能变化
 
-- Upgrade React Native to Babel 7 - https://github.com/facebook/react-native/commit/f8d6b97140cffe8d18b2558f94570c8d1b410d5c
-- New projects created using `react-native init` will use Babel 7 - https://github.com/facebook/react-native/commit/e315ec9891eb0bcb51afb0e797dbd49aa8f9ac71
-- Restrict `WebView` to only http(s) URLs: https://github.com/facebook/react-native/commit/634e7e11e3ad39e0b13bf20cc7722c0cfd3c3e28 https://github.com/facebook/react-native/commit/23f8f7aecb1f21f4f5e44fb9e4a7456ea97935c9
-- Node 8 is now the minimum required version - https://github.com/facebook/react-native/commit/c1e6f278237e84c8ed26d3d2eb45035f250e2d40
-- Upgrade React to v16.4.1, sync React Renderer to revision ae14317 - https://github.com/facebook/react-native/commit/72d22e8828feece1500487b9c28bb1df21b090f5
-- Update new project template's Flow config to fix `Cannot resolve module X` isse due to removal of `@providesModule` - https://github.com/facebook/react-native/commit/843a433e87b0ccaa64ab70d07e22bffbabad8045
-- Upgrade Flow to v0.75 - https://github.com/facebook/react-native/commit/3bed272a620ac806a6142327013265ea8138641a, https://github.com/facebook/react-native/commit/8aaf73b4b0bef0d224004b9f1b1c877d46493e71, https://github.com/facebook/react-native/commit/6264b6932a08e1cefd83c4536ff7839d91938730
-- Upgrade Flow definitions - https://github.com/facebook/react-native/commit/f8b4850425f115c8a23dead7ec0716b61663aed6
-- Upgrade Prettier to v1.13.6 - https://github.com/facebook/react-native/commit/29fb2a8e90fa3811f9485d4b89d9dbcfffea93a6, https://github.com/facebook/react-native/commit/8aaf73b4b0bef0d224004b9f1b1c877d46493e71
-- Upgrade Jest to v23.2.0 - https://github.com/facebook/react-native/commit/536c9372692712b12317e657fc3e4263ecc70164#diff-b9cfc7f2cdf78a7f4b91a753d10865a2, https://github.com/facebook/react-native/commit/8aaf73b4b0bef0d224004b9f1b1c877d46493e71
-- Upgrade Metro to v0.38 - https://github.com/facebook/react-native/commit/d081f83a0487ffbc7d19f8edc7532611b359dfc6
-- Modernized `YellowBox` - https://github.com/facebook/react-native/commit/d0219a0301e59e8b0ef75dbd786318d4b4619f4c
-- Disallow requiring from invariant/warning - https://github.com/facebook/react-native/commit/521fb6d041167ec8a8d0e98ac606db1f27f0c5c8
-- Remove native prop type validation - https://github.com/facebook/react-native/commit/8dc3ba0444c94d9bbb66295b5af885bff9b9cd34
-- Add `$FlowFixMe` to invalid prop accesses where Flow wasn't complaining before - https://github.com/facebook/react-native/commit/f19ee28e7d896aaacf26c6f850230019bdef0d3d
-- Create Flow props for `Image` - https://github.com/facebook/react-native/commit/8bac869f5d1f2ef42e707d0ec817afc6ac98b3b2
-- Flow type for `SegmentedControlIOS` - https://github.com/facebook/react-native/commit/113f009698dbd8f1b4c1048d77ff1eb373021083
-- Flow type for `ProgressViewIOS` - https://github.com/facebook/react-native/commit/c87701ba05a8524756e87c089eb92c8f3c81823e
-- Flow type for `PickerIOS` - https://github.com/facebook/react-native/commit/1c66cdc7e8ce8190dfbef76629601497446b2b0a
-- Flow type for `Switch` - https://github.com/facebook/react-native/commit/06052a2330fc9c1dd0d56c6bbe5a17703f80c6b9
-- Flow type for `Slider` - https://github.com/facebook/react-native/commit/cbe045a95f1ca53d99ae521742a93299a53d6136
-- Flow type for `RefreshControl` - https://github.com/facebook/react-native/commit/891dfc3da4b5825097aedf73ff04e8982c00aeff
-- Flow type for `ListView` - https://github.com/facebook/react-native/commit/4b1ecb62045fbb78764d1f51030f2253be705c5c
-- Flow type for `TextInput` - https://github.com/facebook/react-native/commit/c8bcda8150278fde07331ca6958976b2b3395688
-- Flow type for `TouchableBounce` - https://github.com/facebook/react-native/commit/8454a36b0bc54cb1e267bc264657cc693607da71
-- Flow type for `TouchableOpacity` - https://github.com/facebook/react-native/commit/44743c07ad672e39668f92a801578906ec92996a
-- Flow type for `TouchableHighlight` - https://github.com/facebook/react-native/commit/f0c18dc820537892dcc33d5aebbf4f52cf299b95
-- Flow type for `TouchableWithoutFeedback` - https://github.com/facebook/react-native/commit/0b79d1faa21eb3c29aeeba08ee0fb2ed62e6cc54
-- Flow type for `ScrollView` - https://github.com/facebook/react-native/commit/b1276622791d5dbe4199bb075f473908c3e62b31
-- Flow type for `DatePickerIOS` - https://github.com/facebook/react-native/commit/97e572ea6d7b1fd829ca20f5d5c8ff970d88e68b
-- Flow type for `KeyboardAvoidingView` - https://github.com/facebook/react-native/commit/188b118b6075be1614c553596b85d430767f2dbc
-- Flow type for `ActivityIndicator` - https://github.com/facebook/react-native/commit/0b71d1ddb03c036ed118574c105b0af505da19fc
-- Remove `$FlowFixMe` in `TouchableBounce` - https://github.com/facebook/react-native/commit/ffda0178509ed92396f15db37a41d3d668ade4e6
-- Remove `$FlowFixMe` in `ScrollView` - https://github.com/facebook/react-native/commit/af6e2eb02d3651f869b5436e68e61ef3ab3405a0
-- Remove `$FlowFixMe` in `ListView` - https://github.com/facebook/react-native/commit/af6e2eb02d3651f869b5436e68e61ef3ab3405a0
-- Remove `$FlowFixMe` in `Text` - https://github.com/facebook/react-native/commit/6042592cf46787f089e76b661376705380607207
-- Remove `$FlowFixMe` in `RTLExample` - https://github.com/facebook/react-native/commit/206ef54aa415e3e2bb0d48111104dfc372b97e0f
-- Remove `$FlowFixMe` in `AppContainer` - https://github.com/facebook/react-native/commit/a956551af73cf785ee4345e92e71fd5b17c5644e
-- Remove `$FlowFixMe` in `Slider` - https://github.com/facebook/react-native/commit/1615f9d16149c7082ce0e1485aa04a6f2108f7ba
+- 升级 React Native 依赖至 Babel 7 - [f8d6b97](https://github.com/facebook/react-native/commit/f8d6b97140cffe8d18b2558f94570c8d1b410d5c)
+- 使用 `react-native init` 创建新项目将使用 Babel 7 - [e315ec9](https://github.com/facebook/react-native/commit/e315ec9891eb0bcb51afb0e797dbd49aa8f9ac71)
+- 限制 `WebView` 的支持范围，现仅支持http及https （译者注：禁止用户使用其他的URL，比如 file:// ）: [634e7e1](https://github.com/facebook/react-native/commit/634e7e11e3ad39e0b13bf20cc7722c0cfd3c3e28), [23f8f7a](https://github.com/facebook/react-native/commit/23f8f7aecb1f21f4f5e44fb9e4a7456ea97935c9)
+- Node 版本的最低要求升高到 node 8 - [c1e6f27](https://github.com/facebook/react-native/commit/c1e6f278237e84c8ed26d3d2eb45035f250e2d40)
+- 升级 React 版本依赖至 v16.4.1, 并同步 React Renderer 版本至 ae14317 - [72d22e8](https://github.com/facebook/react-native/commit/72d22e8828feece1500487b9c28bb1df21b090f5)
+- 更新新项目模板的Flow配置以修复由于 `@providesModule` 模块被移除导致的报错：`Cannot resolve module X` - [843a433](https://github.com/facebook/react-native/commit/843a433e87b0ccaa64ab70d07e22bffbabad8045)
+- 升级 Flow 版本至 v0.75 - [3bed272](https://github.com/facebook/react-native/commit/3bed272a620ac806a6142327013265ea8138641a), [8aaf73b](https://github.com/facebook/react-native/commit/8aaf73b4b0bef0d224004b9f1b1c877d46493e71), [6264b69](https://github.com/facebook/react-native/commit/6264b6932a08e1cefd83c4536ff7839d91938730)
+- 升级 Flow definitions (译者注：Upgrade Flow Definition in RN + Metro) - [f8b4850](https://github.com/facebook/react-native/commit/f8b4850425f115c8a23dead7ec0716b61663aed6)
+- 升级 Prettier 版本至 v1.13.6 - [29fb2a8](https://github.com/facebook/react-native/commit/29fb2a8e90fa3811f9485d4b89d9dbcfffea93a6), [8aaf73b](https://github.com/facebook/react-native/commit/8aaf73b4b0bef0d224004b9f1b1c877d46493e71)
+- 升级 Jest 版本至 v23.2.0 - [536c937＃DIFF-b9cfc7f2cdf78a7f4b91a753d10865a2](https://github.com/facebook/react-native/commit/536c9372692712b12317e657fc3e4263ecc70164#diff-b9cfc7f2cdf78a7f4b91a753d10865a2), [8aaf73b](https://github.com/facebook/react-native/commit/8aaf73b4b0bef0d224004b9f1b1c877d46493e71)
+- 升级 Metro 版本至 v0.38 - [d081f83](https://github.com/facebook/react-native/commit/d081f83a0487ffbc7d19f8edc7532611b359dfc6)
+- 现代化的 `YellowBox`（译者注：使用所谓 modern YellowBox 替换现有的 YellowBox，新特性包含：1.按时间倒序排序警告、2.按格式字符串分组警告[若存在]等等 ）- [d0219a0](https://github.com/facebook/react-native/commit/d0219a0301e59e8b0ef75dbd786318d4b4619f4c)
+- 禁止 invariant/warning - [521fb6d](https://github.com/facebook/react-native/commit/521fb6d041167ec8a8d0e98ac606db1f27f0c5c8)
+- 移除 原生 prop 类型检查（译者注：官方消息已确认propTypes将被完整的移除，类型检查将被Flow接管） - [8dc3ba0](https://github.com/facebook/react-native/commit/8dc3ba0444c94d9bbb66295b5af885bff9b9cd34)
+- Add `$FlowFixMe` to invalid prop accesses where Flow wasn't complaining before - [f19ee28](https://github.com/facebook/react-native/commit/f19ee28e7d896aaacf26c6f850230019bdef0d3d)
+- 为 `Image` 创建 Flow props - [8bac869](https://github.com/facebook/react-native/commit/8bac869f5d1f2ef42e707d0ec817afc6ac98b3b2)
+- 为 `SegmentedControlIOS` 添加 Flow type  - [113f009](https://github.com/facebook/react-native/commit/113f009698dbd8f1b4c1048d77ff1eb373021083)
+- 为 `ProgressViewIOS` 添加 Flow type - [c87701b](https://github.com/facebook/react-native/commit/c87701ba05a8524756e87c089eb92c8f3c81823e)
+- 为 `PickerIOS` 添加 Flow type - [1c66cdc](https://github.com/facebook/react-native/commit/1c66cdc7e8ce8190dfbef76629601497446b2b0a)
+- 为 `Switch` 添加 Flow type - [06052a2](https://github.com/facebook/react-native/commit/06052a2330fc9c1dd0d56c6bbe5a17703f80c6b9)
+- 为 `Slider` 添加 Flow type - [cbe045a](https://github.com/facebook/react-native/commit/cbe045a95f1ca53d99ae521742a93299a53d6136)
+- 为 `RefreshControl` 添加 Flow type - [891dfc3](https://github.com/facebook/react-native/commit/891dfc3da4b5825097aedf73ff04e8982c00aeff)
+- 为 `ListView` 添加 Flow type for - [4b1ecb6](https://github.com/facebook/react-native/commit/4b1ecb62045fbb78764d1f51030f2253be705c5c)
+- 为 `TextInput` 添加 Flow type for - [c8bcda8](https://github.com/facebook/react-native/commit/c8bcda8150278fde07331ca6958976b2b3395688)
+- 为 `TouchableBounce` 添加 Flow type for - [8454a36](https://github.com/facebook/react-native/commit/8454a36b0bc54cb1e267bc264657cc693607da71)
+- 为 `TouchableOpacity` 添加 Flow type - [44743c0](https://github.com/facebook/react-native/commit/44743c07ad672e39668f92a801578906ec92996a)
+- 为 `TouchableHighlight` 添加 Flow type - [f0c18dc](https://github.com/facebook/react-native/commit/f0c18dc820537892dcc33d5aebbf4f52cf299b95)
+- 为 `TouchableWithoutFeedback` 添加 Flow type - [0b79d1f](https://github.com/facebook/react-native/commit/0b79d1faa21eb3c29aeeba08ee0fb2ed62e6cc54)
+- 为 `ScrollView` 添加 Flow type - [b127662](https://github.com/facebook/react-native/commit/b1276622791d5dbe4199bb075f473908c3e62b31)
+- 为 `DatePickerIOS` 添加 Flow type - [97e572e](https://github.com/facebook/react-native/commit/97e572ea6d7b1fd829ca20f5d5c8ff970d88e68b)
+- 为 `KeyboardAvoidingView` 添加 Flow type - [188b118](https://github.com/facebook/react-native/commit/188b118b6075be1614c553596b85d430767f2dbc)
+- 为 `ActivityIndicator` 添加 Flow type - [0b71d1d](https://github.com/facebook/react-native/commit/0b71d1ddb03c036ed118574c105b0af505da19fc)
+- 移除 `$FlowFixMe` 于 `TouchableBounce` - [ffda017](https://github.com/facebook/react-native/commit/ffda0178509ed92396f15db37a41d3d668ade4e6)
+- 移除 `$FlowFixMe` 于 `ScrollView` - [af6e2eb](https://github.com/facebook/react-native/commit/af6e2eb02d3651f869b5436e68e61ef3ab3405a0)
+- 移除 `$FlowFixMe` 于 `ListView` - [af6e2eb](https://github.com/facebook/react-native/commit/af6e2eb02d3651f869b5436e68e61ef3ab3405a0)
+- 移除 `$FlowFixMe` 于 `Text` - [6042592](https://github.com/facebook/react-native/commit/6042592cf46787f089e76b661376705380607207)
+- 移除 `$FlowFixMe` 于 `RTLExample` - [206ef54](https://github.com/facebook/react-native/commit/206ef54aa415e3e2bb0d48111104dfc372b97e0f)
+- 移除 `$FlowFixMe` 于 `AppContainer` - [a956551](https://github.com/facebook/react-native/commit/a956551af73cf785ee4345e92e71fd5b17c5644e)
+- 移除 `$FlowFixMe` 于 `Slider` - [1615f9d](https://github.com/facebook/react-native/commit/1615f9d16149c7082ce0e1485aa04a6f2108f7ba)
 - `StyleSheet`: Support animated values for border dimensions - https://github.com/facebook/react-native/commit/3e3b10f4044ada7b523d363afb614720468c217f
 - Update `react-devtools-core` and `plist` to include security fixes reported by `npm audit` - https://github.com/facebook/react-native/commit/3a1d949906acb0c3b44d125d54d0c99305bbbb56
 - Update `Switch` to ES6 Class - https://github.com/facebook/react-native/commit/970caa4552d4ba87c1a954391535ff42b00832e7

@@ -120,26 +120,26 @@ React Native 组件作者需要更新其依赖库以使用最新的Babel预设�
 - 为 `DatePickerIOS` 添加 Flow type - [97e572e](https://github.com/facebook/react-native/commit/97e572ea6d7b1fd829ca20f5d5c8ff970d88e68b)
 - 为 `KeyboardAvoidingView` 添加 Flow type - [188b118](https://github.com/facebook/react-native/commit/188b118b6075be1614c553596b85d430767f2dbc)
 - 为 `ActivityIndicator` 添加 Flow type - [0b71d1d](https://github.com/facebook/react-native/commit/0b71d1ddb03c036ed118574c105b0af505da19fc)
-- 移除 `$FlowFixMe` 于 `TouchableBounce` - [ffda017](https://github.com/facebook/react-native/commit/ffda0178509ed92396f15db37a41d3d668ade4e6)
-- 移除 `$FlowFixMe` 于 `ScrollView` - [af6e2eb](https://github.com/facebook/react-native/commit/af6e2eb02d3651f869b5436e68e61ef3ab3405a0)
-- 移除 `$FlowFixMe` 于 `ListView` - [af6e2eb](https://github.com/facebook/react-native/commit/af6e2eb02d3651f869b5436e68e61ef3ab3405a0)
-- 移除 `$FlowFixMe` 于 `Text` - [6042592](https://github.com/facebook/react-native/commit/6042592cf46787f089e76b661376705380607207)
-- 移除 `$FlowFixMe` 于 `RTLExample` - [206ef54](https://github.com/facebook/react-native/commit/206ef54aa415e3e2bb0d48111104dfc372b97e0f)
-- 移除 `$FlowFixMe` 于 `AppContainer` - [a956551](https://github.com/facebook/react-native/commit/a956551af73cf785ee4345e92e71fd5b17c5644e)
-- 移除 `$FlowFixMe` 于 `Slider` - [1615f9d](https://github.com/facebook/react-native/commit/1615f9d16149c7082ce0e1485aa04a6f2108f7ba)
-- `StyleSheet`: Support animated values for border dimensions - https://github.com/facebook/react-native/commit/3e3b10f4044ada7b523d363afb614720468c217f
-- Update `react-devtools-core` and `plist` to include security fixes reported by `npm audit` - https://github.com/facebook/react-native/commit/3a1d949906acb0c3b44d125d54d0c99305bbbb56
-- Update `Switch` to ES6 Class - https://github.com/facebook/react-native/commit/970caa4552d4ba87c1a954391535ff42b00832e7
-- Update `Slider` to ES6 Class - https://github.com/facebook/react-native/commit/5259450c143f71c65e157d6b7d3f0e1655eb7aa1
-- Update `ActivityIndicator` to ES6 Class - https://github.com/facebook/react-native/commit/edd7acbb1e6fe185600a19cc1cbb38feb16c85ad
-- Update `RefreshControl` to ES6 Class - https://github.com/facebook/react-native/commit/a35a23831789030e17f766f72d307ae315be107d
-- Update `KeyboardAvoidingView` to ES6 Class - https://github.com/facebook/react-native/commit/c017dcb0f2903b49b2f21cc150226aeb7f5026ee
-- Update `DatePickerIOS` to ES6 Class - https://github.com/facebook/react-native/commit/f8c8231706492b588331354d45b833aa21434e13
-- Update `Text` to ES6 Class - https://github.com/facebook/react-native/commit/ab92c00245c0ce717819ddb0ab8b9204d4c13c34
-- Replace `context.isInAParentText` w/ `React.createContext` - https://github.com/facebook/react-native/commit/e1339bc18303ca5394cd0c9dc97cededb2261581
-- Cleanup `Text` implementation - https://github.com/facebook/react-native/commit/06c05e744d8af9582bde348210f254d76dae48b9
+- 于 `TouchableBounce` 之中移除 `$FlowFixMe` - [ffda017](https://github.com/facebook/react-native/commit/ffda0178509ed92396f15db37a41d3d668ade4e6)
+- 于 `ScrollView` 之中移除 `$FlowFixMe` - [af6e2eb](https://github.com/facebook/react-native/commit/af6e2eb02d3651f869b5436e68e61ef3ab3405a0)
+- 于 `ListView` 之中移除 `$FlowFixMe` - [af6e2eb](https://github.com/facebook/react-native/commit/af6e2eb02d3651f869b5436e68e61ef3ab3405a0)
+- 于 `Text` 之中移除 `$FlowFixMe` - [6042592](https://github.com/facebook/react-native/commit/6042592cf46787f089e76b661376705380607207)
+- 于 `RTLExample` 之中移除 `$FlowFixMe` - [206ef54](https://github.com/facebook/react-native/commit/206ef54aa415e3e2bb0d48111104dfc372b97e0f)
+- 于 `AppContainer` 之中移除 `$FlowFixMe` - [a956551](https://github.com/facebook/react-native/commit/a956551af73cf785ee4345e92e71fd5b17c5644e)
+- 于 `Slider` 之中移除 `$FlowFixMe` - [1615f9d](https://github.com/facebook/react-native/commit/1615f9d16149c7082ce0e1485aa04a6f2108f7ba)
+- `StyleSheet`: 新增支持边框尺寸变化的动画 - [3e3b10f](https://github.com/facebook/react-native/commit/3e3b10f4044ada7b523d363afb614720468c217f)
+- 更新 `react-devtools-core` 与 `plist` 版本以修复由 `npm audit` 所报告的安全问题 - [3a1d949](https://github.com/facebook/react-native/commit/3a1d949906acb0c3b44d125d54d0c99305bbbb56)
+- 更新 `Switch` 至 ES6 Class - [970caa4](https://github.com/facebook/react-native/commit/970caa4552d4ba87c1a954391535ff42b00832e7)
+- 更新 `Slider` 至 ES6 Class - [5259450](https://github.com/facebook/react-native/commit/5259450c143f71c65e157d6b7d3f0e1655eb7aa1)
+- 更新 `ActivityIndicator` 至 ES6 Class - [edd7acb](https://github.com/facebook/react-native/commit/edd7acbb1e6fe185600a19cc1cbb38feb16c85ad)
+- 更新 `RefreshControl` 至 ES6 Class - [a35a238](https://github.com/facebook/react-native/commit/a35a23831789030e17f766f72d307ae315be107d)
+- 更新 `KeyboardAvoidingView` 至 ES6 Class - [c017dcb](https://github.com/facebook/react-native/commit/c017dcb0f2903b49b2f21cc150226aeb7f5026ee)
+- 更新 `DatePickerIOS` 至 ES6 Class - [f8c8231](https://github.com/facebook/react-native/commit/f8c8231706492b588331354d45b833aa21434e13)
+- 更新 `Text` 至 ES6 Class - [ab92c00](https://github.com/facebook/react-native/commit/ab92c00245c0ce717819ddb0ab8b9204d4c13c34)
+- 将 `context.isInAParentText` 替换为 `React.createContext` - [e1339bc](https://github.com/facebook/react-native/commit/e1339bc18303ca5394cd0c9dc97cededb2261581)
+- 整理（清理） `Text` 的实现代码 - https://github.com/facebook/react-native/commit/06c05e744d8af9582bde348210f254d76dae48b9
 - Switch `Text` to `React.forwardRef` - https://github.com/facebook/react-native/commit/e708010d18f938e2d6b6424cfc9485d8e5dd2800
-- Switch `View` to `React.forwardRef` - https://github.com/facebook/react-native/commit/3e534b9aab5156adac67762877b2457408fe8934
+- Switch `View` to `React.forwardRef` - [06c05e7](https://github.com/facebook/react-native/commit/3e534b9aab5156adac67762877b2457408fe8934)
 - Update uses of `genMockFunction` and `genMockFn` to `fn` in tests - https://github.com/facebook/react-native/commit/390ded871cb905d149e9c1f4a082e67a7ec7addb
 - Make `ViewProps` exact - https://github.com/facebook/react-native/commit/65c336f38f4afd43c8b5f81745abf38bd9b8ddbf
 - Spread `TVViewProps` into `ViewProps` instead of intersection - https://github.com/facebook/react-native/commit/bc658d3c4405676643d952a126295dbc7fc26217

@@ -1,12 +1,12 @@
 ## [0.57]
 
-Welcome to the 0.57 release of React Native! This release addresses a number of issues and has some exciting improvements. We again skipped a monthly release, focused on quality by extending the release candidate phase, and let some upstream packages reach stable for inclusion.
+React Native 现已发布 0.57 版本！ 此版本解决了众多的问题，并有一些令人惊喜的改进。 我们再次跳过了月更，以期获得更好的更新质量，并将一些依赖的上游软件包更新至稳定版本。
 
-This release includes [599 commits by 73 different contributors](https://github.com/facebook/react-native/compare/0.56-stable...0.57-stable)! In response to feedback, we've prepared a changelog that contains only user-impacting changes. Please share your input and let us know how we can make this even more useful, and as always [let us know](https://github.com/react-native-community/react-native-releases/issues/34) if you have any feedback on this process.
+本次版本更新包含了[73位贡献者的599次提交](https://github.com/facebook/react-native/compare/0.56-stable...0.57-stable)！为了回应反馈，我们准备了一个面向用户的更改列表日志。请分享您的意见，如果您有任何的反馈，请随时[告诉我们](https://github.com/react-native-community/react-native-releases/issues/34)。
 
-### Highlights
+### Highlights 要点
 
-#### New features
+#### New features 新特性
 
 - Accessibility APIs now support accessibility hints, inverted colors, and easier usage of defining the element's role and states; read more at [@ziqichen6's excellent blog post](https://facebook.github.io/react-native/blog/2018/08/13/react-native-accessibility-updates)
 - On iOS, `WKWebView` can now be used within the `WebView` component; read more at [@rsnara's awesome blog post](https://facebook.github.io/react-native/blog/2018/08/27/wkwebview)
